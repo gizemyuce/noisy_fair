@@ -19,12 +19,9 @@ import matplotlib.pyplot as plt
 import math
 # %matplotlib inline
 
-!pip install wandb
 import wandb
 from sklearn.datasets import make_classification
 from sklearn.model_selection import train_test_split
-
-!wandb login
 
 def truncate_normal(input: torch.Tensor, radius):
     in_norm = input.norm(dim=1, keepdim=True)
