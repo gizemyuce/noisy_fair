@@ -96,7 +96,7 @@ def create_data(class_one_train_num=20, class_two_train_num=200, class_one_test_
 
   return x_seq, y_seq, x_seq_test, y_seq_test, class_one, -class_two
 
-p = 10000  #1000000
+p = 100000  #1000000
 
 mu_norm = p**0.251
 
@@ -257,6 +257,6 @@ def fig2(n_train=100, n_test=int(1e4),  n_features=20, n_informative=2, n_redund
     
   wandb.finish()
 
-fig2(n_train=n, n_test=int(1e4),  n_features=p, n_informative=p-1000, n_redundant=1000, n_repeated=0, n_classes=2, n_clusters_per_class=3, class_sep=mu_norm/1.4142, n_runs=5)
+#fig2(n_train=n, n_test=int(1e4),  n_features=p, n_informative=p-1000, n_redundant=1000, n_repeated=0, n_classes=2, n_clusters_per_class=3, class_sep=mu_norm/1.4142, n_runs=5)
 
-fig2(n_train=n, n_test=int(1e4),  n_features=p, n_informative=p, n_redundant=0, n_repeated=0, n_classes=2, n_clusters_per_class=100, class_sep=mu_norm/1.4142, n_runs=5)
+fig2(n_train=n, n_test=int(1e5),  n_features=p, n_informative=p, n_redundant=0, n_repeated=0, n_classes=2, n_clusters_per_class=1, class_sep=mu_norm*1.4142/(p ** 0.5), n_runs=5)
