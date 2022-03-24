@@ -138,7 +138,7 @@ def run_fig_2(n_train=100, n_test=int(1e4), n_features=20, n_informative=2, n_re
       n2 = n_train - n1
       n1, n2 = max(n1, n2), min(n1, n2)
 
-      ar = n_train/d
+      ar = n_train/n_features
 
       ars.append(ar)
 
@@ -224,18 +224,18 @@ def fig2(n_train=100, n_test=int(1e4),  n_features=20, n_informative=2, n_redund
   wandb.init(project="noisy-fair", entity="sml-eth", config=config)
   
   #Load the data from the pickle file
-  taus = data[0]['taus']    #values of the different imbalance ratios. Each value denotes the a value of |P|/|N|
+  ars = data[0]['ars']    #values of the different imbalance ratios. Each value denotes the a value of |P|/|N|
   w_vals = data[0]['a_vals']
   num_runs = len(data)
 
   #Extract the test error numbers over the various runs from the data file
-  test_c0 = np.zeros((num_runs,len(taus)))
-  test_c1 = np.zeros((num_runs,len(taus)))
-  test_c2 = np.zeros((num_runs,len(taus)))
-  test_cmm = np.zeros((num_runs,len(taus)))
+  test_c0 = np.zeros((num_runs,len(ars)))
+  test_c1 = np.zeros((num_runs,len(ars)))
+  test_c2 = np.zeros((num_runs,len(ars)))
+  test_cmm = np.zeros((num_runs,len(ars)))
 
   for i in range(num_runs):
-      for j in range(len(taus)):
+      for j in range(len(ars)):
           test_c0[i,j] = data[i]['perfs'][j][0]
           test_c1[i,j] = data[i]['perfs'][j][1]
           test_c2[i,j] = data[i]['perfs'][j][2]
@@ -247,12 +247,12 @@ def fig2(n_train=100, n_test=int(1e4),  n_features=20, n_informative=2, n_redund
   avg_test_c2 = np.mean(test_c2,axis=0)
   avg_test_cmm = np.mean(test_cmm,axis=0)
 
-  for j in range(len(taus)):
+  for j in range(len(ars)):
     wandb.log({"avg_test_c0": avg_test_c0[j],
                "avg_test_c1": avg_test_c1[j],
                "avg_test_c2": avg_test_c2[j],
                "avg_test_cmm": avg_test_cmm[j],
-               "taus": taus[j]
+               "ars": ars[j]
               }, step=j)
     
   wandb.finish()
