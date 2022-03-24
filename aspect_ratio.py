@@ -134,7 +134,10 @@ def run_fig_2(n_train=100, n_test=int(1e4), n_features=20, n_informative=2, n_re
       mu_1[0] = mu_norm
 
       mu_2 = torch.zeros(n_features)
-      mu_2[1] = mu_norm
+      if n_features>1:
+        mu_2[1] = mu_norm
+      else:
+        mu_2 = -mu_1
 
 
       n1 = min(int(np.round(tau * n_train/(1.+tau))), n-1)
