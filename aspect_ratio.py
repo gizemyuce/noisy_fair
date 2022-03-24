@@ -98,13 +98,6 @@ def create_data(class_one_train_num=20, class_two_train_num=200, class_one_test_
 
 p = 10000  #1000000
 
-mu_norm = p**0.251
-
-mu_1 = torch.zeros(p)
-mu_1[0] = mu_norm
-
-mu_2 = torch.zeros(p)
-mu_2[1] = mu_norm
 
 n = 100
 
@@ -133,6 +126,16 @@ def run_fig_2(n_train=100, n_test=int(1e4), n_features=20, n_informative=2, n_re
         n_features = int(n_train/t)
       else:
         n_train = int(n_features*t)
+
+
+      mu_norm = n_features**0.251
+
+      mu_1 = torch.zeros(n_features)
+      mu_1[0] = mu_norm
+
+      mu_2 = torch.zeros(n_features)
+      mu_2[1] = mu_norm
+
 
       n1 = min(int(np.round(tau * n_train/(1.+tau))), n-1)
       n2 = n_train - n1
