@@ -103,7 +103,7 @@ n = 100
 
 def run_fig_2(n_train=100, n_test=int(1e4), n_features=20, n_informative=2, n_redundant=2, n_repeated=0, n_classes=2, n_clusters_per_class=2, class_sep=1.0, n_runs=5, change_d=True, tau=10):
 
-  approx_ar = [0.01, 0.1, 1., 10., 100.]
+  approx_ar = [0.02, 0.1, 1., 10., 100.]
   a_vals = [0., 1., 3.]
 
   runs = n_runs   #10
@@ -123,9 +123,9 @@ def run_fig_2(n_train=100, n_test=int(1e4), n_features=20, n_informative=2, n_re
     for t in approx_ar:
 
       if change_d:
-        n_features = int(n_train/t)
+        n_features = int(n_train*t)
       else:
-        n_train = int(n_features*t)
+        n_train = int(n_features/t)
 
 
       mu_norm = n_features**0.251
