@@ -104,6 +104,7 @@ n = 100
 def run_fig_2(n_train=100, n_test=int(1e4), n_features=20, n_informative=2, n_redundant=2, n_repeated=0, n_classes=2, n_clusters_per_class=2, class_sep=1.0, n_runs=5, change_d=True, tau=10):
 
   approx_ar = [0.02, 0.1, 1., 10., 100.]
+
   a_vals = [0., 1., 3.]
 
   runs = n_runs   #10
@@ -144,7 +145,7 @@ def run_fig_2(n_train=100, n_test=int(1e4), n_features=20, n_informative=2, n_re
       n2 = n_train - n1
       n1, n2 = max(n1, n2), min(n1, n2)
 
-      ar = n_train/n_features
+      ar = n_features/n_train
 
       ars.append(ar)
 
@@ -266,6 +267,6 @@ def fig2(n_train=100, n_test=int(1e4),  n_features=20, n_informative=2, n_redund
 
 fig2(n_train=n, n_test=int(1e4),  n_features=p, n_informative=p, n_redundant=0, n_repeated=0, n_classes=2, n_clusters_per_class=1, class_sep=1.2, n_runs=5)
 
-fig2(n_train=n, n_test=int(1e4),  n_features=p, n_informative=p, n_redundant=0, n_repeated=0, n_classes=2, n_clusters_per_class=1, class_sep=1.2, n_runs=5, change_d=False)
+fig2(n_train=n, n_test=int(1e4),  n_features=p, n_informative=p/100, n_redundant=0, n_repeated=0, n_classes=2, n_clusters_per_class=1, class_sep=1.2, n_runs=5, change_d=False)
 
 
