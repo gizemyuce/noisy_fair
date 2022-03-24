@@ -165,7 +165,7 @@ def run_fig_2(n_train=100, n_test=int(1e4), n_features=20, n_informative=2, n_re
       # y_seq_test = [0]*n1 + [1]*n2
 
 
-      xs, ys, x_seq_test, y_seq_test, z1s, z2s = create_data(n1, n2, int(n_test/2), int(n_test/2),  n_features=n_features, n_informative=n_features, n_redundant=n_redundant, n_repeated=n_repeated, n_classes=n_classes, n_clusters_per_class=n_clusters_per_class, class_sep=class_sep)
+      xs, ys, x_seq_test, y_seq_test, z1s, z2s = create_data(n1, n2, int(n_test/2), int(n_test/2),  n_features=n_features, n_informative=n_features, n_redundant=n_redundant, n_repeated=n_repeated, n_classes=n_classes, n_clusters_per_class=n_clusters_per_class, class_sep=mu_norm*class_sep)
       z1s.requires_grad = False
       z2s.requires_grad = False
 
