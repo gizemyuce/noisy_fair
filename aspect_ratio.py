@@ -261,8 +261,8 @@ def fig2(n_train=100, n_test=int(1e4),  n_features=20, n_informative=2, n_redund
   wandb.finish()
 
 
-fig2(n_train=n, n_test=int(1e4),  n_features=p, n_informative=p, n_redundant=0, n_repeated=0, n_classes=2, n_clusters_per_class=1, class_sep=mu_norm/1.4142, n_runs=5)
+fig2(n_train=n, n_test=int(1e4),  n_features=p, n_informative=p, n_redundant=0, n_repeated=0, n_classes=2, n_clusters_per_class=1, class_sep=1.2, n_runs=5)
 
-fig2(n_train=n, n_test=int(1e4),  n_features=p, n_informative=p, n_redundant=0, n_repeated=0, n_classes=2, n_clusters_per_class=1, class_sep=mu_norm/1.4142, n_runs=5, change_d=False)
+fig2(n_train=n, n_test=int(1e4),  n_features=p, n_informative=p, n_redundant=0, n_repeated=0, n_classes=2, n_clusters_per_class=1, class_sep=1.2, n_runs=5, change_d=False)
 
 
