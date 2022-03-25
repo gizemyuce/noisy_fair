@@ -104,6 +104,7 @@ n = 100
 def run_fig_2(n_train=100, n_test=int(1e4), n_features=20, n_informative=2, n_redundant=2, n_repeated=0, n_classes=2, n_clusters_per_class=2, class_sep=1.0, n_runs=5, change_d=True, tau=10):
 
   approx_ar = [0.02, 0.1, 1., 10., 100.]
+  approx_ar = np.logspace(0.02,500, num=50 )
 
   a_vals = [0., 1., 3.]
 
@@ -265,8 +266,8 @@ def fig2(n_train=100, n_test=int(1e4),  n_features=20, n_informative=2, n_redund
   wandb.finish()
 
 
-fig2(n_train=n, n_test=int(1e4),  n_features=p, n_informative=p, n_redundant=0, n_repeated=0, n_classes=2, n_clusters_per_class=1, class_sep=1.2, n_runs=5)
+fig2(n_train=n, n_test=int(1e4),  n_features=p, n_informative=p, n_redundant=0, n_repeated=0, n_classes=2, n_clusters_per_class=1, class_sep=1.2, n_runs=10)
 
-fig2(n_train=n, n_test=int(1e4),  n_features=p, n_informative=p/100, n_redundant=0, n_repeated=0, n_classes=2, n_clusters_per_class=1, class_sep=1.2, n_runs=5, change_d=False)
+fig2(n_train=n, n_test=int(1e4),  n_features=p, n_informative=p/1000, n_redundant=0, n_repeated=0, n_classes=2, n_clusters_per_class=1, class_sep=1.2, n_runs=10, change_d=False)
 
 
