@@ -104,7 +104,8 @@ n = 100
 def run_fig_2(n_train=100, n_test=int(1e4), n_features=20, n_informative=2, n_redundant=2, n_repeated=0, n_classes=2, n_clusters_per_class=2, class_sep=1.0, n_runs=5, change_d=True, tau=10):
 
   approx_ar = [0.02, 0.1, 1., 10., 100.]
-  approx_ar = np.logspace(0.02,500, num=50 )
+  approx_ar = np.logspace(0.02,500, num=50)
+  print(approx_ar)
 
   a_vals = [0., 1., 3.]
 
