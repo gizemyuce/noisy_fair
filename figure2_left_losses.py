@@ -239,7 +239,8 @@ def create_dataset(class_one_train_num=20, class_two_train_num=200, class_one_te
 
 def run_fig_2_losses(n_train=100, n_test=int(1e4),  n_features=20, n_informative=2, n_redundant=2, n_repeated=0, n_classes=2, n_clusters_per_class=2, class_sep=1.0, n_runs=5, early_stop=False):
 
-  approx_taus = [i for i in range(1,12)]
+  #approx_taus = [i for i in range(1,12)]
+  approx_taus = [1,2,10]
   a_vals = [0., 1., 3.]
 
   runs = n_runs   #10
@@ -376,7 +377,7 @@ def fig2_losses(n_train=100, n_test=int(1e4),  n_features=20, n_informative=2, n
   wandb.finish()
 
 
-p = 10000  #1000000
+p = 1000  #10000  #1000000
 
 mu_norm = p**0.251
 
@@ -387,8 +388,6 @@ mu_2 = torch.zeros(p)
 mu_2[1] = mu_norm
 
 n = 100
-
-fig2_losses(n_train=n, n_test=int(1e4),  n_features=p, n_informative=p, n_redundant=0, n_repeated=0, n_classes=2, n_clusters_per_class=1, class_sep=mu_norm/1.4142, n_runs=1)
 
 fig2_losses(n_train=n, n_test=int(1e4),  n_features=p, n_informative=p, n_redundant=0, n_repeated=0, n_classes=2, n_clusters_per_class=1, class_sep=mu_norm/1.4142, n_runs=1)
 
