@@ -329,7 +329,7 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10):
   
     approx_ar = [0.02, 0.1, 1., 10., 100.]
     approx_ar = np.logspace(-0.5,2.1, num=50)
-    approx_ar = np.logspace(-0.8,3, num=3)
+    approx_ar = np.logspace(-0.8,2.1, num=10)
     print(approx_ar)
 
     runs = n_runs   #10
@@ -372,10 +372,13 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10):
             if err_train_mm + errs_train_avm_poly + err_train_mm_l1 + errs_train_avm_poly_l1 > 0:
                 run_convergence_flag +=1
 
-        if run_convergence_flag > 0:
-            print("Run discarded")
-        else:
-            run_data.append({"run": run, "ars": ars, "a_vals": [0., 1., 3.],
+        # if run_convergence_flag > 0:
+        #     print("Run discarded")
+        # else:
+        #     run_data.append({"run": run, "ars": ars, "a_vals": [0., 1., 3.],
+        #                     "perfs": perfs, "perf_mm": perf_mm, "perfs_l1": perfs_l1, "perf_mm_l1": perf_mm_l1})
+
+        run_data.append({"run": run, "ars": ars, "a_vals": [0., 1., 3.],
                             "perfs": perfs, "perf_mm": perf_mm, "perfs_l1": perfs_l1, "perf_mm_l1": perf_mm_l1})
 
     num_runs = len(run_data)
@@ -437,7 +440,7 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10):
 
 
 if __name__ == "__main__":
-    aspect_ratio_l1(d=100, n=100, change_d=True, n_runs=1)
+    aspect_ratio_l1(d=100, n=100, change_d=True, n_runs=10)
     
     #margin_classifiers_perf(d=5000,n=200,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True)
     #margin_classifiers_perf(d=2,n=100,approx_tau=8, SNR=10, n_test=1e4, s=1, random_flip_prob=.02)
