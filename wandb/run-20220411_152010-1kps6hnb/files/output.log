@@ -1,0 +1,22 @@
+tensor([ 0.0331, -0.0014,  0.0010,  ..., -0.0020,  0.0030, -0.0045])
+CMM train_err=0.0, err=44.72500228881836
+tensor([nan, nan, nan,  ..., nan, nan, nan], requires_grad=True)
+w=1.0, train_err=100.0, err=100.0
+tensor([nan, nan, nan,  ..., nan, nan, nan], requires_grad=True)
+w=1.0, train_err=100.0, err=100.0
+tensor([nan, nan, nan,  ..., nan, nan, nan], requires_grad=True)
+w=1.0, train_err=100.0, err=100.0
+====================l1=========================
+CMM train_err=0.0, err=6.50499963760376
+93762.859375
+60251.80859375
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 433, in <module>
+    margin_classifiers_perf(d=5000,n=200,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 291, in margin_classifiers_perf
+    l = loss_average_poly(w, b, z1s, z2s, n1, n2) + torch.norm(w, p=1)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 26, in loss_average_poly
+    return (torch.sum(1./(z1s @ v)) + b * torch.sum(1./(z2s @ v))) /(n1+b*n2)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\torch\_tensor.py", line 31, in wrapped
+    return f(*args, **kwargs)
+KeyboardInterrupt

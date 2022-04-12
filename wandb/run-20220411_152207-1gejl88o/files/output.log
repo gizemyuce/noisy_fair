@@ -1,0 +1,105 @@
+tensor([ 0.0326,  0.0067, -0.0013,  ..., -0.0013,  0.0003, -0.0040])
+CMM train_err=0.0, err=45.025001525878906
+tensor([nan, nan, nan,  ..., nan, nan, nan], requires_grad=True)
+w=1.0, train_err=100.0, err=100.0
+tensor([nan, nan, nan,  ..., nan, nan, nan], requires_grad=True)
+w=1.0, train_err=100.0, err=100.0
+tensor([nan, nan, nan,  ..., nan, nan, nan], requires_grad=True)
+w=1.0, train_err=100.0, err=100.0
+====================l1=========================
+CMM train_err=0.0, err=7.050000190734863
+C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\sklearn\svm\_base.py:1206: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+186577.875
+146700.28125
+113387.765625
+86237.875
+140901.640625
+101416.5390625
+71298.421875
+191924.796875
+148973.5
+113223.046875
+84844.46875
+76699.078125
+46494.875
+64410.05859375
+31147.779296875
+17742.091796875
+12457.54296875
+7481.7158203125
+4744.44140625
+2985.83154296875
+6355.892578125
+1405.1134033203125
+4333.6826171875
+2993785.5
+2944225.5
+2895137.75
+2846598.75
+2798466.5
+2750792.0
+2703597.25
+2656878.75
+2610718.0
+2565111.0
+2520083.75
+2475638.0
+2431685.25
+2388187.25
+2345253.5
+2302802.0
+2260939.0
+2219567.5
+2178644.75
+2138200.5
+2098224.75
+2058798.0
+2019896.0
+1981509.625
+1943581.5
+1906118.75
+1869231.5
+1832826.875
+1796900.625
+1761408.25
+1726332.875
+1691769.75
+1657758.375
+1624214.25
+1591102.125
+1558510.75
+1526416.125
+1494906.125
+1463874.75
+1433358.75
+w=1.0, train_err=100.0, err=100.0
+186577.875
+146700.28125
+113387.765625
+86237.875
+140901.640625
+101416.5390625
+71298.421875
+191924.796875
+148973.5
+113223.046875
+84844.46875
+76699.078125
+46494.875
+64410.05859375
+31147.779296875
+17742.091796875
+12457.54296875
+7481.7158203125
+4744.44140625
+2985.83154296875
+6355.892578125
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 433, in <module>
+    margin_classifiers_perf(d=5000,n=200,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 291, in margin_classifiers_perf
+    l = loss_average_poly(w, b, z1s, z2s, n1, n2) + torch.norm(w, p=1)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\torch\functional.py", line 1546, in norm
+    return _VF.norm(input, p, dim=_dim, keepdim=keepdim)  # type: ignore[attr-defined]
+KeyboardInterrupt

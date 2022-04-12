@@ -1,0 +1,26 @@
+tensor([ 1.,  1., -1.,  1., -1., -1., -1.,  1., -1.,  1.,  1.,  1.,  1.,  1.,
+        -1., -1., -1., -1.,  1., -1., -1.,  1.,  1., -1., -1.,  1.,  1.,  1.,
+        -1., -1., -1., -1., -1.,  1., -1., -1.,  1.,  1., -1., -1., -1.,  1.,
+        -1., -1., -1.,  1.,  1.,  1., -1., -1., -1.,  1.,  1.,  1., -1.,  1.,
+        -1.,  1., -1., -1., -1., -1.,  1.,  1.,  1.,  1.,  1.,  1.,  1., -1.,
+         1., -1., -1.,  1.,  1., -1.,  1.,  1., -1., -1.,  1., -1.,  1., -1.,
+        -1.,  1.,  1., -1., -1., -1.,  1., -1., -1.,  1., -1., -1.,  1., -1.,
+         1., -1., -1.,  1., -1., -1.,  1., -1., -1.,  1.,  1.,  1., -1., -1.,
+        -1.,  1.,  1.,  1.,  1., -1.,  1.,  1.,  1., -1., -1.,  1.,  1.,  1.,
+         1.,  1.,  1., -1.,  1., -1., -1.,  1.,  1.,  1.,  1., -1., -1., -1.,
+        -1.,  1., -1.,  1.,  1.,  1., -1.,  1.,  1., -1.,  1., -1.,  1., -1.,
+         1., -1., -1.,  1., -1.,  1., -1.,  1.,  1.,  1.,  1., -1.,  1., -1.,
+         1.,  1., -1.,  1., -1., -1., -1., -1.,  1.,  1., -1., -1.,  1.,  1.,
+         1.,  1., -1., -1., -1.,  1.,  1., -1., -1.,  1.,  1., -1., -1.,  1.,
+        -1., -1.,  1.,  1.])
+CMM train_err=3.0000000000000027, err=1.0449999570846558
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 214, in <module>
+    "avg_test_c1": errs_avm_poly[1],
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 193, in main
+    w = (torch.normal(mean=torch.zeros(d), std=torch.ones(d)/np.sqrt(d))).detach()
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\torch\_tensor.py", line 363, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\torch\autograd\__init__.py", line 173, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

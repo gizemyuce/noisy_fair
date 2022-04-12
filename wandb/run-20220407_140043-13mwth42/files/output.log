@@ -1,0 +1,17 @@
+CMM train_err=5.000000000000004, err=2.055000066757202
+w=1.0, train_err=5.0, err=0.17999999225139618
+w=8.090909090909092, train_err=5.0, err=0.29500001668930054
+w=529.6536438767845, train_err=5.0, err=3.4650001525878906
+====================l1=========================
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 293, in <module>
+    main(d=2,n=100,approx_tau=8, SNR=10, n_test=1e4, s=1, random_flip_prob=.02)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 239, in main
+    clf.fit(xs, ys)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\sklearn\svm\_classes.py", line 257, in fit
+    self.coef_, self.intercept_, self.n_iter_ = _fit_liblinear(
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\sklearn\svm\_base.py", line 1185, in _fit_liblinear
+    solver_type = _get_liblinear_solver_type(multi_class, penalty, loss, dual)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\sklearn\svm\_base.py", line 1024, in _get_liblinear_solver_type
+    raise ValueError(
+ValueError: Unsupported set of arguments: The combination of penalty='l1' and loss='hinge' is not supported, Parameters: penalty='l1', loss='hinge', dual=True

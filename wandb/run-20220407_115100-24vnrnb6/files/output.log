@@ -1,0 +1,23 @@
+[-1.  1. -1.  1. -1. -1.  1. -1. -1. -1.  1.  1.  1.  1. -1.  1.  1. -1.
+  1. -1.  1. -1.  1. -1. -1. -1.  1. -1. -1.  1.  1. -1.  1. -1. -1.  1.
+  1.  1. -1. -1. -1.  1. -1. -1. -1.  1.  1. -1. -1. -1.  1.  1. -1.  1.
+  1. -1. -1. -1.  1. -1.  1.  1.  1.  1.  1. -1.  1.  1.  1.  1.  1. -1.
+ -1.  1. -1. -1.  1.  1. -1.  1.  1. -1. -1. -1. -1. -1.  1.  1. -1.  1.
+  1.  1.  1. -1. -1.  1. -1. -1. -1.  1.  1.  1. -1. -1.  1. -1.  1.  1.
+  1.  1.  1. -1.  1. -1. -1.  1. -1. -1.  1.  1.  1.  1. -1. -1.  1. -1.
+ -1. -1.  1.  1. -1. -1.  1. -1.  1. -1.  1.  1.  1. -1. -1. -1. -1. -1.
+ -1.  1.  1. -1. -1. -1. -1. -1.  1. -1.  1.  1. -1. -1.  1.  1. -1.  1.
+  1. -1. -1.  1. -1.  1. -1. -1. -1.  1.  1.  1. -1. -1.  1.  1.  1.  1.
+  1.  1.  1.  1. -1. -1.  1.  1. -1. -1. -1. -1. -1.  1.  1.  1. -1. -1.
+ -1. -1.]
+CMM train_err=0.0, err=99.9800033569336
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 235, in <module>
+    main(d=2,n=100,approx_tau=8, SNR=10, n_test=1e4, s=1)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 212, in main
+    optim.zero_grad()
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\torch\optim\optimizer.py", line 210, in zero_grad
+    with torch.autograd.profiler.record_function(self._zero_grad_profile_name):
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\torch\autograd\profiler.py", line 433, in __init__
+    self.handle: torch.Tensor = torch.zeros(1)
+KeyboardInterrupt

@@ -1,0 +1,44 @@
+tensor([ 0.0348, -0.0008, -0.0010,  ..., -0.0002, -0.0004,  0.0014])
+CMM train_err=0.0, err=44.505001068115234
+tensor([nan, nan, nan,  ..., nan, nan, nan], requires_grad=True)
+w=1.0, train_err=100.0, err=100.0
+tensor([nan, nan, nan,  ..., nan, nan, nan], requires_grad=True)
+w=1.0, train_err=100.0, err=100.0
+tensor([nan, nan, nan,  ..., nan, nan, nan], requires_grad=True)
+w=1.0, train_err=100.0, err=100.0
+====================l1=========================
+CMM train_err=0.0, err=5.869999885559082
+77828.53125
+41032.8359375
+25175.0859375
+8323.892578125
+803819.0
+755816.0625
+709572.625
+665165.9375
+622637.375
+581931.3125
+543069.75
+506229.3125
+471229.3125
+438174.21875
+406746.96875
+377151.40625
+349152.1875
+322726.8125
+297980.15625
+274720.96875
+252881.3125
+232483.796875
+213439.890625
+195668.28125
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 432, in <module>
+    margin_classifiers_perf(d=5000,n=200,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 292, in margin_classifiers_perf
+    optim.step()
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\torch\optim\optimizer.py", line 87, in wrapper
+    with torch.autograd.profiler.record_function(profile_name):
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\torch\autograd\profiler.py", line 433, in __init__
+    self.handle: torch.Tensor = torch.zeros(1)
+KeyboardInterrupt

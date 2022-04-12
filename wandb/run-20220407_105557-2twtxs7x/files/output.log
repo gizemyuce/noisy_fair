@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 202, in <module>
+    main(d=1000,n=100,approx_tau=8, SNR=10, n_test=1e4, s=1)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 151, in main
+    xs, ys, x_seq_test, y_seq_test, z1s, z2s = create_data_sparse(d,n1,n2,n_test, s=1, random_flip_prob=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 111, in create_data_sparse
+    xs_test = torch.randn((2*n_test, p))
+TypeError: randn(): argument 'size' (position 1) must be tuple of ints, not tuple

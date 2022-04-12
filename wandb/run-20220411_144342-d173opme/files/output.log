@@ -1,0 +1,42 @@
+tensor([ 0.0343,  0.0003, -0.0003,  ...,  0.0013,  0.0012,  0.0062])
+CMM train_err=0.0, err=45.02000045776367
+772.2971801757812
+10066.087890625
+4862.21630859375
+1711.995361328125
+136.10482788085938
+38.99348449707031
+21.473339080810547
+15.76762866973877
+13.534753799438477
+12.530750274658203
+12.049983024597168
+11.792192459106445
+11.743356704711914
+11.686652183532715
+11.658368110656738
+11.644179344177246
+11.63707447052002
+11.633567810058594
+11.631621360778809
+11.631024360656738
+11.631016731262207
+11.631016731262207
+11.631016731262207
+11.63101577758789
+11.63101577758789
+11.63101577758789
+11.63101577758789
+11.63101577758789
+11.63101577758789
+11.63101577758789
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 427, in <module>
+    margin_classifiers_perf(d=5000,n=200,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 220, in margin_classifiers_perf
+    l.backward()
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\torch\_tensor.py", line 363, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\torch\autograd\__init__.py", line 173, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

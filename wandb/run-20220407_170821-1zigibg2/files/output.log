@@ -1,0 +1,17 @@
+
+CMM train_err=0.0, err=42.345001220703125
+w=1.0, train_err=0.0, err=42.44499969482422
+w=9.0, train_err=0.0, err=42.3849983215332
+C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\sklearn\svm\_base.py:1206: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+w=729.0, train_err=0.0, err=45.29499816894531
+====================l1=========================
+CMM train_err=0.0, err=7.154999732971191
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 306, in <module>
+    approx_ar = [0.02, 0.1, 1., 10., 100.]
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 275, in margin_classifiers_perf
+    while w.grad is None or torch.norm(w.grad) > 1e-5:
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\torch\functional.py", line 1543, in norm
+    return _VF.frobenius_norm(input, dim=(), keepdim=keepdim)
+KeyboardInterrupt

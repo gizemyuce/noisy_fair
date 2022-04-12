@@ -1,0 +1,14 @@
+tensor([ 0.0328,  0.0011,  0.0016,  ...,  0.0016, -0.0046, -0.0034])
+CMM train_err=0.0, err=45.08000183105469
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 427, in <module>
+    margin_classifiers_perf(d=5000,n=200,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 222, in margin_classifiers_perf
+    scheduler.step()
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\torch\optim\lr_scheduler.py", line 154, in step
+    values = self.get_lr()
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\torch\optim\lr_scheduler.py", line 330, in get_lr
+    return [group['lr'] * lmbda(self.last_epoch)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\torch\optim\lr_scheduler.py", line 330, in <listcomp>
+    return [group['lr'] * lmbda(self.last_epoch)
+TypeError: 'float' object is not callable

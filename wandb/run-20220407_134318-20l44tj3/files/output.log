@@ -1,0 +1,10 @@
+
+CMM train_err=7.9999999999999964, err=1.4299999475479126
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 236, in <module>
+    main(d=2,n=100,approx_tau=8, SNR=10, n_test=1e4, s=1, random_flip_prob=.05)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 212, in main
+    while w.grad is None or torch.norm(w.grad) > 1e-5:
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\torch\functional.py", line 1543, in norm
+    return _VF.frobenius_norm(input, dim=(), keepdim=keepdim)
+KeyboardInterrupt

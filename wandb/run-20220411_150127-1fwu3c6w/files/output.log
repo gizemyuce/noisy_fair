@@ -1,0 +1,82 @@
+tensor([ 0.0318,  0.0041, -0.0018,  ...,  0.0003, -0.0018, -0.0031])
+CMM train_err=0.0, err=45.345001220703125
+tensor([nan, nan, nan,  ..., nan, nan, nan], requires_grad=True)
+w=1.0, train_err=100.0, err=100.0
+tensor([nan, nan, nan,  ..., nan, nan, nan], requires_grad=True)
+w=1.0, train_err=100.0, err=100.0
+tensor([nan, nan, nan,  ..., nan, nan, nan], requires_grad=True)
+w=1.0, train_err=100.0, err=100.0
+====================l1=========================
+CMM train_err=0.0, err=6.975000381469727
+C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\sklearn\svm\_base.py:1206: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+95040.203125
+60950.9296875
+36228.9765625
+20296.5546875
+10306.01953125
+29693.86328125
+136815440.0
+136764464.0
+136712848.0
+136662000.0
+136610752.0
+136559808.0
+136508688.0
+136457376.0
+136406528.0
+136355520.0
+136304608.0
+136253424.0
+136202544.0
+136151376.0
+136100544.0
+136049536.0
+135998464.0
+135947648.0
+135896832.0
+135845840.0
+135794896.0
+135743952.0
+135693328.0
+135642400.0
+135591536.0
+135540560.0
+135489760.0
+135439104.0
+135388048.0
+135337248.0
+135286176.0
+135235696.0
+135184912.0
+135134128.0
+135082960.0
+135032512.0
+134981728.0
+134930912.0
+134880112.0
+134829280.0
+134778784.0
+134728048.0
+134677600.0
+134626480.0
+134576112.0
+134525200.0
+134474768.0
+134423952.0
+134373360.0
+134322800.0
+134272288.0
+134221904.0
+134171080.0
+134120640.0
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 432, in <module>
+    margin_classifiers_perf(d=5000,n=200,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 291, in margin_classifiers_perf
+    l.backward()
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\torch\_tensor.py", line 363, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\torch\autograd\__init__.py", line 173, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

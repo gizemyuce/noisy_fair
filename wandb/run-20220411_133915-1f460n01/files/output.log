@@ -1,0 +1,10 @@
+tensor([ 0.0309,  0.0029, -0.0015,  ...,  0.0027,  0.0009,  0.0019])
+CMM train_err=0.0, err=45.415000915527344
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 419, in <module>
+    margin_classifiers_perf(d=5000,n=200,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 215, in margin_classifiers_perf
+    while w.grad is None or torch.norm(w.grad) > 1e-5:
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\torch\functional.py", line 1543, in norm
+    return _VF.frobenius_norm(input, dim=(), keepdim=keepdim)
+KeyboardInterrupt

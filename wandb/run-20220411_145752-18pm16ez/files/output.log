@@ -1,0 +1,25 @@
+tensor([ 0.0296,  0.0035, -0.0026,  ..., -0.0040,  0.0051,  0.0005])
+CMM train_err=0.0, err=45.5099983215332
+tensor([nan, nan, nan,  ..., nan, nan, nan], requires_grad=True)
+w=1.0, train_err=100.0, err=100.0
+tensor([nan, nan, nan,  ..., nan, nan, nan], requires_grad=True)
+w=1.0, train_err=100.0, err=100.0
+tensor([nan, nan, nan,  ..., nan, nan, nan], requires_grad=True)
+w=1.0, train_err=100.0, err=100.0
+====================l1=========================
+CMM train_err=0.0, err=6.25
+15039.15234375
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 432, in <module>
+    margin_classifiers_perf(d=5000,n=200,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 292, in margin_classifiers_perf
+    optim.step()
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\torch\optim\optimizer.py", line 88, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\torch\autograd\grad_mode.py", line 26, in decorate_context
+    with self.clone():
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\torch\autograd\grad_mode.py", line 128, in __enter__
+    torch.set_grad_enabled(False)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\torch\autograd\grad_mode.py", line 216, in __init__
+    self.prev = torch.is_grad_enabled()
+KeyboardInterrupt

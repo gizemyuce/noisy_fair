@@ -1,0 +1,19 @@
+
+CMM train_err=0.0, err=41.95000076293945
+w=1.0, train_err=0.0, err=41.845001220703125
+w=1.0, train_err=0.0, err=41.845001220703125
+w=1.0, train_err=0.0, err=41.845001220703125
+====================l1=========================
+CMM train_err=0.0, err=7.440000057220459
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 416, in <module>
+    margin_classifiers_perf(d=1000,n=100,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 277, in margin_classifiers_perf
+    l = loss_average_poly(w, b, z1s, z2s, n1, n2) + torch.norm(w, p=1)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin.py", line 26, in loss_average_poly
+    return (torch.sum(1./(z1s @ v)) + b * torch.sum(1./(z2s @ v))) /(n1+b*n2)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\torch\_tensor.py", line 31, in wrapped
+    return f(*args, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\torch\_tensor.py", line 606, in __rdiv__
+    @_wrap_type_error_to_not_implemented
+KeyboardInterrupt

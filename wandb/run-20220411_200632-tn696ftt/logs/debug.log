@@ -1,0 +1,23 @@
+2022-04-11 20:06:32,345 INFO    MainThread:23348 [wandb_setup.py:_flush():75] Loading settings from C:\Users\gizem\.config\wandb\settings
+2022-04-11 20:06:32,348 INFO    MainThread:23348 [wandb_setup.py:_flush():75] Loading settings from C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\settings
+2022-04-11 20:06:32,350 INFO    MainThread:23348 [wandb_setup.py:_flush():75] Loading settings from environment variables: {}
+2022-04-11 20:06:32,350 INFO    MainThread:23348 [wandb_setup.py:_flush():75] Inferring run settings from compute environment: {'program_relpath': 'margin_no_imb.py', 'program': 'c:\\Users\\gizem\\Documents\\GitHub\\noisy_fair\\margin_no_imb.py'}
+2022-04-11 20:06:32,354 INFO    MainThread:23348 [wandb_init.py:_log_setup():438] Logging user logs to C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220411_200632-tn696ftt\logs\debug.log
+2022-04-11 20:06:32,358 INFO    MainThread:23348 [wandb_init.py:_log_setup():439] Logging internal logs to C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220411_200632-tn696ftt\logs\debug-internal.log
+2022-04-11 20:06:32,364 INFO    MainThread:23348 [wandb_init.py:init():472] calling init triggers
+2022-04-11 20:06:32,365 INFO    MainThread:23348 [wandb_init.py:init():475] wandb.init called with sweep_config: {}
+config: {'n_train': 200, 'n_test': 10000.0, 'n_features': 5000, 'tau': 1.0, 'SNR': 10, 'n_informative': 5000, 'n_redundant': 0, 'n_repeated': 0, 'n_useless': 0, 'n_clusters_per_class': 1, 'class_sep': 3.1622776601683795, 's': 1, 'label_noise_prob': 0}
+2022-04-11 20:06:32,370 INFO    MainThread:23348 [wandb_init.py:init():525] starting backend
+2022-04-11 20:06:32,370 INFO    MainThread:23348 [backend.py:_multiprocessing_setup():99] multiprocessing start_methods=spawn, using: spawn
+2022-04-11 20:06:32,433 INFO    MainThread:23348 [backend.py:ensure_launched():219] starting backend process...
+2022-04-11 20:06:33,169 INFO    MainThread:23348 [backend.py:ensure_launched():224] started backend process with pid: 16224
+2022-04-11 20:06:33,174 INFO    MainThread:23348 [wandb_init.py:init():534] backend started and connected
+2022-04-11 20:06:33,286 INFO    MainThread:23348 [wandb_init.py:init():598] updated telemetry
+2022-04-11 20:06:33,446 INFO    MainThread:23348 [wandb_init.py:init():629] communicating run to backend with 30 second timeout
+2022-04-11 20:07:03,447 INFO    MainThread:23348 [interface_shared.py:_communicate_run():325] couldn't get run from backend
+2022-04-11 20:07:03,447 ERROR   MainThread:23348 [wandb_init.py:init():634] backend process timed out
+2022-04-11 20:07:03,447 ERROR   MainThread:23348 [wandb_init.py:init():645] encountered error: Error communicating with wandb process
+try: wandb.init(settings=wandb.Settings(start_method='fork'))
+or:  wandb.init(settings=wandb.Settings(start_method='thread'))
+For more info see: https://docs.wandb.ai/library/init#init-start-error
+2022-04-11 20:46:04,897 INFO    MainThread:23348 [wandb_init.py:teardown():286] tearing down wandb.init
