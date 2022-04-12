@@ -325,7 +325,7 @@ def margin_classifiers_perf(d=1000,n=100,approx_tau=8, SNR=10, n_test=1e4, s=Non
 
     
 
-def aspect_ratio_l1(d, n, change_d, n_runs=10):
+def aspect_ratio_l1(d, n, change_d, n_runs=10, sigma=0):
   
     approx_ar = [0.02, 0.1, 1., 10., 100.]
     approx_ar = np.logspace(-0.5,2.1, num=50)
@@ -363,7 +363,7 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10):
 
             print("aspect_ratio={}, n={}, d={}".format(ar, n, d))
 
-            err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True)
+            err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True, random_flip_prob=sigma)
             perf_mm.append(err_mm)
             perfs.append(errs_avm_poly)
             perf_mm_l1.append(err_mm_l1)
@@ -424,14 +424,14 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10):
     plt.ylabel("0-1 Error (%)")
 
     if change_d:
-        plt.title("n="+str(n))
+        plt.title("n="+str(n)+ "  sigma"+str(sigma))
     else:
-        plt.title("d="+str(d))
+        plt.title("d="+str(d)+ "  sigma"+str(sigma))
 
     if change_d:
-        plt.savefig("figures/sparse_model_n"+ str(n) +".pdf")
+        plt.savefig("figures/sparse_model_n"+ str(n) + "_sigma"+str(sigma)+".pdf")
     else:
-        plt.savefig("figures/sparse_model_d"+ str(d) +".pdf")
+        plt.savefig("figures/sparse_model_d"+ str(d) + "_sigma"+str(sigma)+".pdf")
     
     
     plt.savefig("sparse_model.pdf")
@@ -440,7 +440,11 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10):
 
 
 if __name__ == "__main__":
-    aspect_ratio_l1(d=100, n=100, change_d=True, n_runs=10)
+    aspect_ratio_l1(d=100, n=100, change_d=True, n_runs=5, sigma=0.05)
+
+    aspect_ratio_l1(d=100, n=100, change_d=True, n_runs=5, sigma=.1)
+
+    aspect_ratio_l1(d=100, n=100, change_d=True, n_runs=5, sigma=.2)
     
     #margin_classifiers_perf(d=5000,n=200,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True)
     #margin_classifiers_perf(d=2,n=100,approx_tau=8, SNR=10, n_test=1e4, s=1, random_flip_prob=.02)
