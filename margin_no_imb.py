@@ -187,7 +187,7 @@ def margin_classifiers_perf(d=1000,n=100,approx_tau=8, SNR=10, n_test=1e4, s=Non
     clf = svm.LinearSVC(loss='hinge', fit_intercept=False)
     clf.fit(xs, ys)
     wmm = -torch.Tensor(clf.coef_.flatten())
-    print(wmm)
+    #print(wmm)
     perf_train_mm = clf.score(xs, ys)
     err_train_mm = 100*(1.-perf_train_mm)
     err_mm = test_error(wmm, x_seq_test, y_seq_test)
@@ -241,7 +241,7 @@ def margin_classifiers_perf(d=1000,n=100,approx_tau=8, SNR=10, n_test=1e4, s=Non
         err = test_error(w, x_seq_test, y_seq_test)
         errs_train_avm_poly.append(err_train)
         errs_avm_poly.append(err)
-        print(w)
+        #print(w)
         print("w={}, train_err={}, err={}".format(b, err_train, err))
 
     wandb.log({"err_test_cavm": errs_avm_poly[0],
@@ -325,7 +325,7 @@ def margin_classifiers_perf(d=1000,n=100,approx_tau=8, SNR=10, n_test=1e4, s=Non
 
     
 
-def aspect_ratio_l1(d, n, change_d, n_runs=10):
+def aspect_ratio_l1(d, n, change_d, n_runs=10, s=1):
   
     approx_ar = [0.02, 0.1, 1., 10., 100.]
     approx_ar = np.logspace(-0.5,2.1, num=50)
@@ -354,6 +354,9 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10):
             else:
                 n = int(d/t)
 
+            if n<=2:
+                continue
+
             ar = d/n
 
             if ar in ars:
@@ -363,7 +366,7 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10):
 
             print("aspect_ratio={}, n={}, d={}".format(ar, n, d))
 
-            err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True)
+            err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True)
             perf_mm.append(err_mm)
             perfs.append(errs_avm_poly)
             perf_mm_l1.append(err_mm_l1)
@@ -429,9 +432,9 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10):
         plt.title("d="+str(d))
 
     if change_d:
-        plt.savefig("figures/sparse_model_n"+ str(n) +".pdf")
+        plt.savefig("figures/sparse_model_n"+ str(n) + "_s"+ str(s)+".pdf")
     else:
-        plt.savefig("figures/sparse_model_d"+ str(d) +".pdf")
+        plt.savefig("figures/sparse_model_d"+ str(d)+ "_s"+ str(s)+".pdf")
     
     
     plt.savefig("sparse_model.pdf")
@@ -440,9 +443,11 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10):
 
 
 if __name__ == "__main__":
-    aspect_ratio_l1(d=100, n=100, change_d=True, n_runs=10)
     
-    #margin_classifiers_perf(d=5000,n=200,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True)
+    #aspect_ratio_l1(d=1000, n=100, change_d=False, n_runs=5, s=5)
+    #aspect_ratio_l1(d=100, n=100, change_d=True, n_runs=10)
+    
+    margin_classifiers_perf(d=10,n=100,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True)
     #margin_classifiers_perf(d=2,n=100,approx_tau=8, SNR=10, n_test=1e4, s=1, random_flip_prob=.02)
     #main()
     

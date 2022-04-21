@@ -140,7 +140,7 @@ def create_data_sparse(p,n1,n2,n_test, s=1, random_flip_prob=0):
     
     return x_seq, 1-y_seq, xs_test, 1-ys_noiseless_test, class_one, -class_two
 
-def margin_classifiers_perf(d=1000,n=100,approx_tau=8, SNR=10, n_test=1e4, s=None, random_flip_prob=0, l1=False):
+def margin_classifiers_perf(d=1000,n=100,approx_tau=8, SNR=10, n_test=1e4, s=None, random_flip_prob=0, l1=True, l2=True):
     
     d_informative = d
     d_redundant = 0
@@ -183,72 +183,73 @@ def margin_classifiers_perf(d=1000,n=100,approx_tau=8, SNR=10, n_test=1e4, s=Non
     
     a_vals = [0.]
 
-    # l2 margin
-    clf = svm.LinearSVC(loss='hinge', fit_intercept=False)
-    clf.fit(xs, ys)
-    wmm = -torch.Tensor(clf.coef_.flatten())
-    print(wmm)
-    perf_train_mm = clf.score(xs, ys)
-    err_train_mm = 100*(1.-perf_train_mm)
-    err_mm = test_error(wmm, x_seq_test, y_seq_test)
+    if l2:
+        # l2 margin
+        clf = svm.LinearSVC(loss='hinge', fit_intercept=False)
+        clf.fit(xs, ys)
+        wmm = -torch.Tensor(clf.coef_.flatten())
+        print(wmm)
+        perf_train_mm = clf.score(xs, ys)
+        err_train_mm = 100*(1.-perf_train_mm)
+        err_mm = test_error(wmm, x_seq_test, y_seq_test)
 
-    print("CMM train_err={}, err={}".format( err_train_mm, err_mm))
+        print("CMM train_err={}, err={}".format( err_train_mm, err_mm))
 
-    errs_avm_poly = []
-    errs_train_avm_poly = []
+        errs_avm_poly = []
+        errs_train_avm_poly = []
 
-    for a in a_vals:
+        for a in a_vals:
 
-        b = tau**a
+            b = tau**a
 
-        if s is None:
-            #w = (torch.normal(mean=torch.zeros(d), std=torch.ones(d)/np.sqrt(d))).detach()
-            w = wmm
-        else:
-            w = w_gt
-        
-        w=wmm
+            if s is None:
+                #w = (torch.normal(mean=torch.zeros(d), std=torch.ones(d)/np.sqrt(d))).detach()
+                w = wmm
+            else:
+                w = w_gt
+            
+            w=wmm
 
-        w = (w/torch.norm(w)).detach()
-        w.requires_grad = True
+            w = (w/torch.norm(w)).detach()
+            w.requires_grad = True
 
-        lmd = torch.Tensor([1.])
-        lmd.requires_grad=True
+            lmd = torch.Tensor([1.])
+            lmd.requires_grad=True
 
-        #optim = torch.optim.SGD([w], lr=1e-3, momentum=0.9)
-        optim = torch.optim.SGD([w], lr=1e-5, momentum=0.5)
-        #optim = torch.optim.SGD([w, lmd], lr=1e-4, momentum=0.9)
+            #optim = torch.optim.SGD([w], lr=1e-3, momentum=0.9)
+            optim = torch.optim.SGD([w], lr=1e-5, momentum=0.5)
+            #optim = torch.optim.SGD([w, lmd], lr=1e-4, momentum=0.9)
 
-        #scheduler = torch.optim.lr_scheduler.StepLR(optim, step_size=int(1e3), gamma=0.4)
+            #scheduler = torch.optim.lr_scheduler.StepLR(optim, step_size=int(1e3), gamma=0.4)
 
-        steps=0
-        while w.grad is None or torch.norm(w.grad) > 1e-3:  #torch.norm(w.grad) > 1e-5:
-          optim.zero_grad()
-          l = loss_average_poly(w, b, z1s, z2s, n1, n2) + torch.norm(w)**2
-          #l = loss_average_poly(w, b, z1s, z2s, n1, n2) + lmd * (torch.norm(w)**2-1.)**2 
-          #print(l.item())
-          l.backward()
-          optim.step()
-          #scheduler.step()
-          steps +=1
-        #   if steps%1000 ==0:
-        #     #print(l.item(), end='\n')
-        #     #print(lmd)
-          if steps >= MAX_STEPS:
-            break
-          
-        err_train = test_error(w, xs, ys)
-        err = test_error(w, x_seq_test, y_seq_test)
-        errs_train_avm_poly.append(err_train)
-        errs_avm_poly.append(err)
-        print(w)
-        print("w={}, train_err={}, err={}".format(b, err_train, err))
+            steps=0
+            while w.grad is None or torch.norm(w.grad) > 1e-3:  #torch.norm(w.grad) > 1e-5:
+            optim.zero_grad()
+            l = loss_average_poly(w, b, z1s, z2s, n1, n2) + torch.norm(w)**2
+            #l = loss_average_poly(w, b, z1s, z2s, n1, n2) + lmd * (torch.norm(w)**2-1.)**2 
+            #print(l.item())
+            l.backward()
+            optim.step()
+            #scheduler.step()
+            steps +=1
+            #   if steps%1000 ==0:
+            #     #print(l.item(), end='\n')
+            #     #print(lmd)
+            if steps >= MAX_STEPS:
+                break
+            
+            err_train = test_error(w, xs, ys)
+            err = test_error(w, x_seq_test, y_seq_test)
+            errs_train_avm_poly.append(err_train)
+            errs_avm_poly.append(err)
+            print(w)
+            print("w={}, train_err={}, err={}".format(b, err_train, err))
 
-    wandb.log({"err_test_cavm": errs_avm_poly[0],
-               "err_test_cmm": err_mm,
-               "err_train_cavm": errs_train_avm_poly[0],
-               "err_train_cmm": err_train_mm,
-              })
+        wandb.log({"err_test_cavm": errs_avm_poly[0],
+                "err_test_cmm": err_mm,
+                "err_train_cavm": errs_train_avm_poly[0],
+                "err_train_cmm": err_train_mm,
+                })
 
     if l1 is False:
         return err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly
@@ -325,11 +326,11 @@ def margin_classifiers_perf(d=1000,n=100,approx_tau=8, SNR=10, n_test=1e4, s=Non
 
     
 
-def aspect_ratio_l1(d, n, change_d, n_runs=10, sigma=0):
+def aspect_ratio_l1(d, n, change_d, n_runs=10, sigma=0, s=1):
   
     approx_ar = [0.02, 0.1, 1., 10., 100.]
     approx_ar = np.logspace(-0.5,2.1, num=50)
-    approx_ar = np.logspace(-0.7,2.1, num=10)
+    approx_ar = np.logspace(-0.7,1.8, num=10)
     print(approx_ar)
 
     runs = n_runs   #10
@@ -363,7 +364,7 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10, sigma=0):
 
             print("aspect_ratio={}, n={}, d={}".format(ar, n, d))
 
-            err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True, random_flip_prob=sigma)
+            err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
             perf_mm.append(err_mm)
             perfs.append(errs_avm_poly)
             perf_mm_l1.append(err_mm_l1)

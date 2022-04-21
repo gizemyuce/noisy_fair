@@ -1,0 +1,823 @@
+2022-04-20 19:13:06,173 INFO    MainThread:11316 [internal.py:wandb_internal():92] W&B internal server running at pid: 11316, started at: 2022-04-20 19:13:06.173081
+2022-04-20 19:13:06,176 INFO    WriterThread:11316 [datastore.py:open_for_write():77] open: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220420_191304-690h5l7u\run-690h5l7u.wandb
+2022-04-20 19:13:06,180 DEBUG   SenderThread:11316 [sender.py:send():235] send: header
+2022-04-20 19:13:06,180 DEBUG   SenderThread:11316 [sender.py:send():235] send: run
+2022-04-20 19:13:13,963 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: check_version
+2022-04-20 19:13:13,964 INFO    SenderThread:11316 [dir_watcher.py:__init__():169] watching files in: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220420_191304-690h5l7u\files
+2022-04-20 19:13:13,967 INFO    SenderThread:11316 [sender.py:_start_run_threads():812] run started: 690h5l7u with start time 1650474784
+2022-04-20 19:13:13,967 DEBUG   SenderThread:11316 [sender.py:send():235] send: summary
+2022-04-20 19:13:13,968 INFO    SenderThread:11316 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-04-20 19:13:13,968 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: check_version
+2022-04-20 19:13:14,804 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: run_start
+2022-04-20 19:13:14,967 INFO    Thread-11 :11316 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220420_191304-690h5l7u\files\wandb-summary.json
+2022-04-20 19:13:15,916 DEBUG   HandlerThread:11316 [meta.py:__init__():37] meta init
+2022-04-20 19:13:15,916 DEBUG   HandlerThread:11316 [meta.py:__init__():51] meta init done
+2022-04-20 19:13:15,916 DEBUG   HandlerThread:11316 [meta.py:probe():211] probe
+2022-04-20 19:13:15,980 DEBUG   HandlerThread:11316 [meta.py:_setup_git():201] setup git
+2022-04-20 19:13:16,081 DEBUG   HandlerThread:11316 [meta.py:_setup_git():208] setup git done
+2022-04-20 19:13:16,081 DEBUG   HandlerThread:11316 [meta.py:_save_pip():55] save pip
+2022-04-20 19:13:16,082 DEBUG   HandlerThread:11316 [meta.py:_save_pip():69] save pip done
+2022-04-20 19:13:16,083 DEBUG   HandlerThread:11316 [meta.py:_save_conda():76] save conda
+2022-04-20 19:13:16,089 ERROR   HandlerThread:11316 [meta.py:_save_conda():85] Error saving conda packages
+Traceback (most recent call last):
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\wandb\sdk\internal\meta.py", line 81, in _save_conda
+    subprocess.call(
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\subprocess.py", line 345, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\subprocess.py", line 966, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\subprocess.py", line 1435, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+2022-04-20 19:13:16,092 DEBUG   HandlerThread:11316 [meta.py:_save_conda():86] save conda done
+2022-04-20 19:13:16,092 DEBUG   HandlerThread:11316 [meta.py:probe():249] probe done
+2022-04-20 19:13:16,265 DEBUG   SenderThread:11316 [sender.py:send():235] send: files
+2022-04-20 19:13:16,265 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:13:16,265 INFO    SenderThread:11316 [sender.py:_save_file():947] saving file wandb-metadata.json with policy now
+2022-04-20 19:13:16,266 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:13:16,976 INFO    Thread-11 :11316 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220420_191304-690h5l7u\files\requirements.txt
+2022-04-20 19:13:16,977 INFO    Thread-11 :11316 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220420_191304-690h5l7u\files\output.log
+2022-04-20 19:13:16,977 INFO    Thread-11 :11316 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220420_191304-690h5l7u\files\conda-environment.yaml
+2022-04-20 19:13:16,977 INFO    Thread-11 :11316 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220420_191304-690h5l7u\files\wandb-metadata.json
+2022-04-20 19:13:19,838 DEBUG   SenderThread:11316 [sender.py:send():235] send: telemetry
+2022-04-20 19:13:21,015 INFO    Thread-11 :11316 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220420_191304-690h5l7u\files\output.log
+2022-04-20 19:13:34,851 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:13:34,851 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:13:44,544 INFO    Thread-17 :11316 [upload_job.py:push():137] Uploaded file C:\Users\gizem\AppData\Local\Temp\tmpudq0pb7bwandb\34bvi0xc-wandb-metadata.json
+2022-04-20 19:13:46,220 INFO    Thread-11 :11316 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220420_191304-690h5l7u\files\config.yaml
+2022-04-20 19:13:51,230 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:13:51,636 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:13:51,636 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:14:07,782 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:14:07,782 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:14:27,792 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:14:27,793 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:14:29,570 INFO    Thread-11 :11316 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220420_191304-690h5l7u\files\output.log
+2022-04-20 19:14:39,920 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:14:47,815 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:14:47,816 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:15:07,800 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:15:07,836 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:15:07,836 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:15:27,851 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:15:27,851 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:15:46,387 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:15:47,871 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:15:47,871 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:16:07,885 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:16:07,886 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:16:25,022 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:16:25,041 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:16:25,042 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:16:45,047 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:16:45,047 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:17:05,064 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:17:24,108 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:17:24,109 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:17:25,082 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:17:41,018 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:17:43,176 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:17:45,099 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:17:45,099 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:18:05,113 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:18:05,114 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:18:25,140 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:18:28,291 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:18:28,292 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:18:45,156 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:18:45,157 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:18:59,290 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:19:01,532 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:19:01,533 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:19:21,556 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:19:21,556 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:19:41,569 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:19:57,398 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:19:57,399 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:20:01,574 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:20:01,575 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:20:21,595 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:20:33,185 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:20:33,187 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:20:41,609 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:20:41,610 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:20:55,300 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:21:01,125 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:21:01,126 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:21:17,924 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:21:17,925 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:21:33,909 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:21:36,464 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:21:36,465 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:21:56,473 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:21:56,473 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:22:12,551 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:22:16,237 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:22:16,238 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:22:36,259 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:22:36,259 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:22:51,171 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:22:56,290 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:22:56,291 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:23:16,304 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:23:29,673 ERROR   SenderThread:11316 [retry.py:__call__():126] Retry attempt failed:
+Traceback (most recent call last):
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\urllib3\connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\urllib3\connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\urllib3\connection.py", line 358, in connect
+    self.sock = conn = self._new_conn()
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\urllib3\connection.py", line 179, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x00000250236BB100>, 'Connection to api.wandb.ai timed out. (connect timeout=10)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\requests\adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\urllib3\connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x00000250236BB100>, 'Connection to api.wandb.ai timed out. (connect timeout=10)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\wandb\sdk\lib\retry.py", line 102, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\wandb\sdk\internal\internal_api.py", line 141, in execute
+    return self.client.execute(*args, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\wandb\vendor\gql-0.2.0\wandb_gql\client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\wandb\vendor\gql-0.2.0\wandb_gql\client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\wandb\vendor\gql-0.2.0\wandb_gql\transport\requests.py", line 38, in execute
+    request = requests.post(self.url, **post_args)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\requests\api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\requests\sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\requests\sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\requests\adapters.py", line 507, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x00000250236BB100>, 'Connection to api.wandb.ai timed out. (connect timeout=10)'))
+2022-04-20 19:23:36,312 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:23:56,328 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:24:16,344 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:24:19,916 WARNING FileStreamThread:11316 [file_stream.py:request_with_retry():594] requests_with_retry encountered retryable exception: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')). func: <bound method Session.post of <requests.sessions.Session object at 0x000002502357EF20>>, args: ('https://api.wandb.ai/files/sml-eth/noisy-fair/690h5l7u/file_stream',), kwargs: {'json': {'complete': False, 'failed': False, 'dropped': 0, 'uploaded': []}}
+2022-04-20 19:24:23,232 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:24:27,777 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:24:27,777 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:24:34,689 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:24:36,353 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:24:42,991 WARNING FileStreamThread:11316 [file_stream.py:request_with_retry():594] requests_with_retry encountered retryable exception: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /files/sml-eth/noisy-fair/690h5l7u/file_stream (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x0000025024941300>, 'Connection to api.wandb.ai timed out. (connect timeout=None)')). func: <bound method Session.post of <requests.sessions.Session object at 0x000002502357EF20>>, args: ('https://api.wandb.ai/files/sml-eth/noisy-fair/690h5l7u/file_stream',), kwargs: {'json': {'complete': False, 'failed': False, 'dropped': 0, 'uploaded': []}}
+2022-04-20 19:24:44,806 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:24:44,807 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:24:56,363 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:24:58,884 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:25:04,668 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:25:04,669 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:25:16,367 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:25:16,367 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:25:26,032 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:25:33,084 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:25:33,085 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:25:50,488 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:25:50,488 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:26:04,740 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:26:10,629 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:26:10,632 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:26:29,596 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:26:29,596 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:26:44,813 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:26:46,394 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:26:46,394 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:27:03,899 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:27:03,900 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:27:23,563 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:27:23,564 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:27:26,341 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:27:41,348 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:27:41,348 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:27:57,803 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:27:57,803 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:28:02,982 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:28:15,644 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:28:15,644 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:28:32,143 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:28:32,143 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:28:41,635 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:28:48,270 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:28:48,270 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:29:05,901 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:29:05,901 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:29:20,373 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:29:22,328 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:29:22,329 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:29:39,871 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:29:39,871 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:29:59,130 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:29:59,897 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:29:59,897 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:30:17,895 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:30:17,896 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:30:37,756 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:30:37,912 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:30:37,913 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:30:57,914 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:30:57,915 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:31:16,258 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:31:16,268 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:31:21,058 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:31:36,073 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:31:36,074 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:31:52,677 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:31:52,678 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:31:55,139 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:32:10,147 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:32:10,147 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:32:29,949 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:32:29,949 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:32:33,717 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:32:48,717 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:32:48,718 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:33:06,524 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:33:06,525 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:33:12,324 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:33:23,217 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:33:23,218 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:33:41,262 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:33:41,262 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:33:51,063 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:34:00,624 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:34:00,624 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:34:17,622 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:34:17,622 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:34:29,736 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:34:37,628 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:34:37,629 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:34:54,424 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:34:54,425 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:35:08,393 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:35:10,977 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:35:10,978 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:35:28,603 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:35:28,603 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:35:45,356 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:35:45,357 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:35:49,528 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:36:04,530 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:36:04,531 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:36:21,832 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:36:21,832 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:36:25,754 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:36:38,632 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:36:38,633 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:36:58,651 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:37:12,132 ERROR   SenderThread:11316 [retry.py:__call__():126] Retry attempt failed:
+Traceback (most recent call last):
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\urllib3\connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\urllib3\connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\urllib3\connection.py", line 358, in connect
+    self.sock = conn = self._new_conn()
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\urllib3\connection.py", line 179, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x00000250249FDAE0>, 'Connection to api.wandb.ai timed out. (connect timeout=10)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\requests\adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\urllib3\connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x00000250249FDAE0>, 'Connection to api.wandb.ai timed out. (connect timeout=10)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\wandb\sdk\lib\retry.py", line 102, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\wandb\sdk\internal\internal_api.py", line 141, in execute
+    return self.client.execute(*args, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\wandb\vendor\gql-0.2.0\wandb_gql\client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\wandb\vendor\gql-0.2.0\wandb_gql\client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\wandb\vendor\gql-0.2.0\wandb_gql\transport\requests.py", line 38, in execute
+    request = requests.post(self.url, **post_args)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\requests\api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\requests\sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\requests\sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\requests\adapters.py", line 507, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x00000250249FDAE0>, 'Connection to api.wandb.ai timed out. (connect timeout=10)'))
+2022-04-20 19:37:16,455 WARNING FileStreamThread:11316 [file_stream.py:request_with_retry():594] requests_with_retry encountered retryable exception: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')). func: <bound method Session.post of <requests.sessions.Session object at 0x000002502357EF20>>, args: ('https://api.wandb.ai/files/sml-eth/noisy-fair/690h5l7u/file_stream',), kwargs: {'json': {'complete': False, 'failed': False, 'dropped': 0, 'uploaded': []}}
+2022-04-20 19:37:18,671 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:37:26,805 WARNING FileStreamThread:11316 [file_stream.py:request_with_retry():594] requests_with_retry encountered retryable exception: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /files/sml-eth/noisy-fair/690h5l7u/file_stream (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000025024941810>: Failed to establish a new connection: [Errno 11002] getaddrinfo failed')). func: <bound method Session.post of <requests.sessions.Session object at 0x000002502357EF20>>, args: ('https://api.wandb.ai/files/sml-eth/noisy-fair/690h5l7u/file_stream',), kwargs: {'json': {'complete': False, 'failed': False, 'dropped': 0, 'uploaded': []}}
+2022-04-20 19:37:38,697 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:37:41,256 WARNING FileStreamThread:11316 [file_stream.py:request_with_retry():594] requests_with_retry encountered retryable exception: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /files/sml-eth/noisy-fair/690h5l7u/file_stream (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000025024943160>: Failed to establish a new connection: [Errno 11002] getaddrinfo failed')). func: <bound method Session.post of <requests.sessions.Session object at 0x000002502357EF20>>, args: ('https://api.wandb.ai/files/sml-eth/noisy-fair/690h5l7u/file_stream',), kwargs: {'json': {'complete': False, 'failed': False, 'dropped': 0, 'uploaded': []}}
+2022-04-20 19:37:58,699 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:37:59,514 WARNING FileStreamThread:11316 [file_stream.py:request_with_retry():594] requests_with_retry encountered retryable exception: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /files/sml-eth/noisy-fair/690h5l7u/file_stream (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000025024941810>: Failed to establish a new connection: [Errno 11002] getaddrinfo failed')). func: <bound method Session.post of <requests.sessions.Session object at 0x000002502357EF20>>, args: ('https://api.wandb.ai/files/sml-eth/noisy-fair/690h5l7u/file_stream',), kwargs: {'json': {'complete': False, 'failed': False, 'dropped': 0, 'uploaded': []}}
+2022-04-20 19:38:18,718 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:38:28,409 WARNING FileStreamThread:11316 [file_stream.py:request_with_retry():594] requests_with_retry encountered retryable exception: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /files/sml-eth/noisy-fair/690h5l7u/file_stream (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000025024940F40>: Failed to establish a new connection: [Errno 11002] getaddrinfo failed')). func: <bound method Session.post of <requests.sessions.Session object at 0x000002502357EF20>>, args: ('https://api.wandb.ai/files/sml-eth/noisy-fair/690h5l7u/file_stream',), kwargs: {'json': {'complete': False, 'failed': False, 'dropped': 0, 'uploaded': []}}
+2022-04-20 19:38:38,744 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:38:58,747 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:39:12,779 WARNING FileStreamThread:11316 [file_stream.py:request_with_retry():594] requests_with_retry encountered retryable exception: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /files/sml-eth/noisy-fair/690h5l7u/file_stream (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000025024943E80>: Failed to establish a new connection: [Errno 11002] getaddrinfo failed')). func: <bound method Session.post of <requests.sessions.Session object at 0x000002502357EF20>>, args: ('https://api.wandb.ai/files/sml-eth/noisy-fair/690h5l7u/file_stream',), kwargs: {'json': {'complete': False, 'failed': False, 'dropped': 0, 'uploaded': []}}
+2022-04-20 19:39:18,763 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:39:38,785 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:39:48,880 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:39:51,061 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:39:51,063 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:39:53,187 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:39:57,029 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:39:57,031 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:39:58,802 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:40:00,272 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:40:02,590 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:40:02,592 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:40:05,238 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:40:06,956 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:40:06,958 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:40:08,818 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:40:11,077 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:40:11,079 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:40:18,825 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:40:18,826 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:40:20,389 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:40:35,400 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:40:35,401 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:40:53,347 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:40:53,348 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:40:58,719 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:41:09,742 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:41:09,743 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:41:27,323 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:41:27,323 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:41:37,278 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:41:43,919 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:41:43,920 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:42:00,039 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:42:00,040 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:42:16,044 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:42:19,253 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:42:19,254 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:42:36,933 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:42:36,933 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:42:54,798 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:42:55,434 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:42:55,435 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:43:12,687 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:43:12,688 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:43:29,793 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:43:29,793 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:43:33,511 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:43:46,774 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:43:46,775 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:44:03,925 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:44:03,926 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:44:12,254 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:44:20,798 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:44:20,798 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:44:37,613 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:44:37,614 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:44:51,875 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:44:54,438 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:44:54,438 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:45:11,444 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:45:11,445 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:45:27,963 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:45:27,964 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:45:31,192 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:45:46,198 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:45:46,198 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:46:02,905 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:46:02,906 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:46:10,359 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:46:19,910 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:46:19,911 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:46:36,570 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:46:36,571 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:46:55,314 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:46:56,590 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:46:56,591 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:47:16,609 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:47:16,611 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:47:28,725 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:47:34,782 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:47:34,782 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:47:51,310 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:47:51,311 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 19:48:08,225 DEBUG   SenderThread:11316 [sender.py:send():235] send: stats
+2022-04-20 19:48:08,859 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 19:48:08,859 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:31:45,306 ERROR   SenderThread:11316 [retry.py:__call__():126] Retry attempt failed:
+Traceback (most recent call last):
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\urllib3\util\connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\urllib3\connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\urllib3\connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\urllib3\connection.py", line 358, in connect
+    self.sock = conn = self._new_conn()
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x00000250249FD450>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\requests\adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\urllib3\connectionpool.py", line 785, in urlopen
+    retries = retries.increment(
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000250249FD450>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\wandb\sdk\lib\retry.py", line 102, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\wandb\sdk\internal\internal_api.py", line 141, in execute
+    return self.client.execute(*args, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\wandb\vendor\gql-0.2.0\wandb_gql\client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\wandb\vendor\gql-0.2.0\wandb_gql\client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\wandb\vendor\gql-0.2.0\wandb_gql\transport\requests.py", line 38, in execute
+    request = requests.post(self.url, **post_args)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\requests\api.py", line 117, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\requests\sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\requests\sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\requests\adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000250249FD450>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+2022-04-20 21:31:54,277 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:31:54,277 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:32:10,661 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:32:10,661 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:32:26,692 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:32:26,692 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:32:42,607 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:32:42,607 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:32:58,756 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:32:58,756 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:33:14,845 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:33:14,845 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:33:30,962 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:33:30,962 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:33:47,131 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:33:47,131 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:34:03,239 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:34:03,240 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:34:19,477 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:34:19,477 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:34:35,716 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:34:35,716 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:34:52,056 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:34:52,056 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:35:08,393 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:35:08,393 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:35:24,697 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:35:24,698 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:35:41,602 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:35:41,603 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:35:58,365 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:35:58,366 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:36:15,252 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:36:15,253 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:36:31,845 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:36:31,845 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:36:48,532 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:36:48,532 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:37:05,019 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:37:05,020 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:37:21,614 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:37:21,616 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:37:38,180 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:37:38,181 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:37:54,731 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:37:54,732 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:38:11,244 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:38:11,245 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:38:27,930 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:38:27,931 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:38:44,490 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:38:44,491 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:39:01,091 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:39:01,092 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:39:17,785 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:39:17,786 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:39:34,401 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:39:34,401 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:39:51,003 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:39:51,004 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:40:07,566 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:40:07,567 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:40:24,169 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:40:24,169 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:40:40,855 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:40:40,856 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:40:57,422 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:40:57,423 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:41:14,020 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:41:14,021 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:41:30,587 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:41:30,587 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:41:47,169 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:41:47,170 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:42:03,797 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:42:03,798 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:42:20,428 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:42:20,428 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:42:37,058 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:42:37,059 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:42:53,827 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:42:53,827 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:43:10,428 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:43:10,429 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:43:27,002 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:43:27,003 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:43:43,685 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:43:43,686 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:44:00,303 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:44:00,303 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:44:17,310 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:44:17,311 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:44:33,939 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:44:33,940 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:44:50,586 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:44:50,586 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:45:07,276 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:45:07,278 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:45:23,922 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:45:23,922 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:45:40,708 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:45:40,709 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:45:57,311 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:45:57,312 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:46:13,940 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:46:13,941 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:46:30,593 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:46:30,593 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:46:47,177 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:46:47,177 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:47:03,823 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:47:03,824 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:47:20,420 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:47:20,421 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:47:37,095 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:47:37,095 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:47:53,695 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:47:53,695 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:48:10,337 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:48:10,339 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:48:26,969 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:48:26,969 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:48:43,660 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:48:43,661 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:49:00,305 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:49:00,305 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:49:17,012 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:49:17,012 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:49:33,805 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:49:33,806 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:49:50,435 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:49:50,436 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:50:06,998 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-20 21:50:06,999 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: stop_status
+2022-04-20 21:50:14,732 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-20 21:50:14,754 DEBUG   SenderThread:11316 [sender.py:send():235] send: history
+2022-04-20 21:50:14,754 DEBUG   SenderThread:11316 [sender.py:send():235] send: summary
+2022-04-20 21:50:14,767 INFO    SenderThread:11316 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-04-20 21:50:14,787 DEBUG   SenderThread:11316 [sender.py:send():235] send: telemetry
+2022-04-20 21:50:14,828 DEBUG   SenderThread:11316 [sender.py:send():235] send: telemetry
+2022-04-20 21:50:14,994 DEBUG   SenderThread:11316 [sender.py:send():235] send: exit
+2022-04-20 21:50:14,996 INFO    SenderThread:11316 [sender.py:send_exit():371] handling exit code: 0
+2022-04-20 21:50:15,049 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:15,049 INFO    SenderThread:11316 [sender.py:send_exit():373] handling runtime: 9420
+2022-04-20 21:50:15,052 INFO    SenderThread:11316 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-04-20 21:50:15,052 INFO    SenderThread:11316 [sender.py:send_exit():379] send defer
+2022-04-20 21:50:15,055 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:15,064 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: defer
+2022-04-20 21:50:15,065 INFO    HandlerThread:11316 [handler.py:handle_request_defer():164] handle defer: 0
+2022-04-20 21:50:15,066 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: defer
+2022-04-20 21:50:15,066 INFO    SenderThread:11316 [sender.py:send_request_defer():388] handle sender defer: 0
+2022-04-20 21:50:15,068 INFO    SenderThread:11316 [sender.py:transition_state():392] send defer: 1
+2022-04-20 21:50:15,069 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: defer
+2022-04-20 21:50:15,070 INFO    HandlerThread:11316 [handler.py:handle_request_defer():164] handle defer: 1
+2022-04-20 21:50:15,074 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: defer
+2022-04-20 21:50:15,074 INFO    SenderThread:11316 [sender.py:send_request_defer():388] handle sender defer: 1
+2022-04-20 21:50:15,074 INFO    SenderThread:11316 [sender.py:transition_state():392] send defer: 2
+2022-04-20 21:50:15,075 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: defer
+2022-04-20 21:50:15,076 INFO    HandlerThread:11316 [handler.py:handle_request_defer():164] handle defer: 2
+2022-04-20 21:50:15,077 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: defer
+2022-04-20 21:50:15,077 INFO    SenderThread:11316 [sender.py:send_request_defer():388] handle sender defer: 2
+2022-04-20 21:50:15,078 INFO    SenderThread:11316 [sender.py:transition_state():392] send defer: 3
+2022-04-20 21:50:15,079 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: defer
+2022-04-20 21:50:15,079 INFO    HandlerThread:11316 [handler.py:handle_request_defer():164] handle defer: 3
+2022-04-20 21:50:15,082 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: defer
+2022-04-20 21:50:15,084 INFO    SenderThread:11316 [sender.py:send_request_defer():388] handle sender defer: 3
+2022-04-20 21:50:15,084 INFO    SenderThread:11316 [sender.py:transition_state():392] send defer: 4
+2022-04-20 21:50:15,085 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: defer
+2022-04-20 21:50:15,085 INFO    HandlerThread:11316 [handler.py:handle_request_defer():164] handle defer: 4
+2022-04-20 21:50:15,086 DEBUG   SenderThread:11316 [sender.py:send():235] send: summary
+2022-04-20 21:50:15,088 INFO    SenderThread:11316 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-04-20 21:50:15,089 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: defer
+2022-04-20 21:50:15,089 INFO    SenderThread:11316 [sender.py:send_request_defer():388] handle sender defer: 4
+2022-04-20 21:50:15,090 INFO    SenderThread:11316 [sender.py:transition_state():392] send defer: 5
+2022-04-20 21:50:15,091 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: defer
+2022-04-20 21:50:15,091 INFO    HandlerThread:11316 [handler.py:handle_request_defer():164] handle defer: 5
+2022-04-20 21:50:15,091 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: defer
+2022-04-20 21:50:15,092 INFO    SenderThread:11316 [sender.py:send_request_defer():388] handle sender defer: 5
+2022-04-20 21:50:15,176 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:15,516 INFO    Thread-11 :11316 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220420_191304-690h5l7u\files\output.log
+2022-04-20 21:50:15,518 INFO    Thread-11 :11316 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220420_191304-690h5l7u\files\wandb-summary.json
+2022-04-20 21:50:16,698 INFO    SenderThread:11316 [sender.py:transition_state():392] send defer: 6
+2022-04-20 21:50:16,698 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:16,700 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: defer
+2022-04-20 21:50:16,700 INFO    HandlerThread:11316 [handler.py:handle_request_defer():164] handle defer: 6
+2022-04-20 21:50:16,700 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: defer
+2022-04-20 21:50:16,701 INFO    SenderThread:11316 [sender.py:send_request_defer():388] handle sender defer: 6
+2022-04-20 21:50:16,701 INFO    SenderThread:11316 [dir_watcher.py:finish():283] shutting down directory watcher
+2022-04-20 21:50:16,808 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:17,531 INFO    SenderThread:11316 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220420_191304-690h5l7u\files\config.yaml
+2022-04-20 21:50:17,533 INFO    SenderThread:11316 [dir_watcher.py:finish():313] scan: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220420_191304-690h5l7u\files
+2022-04-20 21:50:17,534 INFO    SenderThread:11316 [dir_watcher.py:finish():327] scan save: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220420_191304-690h5l7u\files\conda-environment.yaml conda-environment.yaml
+2022-04-20 21:50:17,537 INFO    SenderThread:11316 [dir_watcher.py:finish():327] scan save: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220420_191304-690h5l7u\files\config.yaml config.yaml
+2022-04-20 21:50:17,539 INFO    SenderThread:11316 [dir_watcher.py:finish():327] scan save: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220420_191304-690h5l7u\files\output.log output.log
+2022-04-20 21:50:17,542 INFO    SenderThread:11316 [dir_watcher.py:finish():327] scan save: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220420_191304-690h5l7u\files\requirements.txt requirements.txt
+2022-04-20 21:50:17,558 INFO    SenderThread:11316 [dir_watcher.py:finish():327] scan save: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220420_191304-690h5l7u\files\wandb-metadata.json wandb-metadata.json
+2022-04-20 21:50:17,563 INFO    SenderThread:11316 [dir_watcher.py:finish():327] scan save: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220420_191304-690h5l7u\files\wandb-summary.json wandb-summary.json
+2022-04-20 21:50:17,577 INFO    SenderThread:11316 [sender.py:transition_state():392] send defer: 7
+2022-04-20 21:50:17,578 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:17,579 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: defer
+2022-04-20 21:50:17,580 INFO    HandlerThread:11316 [handler.py:handle_request_defer():164] handle defer: 7
+2022-04-20 21:50:17,581 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: defer
+2022-04-20 21:50:17,582 INFO    SenderThread:11316 [sender.py:send_request_defer():388] handle sender defer: 7
+2022-04-20 21:50:17,587 INFO    SenderThread:11316 [file_pusher.py:finish():145] shutting down file pusher
+2022-04-20 21:50:17,697 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:17,698 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:17,804 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:17,804 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:17,910 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:17,910 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:18,017 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:18,017 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:18,124 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:18,124 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:18,230 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:18,230 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:18,335 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:18,337 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:18,441 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:18,443 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:18,549 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:18,549 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:18,657 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:18,657 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:18,764 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:18,765 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:18,870 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:18,871 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:18,976 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:18,977 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:19,085 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:19,085 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:19,207 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:19,208 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:19,315 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:19,321 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:19,435 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:19,436 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:19,542 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:19,542 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:19,650 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:19,650 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:19,756 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:19,756 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:19,862 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:19,862 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:19,969 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:19,970 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:20,076 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:20,076 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:20,183 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:20,184 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:20,291 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:20,291 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:20,399 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:20,399 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:20,506 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:20,506 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:20,613 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:20,614 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:20,720 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:20,720 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:20,825 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:20,826 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:20,931 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:20,932 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:21,039 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:21,039 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:21,130 INFO    Thread-18 :11316 [upload_job.py:push():137] Uploaded file C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220420_191304-690h5l7u\files\config.yaml
+2022-04-20 21:50:21,135 INFO    Thread-19 :11316 [upload_job.py:push():137] Uploaded file C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220420_191304-690h5l7u\files\output.log
+2022-04-20 21:50:21,138 INFO    Thread-20 :11316 [upload_job.py:push():137] Uploaded file C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220420_191304-690h5l7u\files\requirements.txt
+2022-04-20 21:50:21,145 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:21,145 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:21,176 INFO    Thread-21 :11316 [upload_job.py:push():137] Uploaded file C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220420_191304-690h5l7u\files\wandb-summary.json
+2022-04-20 21:50:21,249 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:21,250 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:21,358 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:21,358 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:21,387 INFO    Thread-10 (_thread_body):11316 [sender.py:transition_state():392] send defer: 8
+2022-04-20 21:50:21,388 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: defer
+2022-04-20 21:50:21,388 INFO    HandlerThread:11316 [handler.py:handle_request_defer():164] handle defer: 8
+2022-04-20 21:50:21,389 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: defer
+2022-04-20 21:50:21,389 INFO    SenderThread:11316 [sender.py:send_request_defer():388] handle sender defer: 8
+2022-04-20 21:50:21,465 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:21,867 INFO    SenderThread:11316 [sender.py:transition_state():392] send defer: 9
+2022-04-20 21:50:21,868 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:21,869 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: defer
+2022-04-20 21:50:21,869 INFO    HandlerThread:11316 [handler.py:handle_request_defer():164] handle defer: 9
+2022-04-20 21:50:21,869 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: defer
+2022-04-20 21:50:21,870 INFO    SenderThread:11316 [sender.py:send_request_defer():388] handle sender defer: 9
+2022-04-20 21:50:21,871 INFO    SenderThread:11316 [sender.py:transition_state():392] send defer: 10
+2022-04-20 21:50:21,872 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: defer
+2022-04-20 21:50:21,872 INFO    HandlerThread:11316 [handler.py:handle_request_defer():164] handle defer: 10
+2022-04-20 21:50:21,872 DEBUG   SenderThread:11316 [sender.py:send():235] send: final
+2022-04-20 21:50:21,873 DEBUG   SenderThread:11316 [sender.py:send():235] send: footer
+2022-04-20 21:50:21,873 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: defer
+2022-04-20 21:50:21,873 INFO    SenderThread:11316 [sender.py:send_request_defer():388] handle sender defer: 10
+2022-04-20 21:50:21,975 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-20 21:50:21,976 DEBUG   SenderThread:11316 [sender.py:send_request():249] send_request: poll_exit
+2022-04-20 21:50:21,976 INFO    SenderThread:11316 [file_pusher.py:join():150] waiting for file pusher
+2022-04-20 21:50:24,241 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: sampled_history
+2022-04-20 21:50:24,243 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: get_summary
+2022-04-20 21:50:24,246 DEBUG   HandlerThread:11316 [handler.py:handle_request():141] handle_request: shutdown
+2022-04-20 21:50:24,246 INFO    HandlerThread:11316 [handler.py:finish():790] shutting down handler
+2022-04-20 21:50:24,897 INFO    WriterThread:11316 [datastore.py:close():281] close: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220420_191304-690h5l7u\run-690h5l7u.wandb
+2022-04-20 21:50:25,141 INFO    SenderThread:11316 [sender.py:finish():1107] shutting down sender
+2022-04-20 21:50:25,141 INFO    SenderThread:11316 [file_pusher.py:finish():145] shutting down file pusher
+2022-04-20 21:50:25,141 INFO    SenderThread:11316 [file_pusher.py:join():150] waiting for file pusher
+2022-04-20 21:50:25,161 INFO    MainThread:11316 [internal.py:handle_exit():82] Internal process exited

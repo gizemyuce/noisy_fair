@@ -416,10 +416,11 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10):
     plt.errorbar(ars, avg_test_c2, yerr=std_test_c2, label="AM iw=tau^3")
     plt.errorbar(ars, avg_test_cmm, yerr=std_test_cmm, label="MM")
 
-    plt.errorbar(ars, avg_test_c0, yerr=std_test_c0_l1, label="AM-l1 no iw")
-    plt.errorbar(ars, avg_test_c1, yerr=std_test_c1_l1, label="AM-l1 iw=tau")
-    plt.errorbar(ars, avg_test_c2, yerr=std_test_c2_l1, label="AM-l1 iw=tau^3")
-    plt.errorbar(ars, avg_test_cmm, yerr=std_test_cmm_l1, label="MM-l1")
+    plt.errorbar(ars, avg_test_c0_l1, yerr=std_test_c0_l1, label="AM-l1 no iw")
+    plt.errorbar(ars, avg_test_c1_l1, yerr=std_test_c1_l1, label="AM-l1 iw=tau")
+    plt.errorbar(ars, avg_test_c2_l1, yerr=std_test_c2_l1, label="AM-l1 iw=tau^3")
+    plt.errorbar(ars, avg_test_cmm_l1, yerr=std_test_cmm_l1, label="MM-l1")
+    
     plt.legend()
     sns.despine()
     plt.savefig("sparse_model.pdf")
