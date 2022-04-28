@@ -1,3 +1,4 @@
+from cProfile import label
 import numpy as np
 from scipy.stats import norm
 from sklearn import svm
@@ -186,7 +187,7 @@ def margin_classifiers_perf(d=1000,n=100,approx_tau=8, SNR=10, n_test=1e4, s=Non
     # l1 margin
     print("====================l1=========================")
     #clf = svm.LinearSVC(penalty='l1', loss='hinge', fit_intercept=False)
-    clf = svm.LinearSVC(penalty='l1', fit_intercept=False, dual=False)
+    clf = svm.LinearSVC(penalty='l1', fit_intercept=False, dual=False, C=100, max_iter=int(1e4))
     clf.fit(xs, ys)
     wmm = -torch.Tensor(clf.coef_.flatten())
     perf_train_mm_l1 = clf.score(xs, ys)
@@ -227,8 +228,8 @@ def margin_classifiers_perf(d=1000,n=100,approx_tau=8, SNR=10, n_test=1e4, s=Non
             optim.step()
             #scheduler.step()
             steps += 1
-            # if steps%1000 ==0:
-            #     print(l.item(), end='')
+            if steps%1000 ==0:
+                print(l.item())
             if steps >= MAX_STEPS:
                 break
         
@@ -247,7 +248,7 @@ def margin_classifiers_perf(d=1000,n=100,approx_tau=8, SNR=10, n_test=1e4, s=Non
 
     wandb.finish()
 
-    return err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1, wmm, w
+    return err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1, wmm/torch.norm(wmm), w/torch.norm(w)
 
 
 
@@ -256,7 +257,7 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10, sigma=0, s=1):
     approx_ar = [0.02, 0.1, 1., 10., 100.]
     approx_ar = np.logspace(-0.5,2.1, num=50)
     approx_ar = np.logspace(-0.7,1.8, num=10)
-    approx_ar = np.logspace(-0.5,1, num=3)
+    approx_ar = np.logspace(-0.5,1.5, num=8)
     print(approx_ar)
 
     runs = n_runs   #10
@@ -332,7 +333,7 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10, sigma=0, s=1):
     std_test_cmm_l1 = np.std(test_cmm_l1,axis=0)
     
     plt.figure()
-    plt.errorbar(ars, avg_test_c0_l1, yerr=std_test_c0_l1, label="AM-l1 no iw")
+    plt.errorbar(ars, avg_test_c0_l1, yerr=std_test_c0_l1, label="AM-l1")
     plt.errorbar(ars, avg_test_cmm_l1, yerr=std_test_cmm_l1, label="MM-l1")
     plt.legend()
     plt.xscale("log")
@@ -346,17 +347,15 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10, sigma=0, s=1):
         plt.title("d="+str(d)+ "  sigma"+str(sigma))
 
     if change_d:
-        plt.savefig("figures/sparse_model_n"+ str(n) + "_sigma"+str(sigma)+".pdf")
+        plt.savefig("figures100/sparse_model_n"+ str(n) + "_sigma"+str(sigma)+".pdf")
     else:
-        plt.savefig("figures/sparse_model_d"+ str(d) + "_sigma"+str(sigma)+".pdf")
+        plt.savefig("figures100/sparse_model_d"+ str(d) + "_sigma"+str(sigma)+".pdf")
     
-    
-    plt.savefig("sparse_model.pdf")
-    plt.savefig("figures/sparse_model.pdf")
 
     bias_am=[]
     variance_avm = []
     bias_mm=[]
+    var_mm=[]
     bias_avm = []
     var_am = []
 
@@ -368,24 +367,66 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10, sigma=0, s=1):
         for i in range(num_runs):
             w_am_d[i,:] = data[i]['wam'][j]
         w_am_average = torch.mean(w_am_d, dim=0)
-        bias_am.append(torch.norm(w_am_average-w_gt))
-        var_am.append(torch.std(w_am_d, dim=0))
+        bias_am.append((torch.norm(w_am_average-w_gt)**2).detach().numpy())
+        var_am.append((torch.sum(torch.std(w_am_d, dim=0)**2)).detach().numpy())
 
+
+    for j, d_val in enumerate(d_values):
+        # generating ground truth 
+        w_gt = torch.zeros(d_val)
+        w_gt[0:s] = 1/(s ** 0.5)
+        w_mm_d = torch.zeros((num_runs,d_val))
+        for i in range(num_runs):
+            w_mm_d[i,:] = data[i]['wmm'][j]
+        w_mm_average = torch.mean(w_mm_d, dim=0)
+        bias_mm.append((torch.norm(w_mm_average-w_gt)**2).detach().numpy())
+        var_mm.append((torch.sum(torch.std(w_mm_d, dim=0)**2)).detach().numpy())
+
+    print(ars)
+    print(bias_am)
+    print(var_am)
+    
     plt.figure()
-    plt.plot(ars, bias_am**2, 'b--')
-    plt.plot(ars, var_am**2, 'b:')
-    plt.savefig('bias_variance.pdf')
+    plt.plot(ars, bias_am, 'b--', label='bias-am')
+    plt.plot(ars, var_am, 'b:', label='variance-am')
+    plt.plot(ars, bias_mm, 'r--', label='bias-mm')
+    plt.plot(ars, var_mm, 'r:', label='variance-mm')
+    plt.legend()
+    plt.xscale("log")
+    sns.despine()
+    plt.xlabel('Aspect Ratio')
+
+    if change_d:
+        plt.savefig("figures100/bias_variance_n"+ str(n) + "_sigma"+str(sigma)+".pdf")
+    else:
+        plt.savefig("figures100/bias_variance_d"+ str(d) + "_sigma"+str(sigma)+".pdf")
 
 
 
 if __name__ == "__main__":
-    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=2, sigma=0)
+    #aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=2, sigma=0)
 
-    #aspect_ratio_l1(d=100, n=100, change_d=True, n_runs=5, sigma=.1)
+    # aspect_ratio_l1(d=1000, n=100, change_d=False, n_runs=5, sigma=0)
+
+    # aspect_ratio_l1(d=1000, n=100, change_d=False, n_runs=5, sigma=0.05)
+
+    # aspect_ratio_l1(d=1000, n=100, change_d=False, n_runs=5, sigma=0.1)
+
+    # aspect_ratio_l1(d=1000, n=100, change_d=False, n_runs=5, sigma=0.2)
+
+
+    #aspect_ratio_l1(d=1000, n=100, change_d=True, n_runs=5, sigma=0)
+
+    # aspect_ratio_l1(d=1000, n=100, change_d=True, n_runs=5, sigma=0.05)
+
+    # aspect_ratio_l1(d=1000, n=100, change_d=True, n_runs=5, sigma=0.1)
+
+    # aspect_ratio_l1(d=1000, n=100, change_d=True, n_runs=5, sigma=0.2)
+
 
     #aspect_ratio_l1(d=100, n=100, change_d=True, n_runs=5, sigma=.2)
     
     #margin_classifiers_perf(d=5000,n=200,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True)
-    #margin_classifiers_perf(d=2,n=100,approx_tau=8, SNR=10, n_test=1e4, s=1, random_flip_prob=.02)
+    margin_classifiers_perf(d=2,n=100,approx_tau=1, SNR=10, n_test=1e5, s=1, random_flip_prob=0, l1=True)
     #main()
     

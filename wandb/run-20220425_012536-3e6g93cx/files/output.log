@@ -1,0 +1,9 @@
+CMM train_err=2.0000000000000018, err=4.809999942779541
+torch.Size([100, 10])
+torch.Size([100])
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\analytical.py", line 419, in <module>
+    margin_classifiers_perf(d=10,n=100,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\analytical.py", line 207, in margin_classifiers_perf
+    w = torch.mean(xs*torch.Tensor.repeat(ys, (1, d)), dim=0)
+RuntimeError: The size of tensor a (10) must match the size of tensor b (1000) at non-singleton dimension 1

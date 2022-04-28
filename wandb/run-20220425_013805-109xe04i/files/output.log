@@ -1,0 +1,18 @@
+CMM train_err=3.0000000000000027, err=7.59499979019165
+torch.Size([100, 10])
+torch.Size([100, 1000])
+w=1.0, train_err=9.0, err=18.92500114440918
+====================l1=========================
+CMM train_err=1.0000000000000009, err=2.6399998664855957
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\analytical.py", line 422, in <module>
+    margin_classifiers_perf(d=10,n=100,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\analytical.py", line 273, in margin_classifiers_perf
+    optim.step()
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\torch\optim\optimizer.py", line 88, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\torch\autograd\grad_mode.py", line 27, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\torch\optim\sgd.py", line 109, in step
+    @torch.no_grad()
+KeyboardInterrupt

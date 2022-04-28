@@ -1,0 +1,15 @@
+
+====================l1=========================
+CMM train_err=0.0, err=1.5099999904632568
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\sparse_gt_variance.py", line 388, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=2, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\sparse_gt_variance.py", line 298, in aspect_ratio_l1
+    err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1, wmm, wam = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\sparse_gt_variance.py", line 226, in margin_classifiers_perf
+    l = loss_average_poly(w, b, z1s, z2s, n1, n2) + torch.norm(w, p=1)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\sparse_gt_variance.py", line 29, in loss_average_poly
+    return (torch.sum(1./(z1s @ v)) + b * torch.sum(1./(z2s @ v))) /(n1+b*n2)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\torch\_tensor.py", line 26, in wrapped
+    @functools.wraps(f, assigned=assigned)
+KeyboardInterrupt
