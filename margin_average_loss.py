@@ -224,18 +224,24 @@ def margin_classifiers_perf(d=1000,n=100,approx_tau=8, SNR=10, n_test=1e4, s=Non
         steps=0
         while w.grad is None or torch.norm(w.grad) > 1e-3:  #torch.norm(w.grad) > 1e-5:
           optim.zero_grad()
-          l = - torch.sigmoid(loss_average_margin(w, b, z1s, z2s, n1, n2)/n) + torch.norm(w)**2
+          #l = - torch.sigmoid(loss_average_margin(w, b, z1s, z2s, n1, n2)/n) + torch.norm(w)**2
           #l = loss_average_poly(w, b, z1s, z2s, n1, n2) + lmd * (torch.norm(w)**2-1.)**2 
-          print(l.item())
+          l = loss_average_poly(w, b, z1s, z2s, n1, n2)
           l.backward()
           optim.step()
+
+          with torch.no_grad():
+            w=w/torch.norm(w)
+        #     w.requires_grad = True
+
           #scheduler.step()
           steps +=1
-        #   if steps%1000 ==0:
-        #     #print(l.item(), end='\n')
-        #     #print(lmd)
-        #   if steps >= MAX_STEPS:
-        #     break
+          if steps%1000 ==0:
+            print(l.item(), end='\n')
+            #print(lmd)
+          if steps >= MAX_STEPS:
+            break
+
           
         err_train = test_error(w, xs, ys)
         err = test_error(w, x_seq_test, y_seq_test)
@@ -447,7 +453,7 @@ if __name__ == "__main__":
     #aspect_ratio_l1(d=1000, n=100, change_d=False, n_runs=5, s=5)
     #aspect_ratio_l1(d=100, n=100, change_d=True, n_runs=10)
     
-    margin_classifiers_perf(d=10,n=100,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True)
+    margin_classifiers_perf(d=100,n=1000,approx_tau=1, SNR=10, n_test=1e4, s=2, l1=True)
     #margin_classifiers_perf(d=2,n=100,approx_tau=8, SNR=10, n_test=1e4, s=1, random_flip_prob=.02)
     #main()
     

@@ -1,0 +1,29 @@
+torch.Size([100, 5000])
+torch.Size([5000])
+CMM train_err=0.0, err=46.685001373291016
+torch.Size([100, 5000])
+torch.Size([100, 500000])
+w=1.0, train_err=0.0, err=46.875
+====================l1=========================
+CMM train_err=0.0, err=50.55000305175781
+tensor([0., 0., 0.,  ..., 0., 0., 1.])
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 555, in <module>
+    margin_classifiers_perf(d=5000,n=100,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 259, in margin_classifiers_perf
+    res = linprog (-torch.cat([z_mean,torch.zeros_like(z_mean) ], dim=0), A_ub=A_ub, b_ub=b_ub)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\scipy\optimize\_linprog.py", line 657, in linprog
+    x, status, message, iteration = _linprog_ip(
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\scipy\optimize\_linprog_ip.py", line 1119, in _linprog_ip
+    x, status, message, iteration = _ip_hsd(A, b, c, c0, alpha0, beta,
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\scipy\optimize\_linprog_ip.py", line 750, in _ip_hsd
+    d_x, d_y, d_z, d_tau, d_kappa = _get_delta(
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\scipy\optimize\_linprog_ip.py", line 215, in _get_delta
+    solve = _get_solver(M, sparse, lstsq, sym_pos, cholesky, permc_spec)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\scipy\optimize\_linprog_ip.py", line 109, in _get_solver
+    L = sp.linalg.cho_factor(M)
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\scipy\linalg\_decomp_cholesky.py", line 152, in cho_factor
+    c, lower = _cholesky(a, lower=lower, overwrite_a=overwrite_a, clean=False,
+  File "C:\Users\gizem\anaconda3\envs\iw\lib\site-packages\scipy\linalg\_decomp_cholesky.py", line 35, in _cholesky
+    c, info = potrf(a1, lower=lower, overwrite_a=overwrite_a, clean=clean)
+KeyboardInterrupt

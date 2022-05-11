@@ -1,0 +1,11 @@
+CMM train_err=0.0, err=46.459999084472656
+torch.Size([100, 5000])
+torch.Size([100, 500000])
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 549, in <module>
+    margin_classifiers_perf(d=5000,n=100,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 213, in margin_classifiers_perf
+    err_train = test_error(w, xs, ys)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 39, in test_error
+    pred = x_test @ w
+RuntimeError: size mismatch, got 100, 100x5000,10000
