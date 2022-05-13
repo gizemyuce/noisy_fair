@@ -249,8 +249,8 @@ def margin_classifiers_perf(d=1000,n=100,approx_tau=8, SNR=10, n_test=1e4, s=Non
             b = tau**a
 
             A_ub = torch.cat( [torch.cat([torch.eye(d), -torch.eye(d)], dim=1), torch.cat([-torch.eye(d), -torch.eye(d)], dim=1), torch.cat([-z_seq, torch.zeros(n, d)], dim=1), torch.cat([torch.zeros(1,d), torch.ones(1,d)], dim=1)], dim=0)
-            b_ub = torch.zeros(2*d+n+1)-1e-13
-            b_ub[-1] = 1
+            b_ub = torch.cat([torch.zeros(2*d), torch.zeros(n)-1e-7, torch.ones(1)], dim=0)
+            #b_ub[-1] = 1
 
             # res = linprog (-torch.cat([z_mean,torch.zeros_like(z_mean) ], dim=0), A_ub=A_ub, b_ub=b_ub, method='interior-point', bounds=(None,None))
             # #print(res)
@@ -263,9 +263,12 @@ def margin_classifiers_perf(d=1000,n=100,approx_tau=8, SNR=10, n_test=1e4, s=Non
             constraints = [A_ub @ x <= b_ub]
             prob = cp.Problem(objective, constraints)
             result = prob.solve()
-            print(x.value[0:d])
-            print(x.value[d:-1])
-            print(A_ub @ x.value )
+            if d<15:
+                print(x.value[0:d])
+            else:
+                print(x.value[0:15])
+            #print(x.value[d:-1])
+            #print(A_ub @ x.value )
             w=x.value[0:d]
             w=torch.from_numpy(w).float()
 
@@ -302,7 +305,7 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10, sigma=0, s=1, l1=True, l2=False):
     approx_ar = [0.02, 0.1, 1., 10., 100.]
     approx_ar = np.logspace(-0.5,2.1, num=50)
     approx_ar = np.logspace(-0.7,2.1, num=10)
-    approx_ar = np.logspace(-1,2, num=10)
+    approx_ar = np.logspace(-1,3, num=10)
     print(approx_ar)
 
     runs = n_runs   #10
@@ -576,7 +579,7 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10, sigma=0, s=1, l1=True, l2=False):
 if __name__ == "__main__":
     
     #aspect_ratio_l1(d=1000, n=100, change_d=False, n_runs=5, s=5)
-    aspect_ratio_l1(d=100, n=100, change_d=True, n_runs=5, s=1)
+    aspect_ratio_l1(d=100, n=10, change_d=True, n_runs=5, s=5)
     
     #margin_classifiers_perf(d=1000,n=1000,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True)
     #margin_classifiers_perf(d=50,n=10,approx_tau=1, SNR=10, n_test=1e4, s=2, l1=True)
