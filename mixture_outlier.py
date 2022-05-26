@@ -761,7 +761,7 @@ if __name__ == "__main__":
 
     # aspect_ratio_l1(d=100, n=100, change_d=False, n_runs=5, s=1, SNR=5, mixture=True, l2=False, outlier_strength=100)
 
-    aspect_ratio_l1(d=1000, n=100, change_d=False, n_runs=5, s=1, SNR=0.01* 1/np.sqrt(2), mixture=True, l1=True, l2=True, outlier_strength=0)
+    ###aspect_ratio_l1(d=1000, n=100, change_d=False, n_runs=5, s=1, SNR=0.01* 1/np.sqrt(2), mixture=True, l1=True, l2=True, outlier_strength=10)
 
     # aspect_ratio_l1(d=100, n=100, change_d=False, n_runs=5, s=1, SNR=5, mixture=True, l2=False, outlier_strength=10)
 
@@ -785,7 +785,7 @@ if __name__ == "__main__":
     
     #margin_classifiers_perf(d=1000,n=1000,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True)
     #margin_classifiers_perf(d=50,n=10,approx_tau=1, SNR=10, n_test=1e4, s=2, l1=True)
-    #margin_classifiers_perf(d=2,n=100,approx_tau=8, SNR=5, n_test=1e4, s=1, random_flip_prob=0, mixture=True)
+    margin_classifiers_perf(d=2,n=100,approx_tau=1, SNR=2, n_test=1e4, s=1, random_flip_prob=0, mixture=True, outlier_strength=0)
     
     #margin_classifiers_perf(d=1000,n=100,approx_tau=1, SNR=10, n_test=1e4, s=1, random_flip_prob=0, mixture=True, l2=True)
     #main()
