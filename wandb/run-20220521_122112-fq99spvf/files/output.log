@@ -1,0 +1,37 @@
+====================l1=========================
+CMM train_err=0.0, err=0.0
+===============================================================================
+                                     CVXPY
+                                     v1.2.0
+===============================================================================
+(CVXPY) May 21 12:21:16 PM: Your problem has 200 variables, 1 constraints, and 0 parameters.
+(CVXPY) May 21 12:21:16 PM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) May 21 12:21:16 PM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
+(CVXPY) May 21 12:21:16 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+-------------------------------------------------------------------------------
+                                  Compilation
+-------------------------------------------------------------------------------
+(CVXPY) May 21 12:21:16 PM: Compiling problem (target solver=ECOS).
+(CVXPY) May 21 12:21:16 PM: Reduction chain: Dcp2Cone -> CvxAttr2Constr -> ConeMatrixStuffing -> ECOS
+(CVXPY) May 21 12:21:16 PM: Applying reduction Dcp2Cone
+(CVXPY) May 21 12:21:16 PM: Applying reduction CvxAttr2Constr
+(CVXPY) May 21 12:21:16 PM: Applying reduction ConeMatrixStuffing
+(CVXPY) May 21 12:21:16 PM: Applying reduction ECOS
+(CVXPY) May 21 12:21:16 PM: Finished problem compilation (took 3.345e-02 seconds).
+-------------------------------------------------------------------------------
+                                Numerical solver
+-------------------------------------------------------------------------------
+(CVXPY) May 21 12:21:16 PM: Invoking solver ECOS  to obtain a solution.
+-------------------------------------------------------------------------------
+                                    Summary
+-------------------------------------------------------------------------------
+(CVXPY) May 21 12:21:16 PM: Problem status: optimal
+(CVXPY) May 21 12:21:16 PM: Optimal value: -2.874e+03
+(CVXPY) May 21 12:21:16 PM: Compilation took 3.345e-02 seconds
+(CVXPY) May 21 12:21:16 PM: Solver (including time spent in interface) took 9.977e-02 seconds
+var97
+[ 9.20641726e-02  9.07935873e-01 -4.70796526e-10  9.10468564e-11
+  3.52283040e-10 -1.96238744e-10  5.54579846e-10  3.03835747e-10
+ -1.06771950e-10  4.16102185e-10 -1.49059712e-10 -1.73514274e-10
+  1.30213481e-10 -5.57657703e-10  7.10013976e-10]
+w=1.0, train_err=0.0, err=0.06499999761581421

@@ -1,0 +1,100 @@
+
+CMM train_err=0.0, err=0.0
+===============================================================================
+                                     CVXPY
+                                     v1.2.0
+===============================================================================
+(CVXPY) May 20 04:10:24 PM: Your problem has 1000 variables, 2 constraints, and 0 parameters.
+(CVXPY) May 20 04:10:25 PM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) May 20 04:10:25 PM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
+(CVXPY) May 20 04:10:25 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+-------------------------------------------------------------------------------
+                                  Compilation
+-------------------------------------------------------------------------------
+(CVXPY) May 20 04:10:26 PM: Compiling problem (target solver=SCS).
+(CVXPY) May 20 04:10:26 PM: Reduction chain: Dcp2Cone -> CvxAttr2Constr -> ConeMatrixStuffing -> SCS
+(CVXPY) May 20 04:10:26 PM: Applying reduction Dcp2Cone
+(CVXPY) May 20 04:10:28 PM: Applying reduction CvxAttr2Constr
+(CVXPY) May 20 04:10:28 PM: Applying reduction ConeMatrixStuffing
+(CVXPY) May 20 04:10:28 PM: Applying reduction SCS
+(CVXPY) May 20 04:10:28 PM: Finished problem compilation (took 2.884e+00 seconds).
+-------------------------------------------------------------------------------
+                                Numerical solver
+-------------------------------------------------------------------------------
+(CVXPY) May 20 04:10:28 PM: Invoking solver SCS  to obtain a solution.
+------------------------------------------------------------------
+	       SCS v3.2.0 - Splitting Conic Solver
+	(c) Brendan O'Donoghue, Stanford University, 2012
+------------------------------------------------------------------
+problem:  variables n: 1001, constraints m: 1103
+cones: 	  l: linear vars: 101
+	  q: soc vars: 1002, qsize: 1
+settings: eps_abs: 1.0e-05, eps_rel: 1.0e-05, eps_infeas: 1.0e-07
+	  alpha: 1.50, scale: 1.00e-01, adaptive_scale: 1
+	  max_iters: 100000, normalize: 1, rho_x: 1.00e-06
+	  acceleration_lookback: 10, acceleration_interval: 10
+lin-sys:  sparse-direct
+	  nnz(A): 101003, nnz(P): 0
+------------------------------------------------------------------
+ iter | pri res | dua res |   gap   |   obj   |  scale  | time (s)
+------------------------------------------------------------------
+     0| 1.00e+00  1.00e+03  2.40e+02 -1.20e+02  1.00e-01  8.16e-02
+   250| 4.96e+17  2.10e+19  4.20e+20 -2.35e+20  1.39e-06  1.03e+00
+   425| 1.07e+00  5.38e-07  1.41e-03 -1.19e+03  1.00e-06  1.58e+00
+------------------------------------------------------------------
+status:  solved
+timings: total: 2.18e+00s = setup: 5.95e-01s + solve: 1.58e+00s
+	 lin-sys: 1.13e+00s, cones: 1.34e-02s, accel: 2.84e-02s
+------------------------------------------------------------------
+objective = -1187.413964
+------------------------------------------------------------------
+-------------------------------------------------------------------------------
+                                    Summary
+-------------------------------------------------------------------------------
+(CVXPY) May 20 04:10:31 PM: Problem status: optimal
+(CVXPY) May 20 04:10:31 PM: Optimal value: -1.187e+03
+(CVXPY) May 20 04:10:31 PM: Compilation took 2.884e+00 seconds
+(CVXPY) May 20 04:10:31 PM: Solver (including time spent in interface) took 2.295e+00 seconds
+var1
+[ 6.12530729e-04  1.18737137e+00 -4.08548295e-03  5.77433156e-03
+ -1.03126509e-02 -5.29097556e-03 -8.55038909e-03 -4.53375629e-03
+ -1.93715475e-03  1.16468904e-02 -1.24416129e-02 -1.52786395e-02
+  1.06902206e-02 -6.16114559e-03 -6.96247512e-03]
+w=1.0, train_err=50.0, err=47.85000228881836
+====================l1=========================
+CMM train_err=0.0, err=46.83000183105469
+===============================================================================
+                                     CVXPY
+                                     v1.2.0
+===============================================================================
+(CVXPY) May 20 04:10:31 PM: Your problem has 2000 variables, 1 constraints, and 0 parameters.
+(CVXPY) May 20 04:10:31 PM: It is compliant with the following grammars: DCP, DQCP
+(CVXPY) May 20 04:10:31 PM: (If you need to solve this problem multiple times, but with different data, consider using parameters.)
+(CVXPY) May 20 04:10:31 PM: CVXPY will first compile your problem; then, it will invoke a numerical solver to obtain a solution.
+-------------------------------------------------------------------------------
+                                  Compilation
+-------------------------------------------------------------------------------
+(CVXPY) May 20 04:10:31 PM: Compiling problem (target solver=ECOS).
+(CVXPY) May 20 04:10:31 PM: Reduction chain: Dcp2Cone -> CvxAttr2Constr -> ConeMatrixStuffing -> ECOS
+(CVXPY) May 20 04:10:31 PM: Applying reduction Dcp2Cone
+(CVXPY) May 20 04:10:31 PM: Applying reduction CvxAttr2Constr
+(CVXPY) May 20 04:10:31 PM: Applying reduction ConeMatrixStuffing
+(CVXPY) May 20 04:10:31 PM: Applying reduction ECOS
+(CVXPY) May 20 04:10:31 PM: Finished problem compilation (took 3.911e-01 seconds).
+-------------------------------------------------------------------------------
+                                Numerical solver
+-------------------------------------------------------------------------------
+(CVXPY) May 20 04:10:31 PM: Invoking solver ECOS  to obtain a solution.
+-------------------------------------------------------------------------------
+                                    Summary
+-------------------------------------------------------------------------------
+(CVXPY) May 20 04:10:33 PM: Problem status: optimal
+(CVXPY) May 20 04:10:33 PM: Optimal value: -9.827e+02
+(CVXPY) May 20 04:10:33 PM: Compilation took 3.911e-01 seconds
+(CVXPY) May 20 04:10:33 PM: Solver (including time spent in interface) took 1.918e+00 seconds
+var43
+[ 1.93413317e-02  9.80658687e-01 -6.44987647e-12 -2.93484016e-11
+ -2.53282933e-10 -4.75156260e-10 -7.04778868e-12  7.19401107e-11
+ -1.78916541e-10  3.72182104e-10  5.92756387e-10  4.66724425e-10
+ -1.18062865e-10  1.11944865e-11 -6.92478851e-11]
+w=1.0, train_err=0.0, err=2.450000047683716

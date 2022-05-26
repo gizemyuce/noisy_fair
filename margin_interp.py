@@ -305,7 +305,7 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10, sigma=0, s=1, l1=True, l2=False):
     approx_ar = [0.02, 0.1, 1., 10., 100.]
     approx_ar = np.logspace(-0.5,2.1, num=50)
     approx_ar = np.logspace(-0.7,2.1, num=10)
-    approx_ar = np.logspace(-1,3, num=10)
+    approx_ar = np.logspace(-1,3, num=4)
     print(approx_ar)
 
     runs = n_runs   #10
@@ -490,7 +490,16 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10, sigma=0, s=1, l1=True, l2=False):
     else:
         plt.savefig("figures_interp/train_sparse_model_d"+ str(d)+ "_s"+ str(s)+"_sigma"+str(sigma)+".pdf")
 
-    
+    #Estimation Error
+
+    esterr_am_l2=[]
+    esterr_mm_l2=[]
+    esterr_am_l1=[]
+    esterr_mm_l1=[]
+    esterr_var_mm_l1=[]
+    esterr_var_am_l1 = []
+    esterr_var_mm_l2=[]
+    esterr_var_am_l2 = []
     
     #Bias Variance
 
@@ -515,6 +524,10 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10, sigma=0, s=1, l1=True, l2=False):
             bias_am_l2.append((torch.norm(w_am_average-w_gt)**2).detach().numpy())
             var_am_l2.append((torch.sum(torch.std(w_am_d, dim=0)**2)).detach().numpy())
 
+            error = torch.norm(w_am_d- w_gt, dim=1)**2
+            esterr_am_l2.append(torch.mean(error).detach().numpy())
+            esterr_var_am_l2.append(torch.std(error).detach().numpy())
+
 
         for j, d_val in enumerate(d_values):
             # generating ground truth 
@@ -526,6 +539,10 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10, sigma=0, s=1, l1=True, l2=False):
             w_mm_average = torch.mean(w_mm_d, dim=0)
             bias_mm_l2.append((torch.norm(w_mm_average-w_gt)**2).detach().numpy())
             var_mm_l2.append((torch.sum(torch.std(w_mm_d, dim=0)**2)).detach().numpy())
+
+            error = torch.norm(w_mm_d- w_gt, dim=1)**2
+            esterr_mm_l2.append(torch.mean(error).detach().numpy())
+            esterr_var_mm_l2.append(torch.std(error).detach().numpy())
 
     if l1:
         for j, d_val in enumerate(d_values):
@@ -539,6 +556,10 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10, sigma=0, s=1, l1=True, l2=False):
             bias_am_l1.append((torch.norm(w_am_average-w_gt)**2).detach().numpy())
             var_am_l1.append((torch.sum(torch.std(w_am_d, dim=0)**2)).detach().numpy())
 
+            error = torch.norm(w_am_d- w_gt, dim=1)**2
+            esterr_am_l1.append(torch.mean(error).detach().numpy())
+            esterr_var_am_l1.append(torch.std(error).detach().numpy())
+
 
         for j, d_val in enumerate(d_values):
             # generating ground truth 
@@ -550,6 +571,10 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10, sigma=0, s=1, l1=True, l2=False):
             w_mm_average = torch.mean(w_mm_d, dim=0)
             bias_mm_l1.append((torch.norm(w_mm_average-w_gt)**2).detach().numpy())
             var_mm_l1.append((torch.sum(torch.std(w_mm_d, dim=0)**2)).detach().numpy())
+
+            error = torch.norm(w_mm_d- w_gt, dim=1)**2
+            esterr_mm_l1.append(torch.mean(error).detach().numpy())
+            esterr_var_mm_l1.append(torch.std(error).detach().numpy())
 
     
     plt.figure()
@@ -573,13 +598,33 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10, sigma=0, s=1, l1=True, l2=False):
         plt.savefig("figures_interp/bias_variance_n"+ str(n)+ "_s"+ str(s) + "_sigma"+str(sigma)+".pdf")
     else:
         plt.savefig("figures_interp/bias_variance_d"+ str(d)+ "_s"+ str(s) + "_sigma"+str(sigma)+".pdf")
+
+    #Estimation Error
+
+    plt.figure()
+    if l2:
+        plt.errorbar(ars, esterr_am_l2, yerr=esterr_var_am_l2, label='am_l2')
+        plt.errorbar(ars, esterr_mm_l2, yerr=esterr_var_mm_l2, label='mm_l2')
+    if l1:
+        plt.errorbar(ars, esterr_am_l1, yerr=esterr_var_am_l1, label='am_l1')
+        plt.errorbar(ars, esterr_mm_l1, yerr=esterr_var_mm_l1, label='mm_l1')
+    
+    plt.legend()
+    plt.xscale("log")
+    sns.despine()
+    plt.xlabel('Aspect Ratio (d/n)')
+
+    if change_d:
+        plt.savefig("figures_interp/est_err_n"+ str(n)+ "_s"+ str(s) + "_sigma"+str(sigma)+".pdf")
+    else:
+        plt.savefig("figures_interp/est_err_d"+ str(d)+ "_s"+ str(s) + "_sigma"+str(sigma)+".pdf")
      
 
 
 if __name__ == "__main__":
     
     #aspect_ratio_l1(d=1000, n=100, change_d=False, n_runs=5, s=5)
-    aspect_ratio_l1(d=100, n=10, change_d=True, n_runs=5, s=5)
+    aspect_ratio_l1(d=100, n=10, change_d=True, n_runs=2, s=5)
     
     #margin_classifiers_perf(d=1000,n=1000,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True)
     #margin_classifiers_perf(d=50,n=10,approx_tau=1, SNR=10, n_test=1e4, s=2, l1=True)
