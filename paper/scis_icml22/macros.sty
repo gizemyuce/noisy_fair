@@ -1,0 +1,225 @@
+%\usepackage{indentfirst}
+\usepackage{color}
+\usepackage{bbold}
+\usepackage{amssymb}
+\usepackage{amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage[utf8]{inputenc}
+\usepackage{bbold}
+\usepackage{mathtools}
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{assumption}{Assumption}[section]
+\newtheorem{condition}{Condition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{Lemma}{Lemma}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{proposition}{Proposition}[section]
+
+\newcommand{\makered}[1]{{\ifshownotes\color{red}{#1}\else\fi}}
+\newcommand{\fy}[1]{\makered{{FY: $\:\:$ #1}}}
+\newcommand{\makeblue}[1]{{\ifshownotes\color{cyan}{#1}\else\fi}}
+\newcommand{\at}[1]{\makeblue{{AT: $\:\:$ #1}}}
+\newcommand{\makeorange}[1]{{\ifshownotes\color{green}{#1}\else\fi}}
+\newcommand{\jc}[1]{\makeorange{{JC $\:\:$ #1}}}
+
+% \newcommand{\todo}[1]{\makeblue{{TODO: $\:\:$ #1}}}
+\newcommand{\td}[1]{\todo[inline]{#1}}
+
+\newcommand{\widgraph}[2]{\includegraphics[keepaspectratio,width=#1]{#2}}
+\newcommand{\hardness}[0]{\mathcal{H}_{OODD}}
+\newcommand{\CC}[0]{\mathcal{C}}
+\newcommand{\DD}[0]{\mathcal{D}}
+\newcommand{\EE}[0]{\mathbb{E}}
+\newcommand{\PP}[0]{\mathbb{P}}
+\newcommand{\FF}[0]{\mathcal{F}}
+\newcommand{\LL}[0]{\mathcal{L}}
+\newcommand{\NN}[0]{\mathbb{N}}
+\newcommand{\RR}[0]{\mathbb{R}}
+\newcommand{\XX}[0]{\mathcal{X}}
+\newcommand{\YY}[0]{\mathcal{Y}}
+\newcommand{\gauss}[0]{\mathcal{N}}
+\newcommand{\gausstr}[0]{\mathcal{N}_{trunc}}
+\newcommand{\fhat}{\hat{f}}
+\newcommand{\truey}{y^*}
+
+
+
+\newcommand{\normalization}{\eta}
+
+\newcommand{\numdatasets}{15}
+
+%\newcommand{\err}[1]{Err(#1; \hat{\theta})}
+\newcommand{\rmean}{\bar{r}}
+\newcommand{\probrone}{p_{r_1}}
+\newcommand{\distrrone}{\mathbb{P}_{r_1}}
+\newcommand{\prob}[1]{\mathbb{P}_{#1}}
+\newcommand{\mmin}{m_{min}}
+\newcommand{\xmean}{\bar{x}}
+\newcommand{\probbound}{\xi}
+\newcommand{\probunc}{\beta}
+\newcommand{\errb}{\alpha}
+\newcommand{\cbound}{a}
+\newcommand{\bsigus}{t}
+\newcommand{\xsigi}{x_{1, i}}
+\newcommand{\xsig}{x_1}
+\newcommand{\yi}[1]{y_#1}
+\newcommand{\exi}[1]{x_#1}
+\newcommand{\xnoise}{\tilde{x}}
+\newcommand{\Psig}{\PP_1}
+\newcommand{\Pnoise}{\tilde{\PP}}
+\newcommand{\stdsig}{\sigma}
+\newcommand{\stdnoise}{\tilde{\sigma}}
+\newcommand{\xunl}{X_{unl}}
+\newcommand{\xsub}{X_{sub}}
+\newcommand{\psimple}{\mathbb{P}_{simple}}
+
+\newcommand{\truncleft}{a} %We'll use just one
+\newcommand{\truncright}{b}
+\newcommand{\maxavgsig}{M}
+\newcommand{\mean}{\mu}
+\newcommand{\xmin}{x_{min}}
+\newcommand{\xbarone}{\bar{x}_1}
+
+\newcommand{\margin}{\gamma}
+\newcommand{\marginad}{\gamma_{ad}}
+\newcommand{\marginor}{\gamma_{or}}
+\newcommand{\marginpl}{\tilde{\gamma}}
+
+\newcommand{\thetahat}{\hat{\theta}}
+\newcommand{\thetastar}{\theta^*}
+\newcommand{\thetastartop}{\theta^{*, \top}}
+
+\newcommand{\Dunl}{\DD_{u}}
+\newcommand{\Dlab}{\DD_{l}}
+\newcommand{\Dlabn}{\DD_{l}^n}
+\newcommand{\Dq}{\DD_{q}}
+\newcommand{\Dqn}{\DD_{q}^n}
+\newcommand{\Dseed}{\DD_{seed}}
+\newcommand{\Dtest}{\DD_{\text{test}}}
+\newcommand{\Dtr}{\DD}
+\newcommand{\nq}{n_q}
+\newcommand{\nunl}{n_u}
+\newcommand{\nlab}{n_l}
+\newcommand{\ntest}{n_{\text{test}}}
+\newcommand{\nseed}{n_{\text{seed}}}
+\newcommand{\nquery}{n_q}
+\newcommand{\ntrans}{n_{\text{transition}}}
+
+\newcommand{\rone}{r_1}
+\newcommand{\rtwo}{r_2}
+
+
+\newcommand{\fraction}{F}
+\newcommand{\indicator}{\mathbb{1}}
+
+\newcommand{\err}[0]{\text{Err}_{0-1}}
+\newcommand{\testerr}[1]{\text{Err}(#1)}
+\DeclareMathOperator{\sgn}{sgn}
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%% RETO %%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\suppid}{\mathcal{X}_{ID}}
+\newcommand{\suppood}{\mathcal{X}_{OOD}}
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\ystar}{y^*}
+\newcommand{\avg}{\text{Avg}}
+
+\newcommand{\sourceset}[0]{S}
+\newcommand{\validset}[0]{V}
+\newcommand{\testset}[0]{T}
+\newcommand{\targetset}[0]{U}
+\newcommand{\targetidset}[0]{U_{\mathrm{ID}}}
+\newcommand{\targetoodset}[0]{U_{\mathrm{OOD}}}
+\newcommand{\labeledtarget}[0]{(\targetset,\targetlabel)}
+\newcommand{\labeledtargetid}[0]{(\targetidset,\targetlabel)}
+%\newcommand{\wronglylabeledtargetid}{\targetset_{\mathrm{ID}, \text{wrong}}^{\targetlabel}}
+\newcommand{\wronglylabeledtargetid}{(\targetset_{\mathrm{ID}}^{\neg \targetlabel}, \targetlabel)}
+\newcommand{\correctlylabeledtargetid}{(\targetset_{\mathrm{ID}}^{\targetlabel},\targetlabel)}
+\newcommand{\labeledtargetood}[0]{(\targetoodset, \targetlabel)}
+\newcommand{\targetidwithlabelc}[0]{U_{\mathrm{ID}}^*(\targetlabel)}
+\newcommand{\iddist}[0]{P_X}
+\newcommand{\idjoint}[0]{P}
+\newcommand{\ooddist}[0]{Q_X}
+\newcommand{\oodratio}[0]{\pi}
+\newcommand{\testdist}[0]{P_{\text{test}}}
+\newcommand{\idsupp}[0]{\suppid}
+\newcommand{\oodsupp}[0]{\suppood}
+\newcommand{\solset}[0]{\hat{\mathcal{F}}}
+\newcommand{\empf}[0]{\hat{f}}
+\newcommand{\targetlabel}[0]{c}
+\newcommand{\emperr}[1]{\mathcal{E}_{#1}}
+\newcommand{\error}[0]{\mathcal{E}}
+\newcommand{\FhatST}[0]{\hat{\FF}_{S, T}^c}
+\newcommand{\FhatSTid}[0]{\hat{\FF}_{S, \targetidset}^c}
+\newcommand{\FhatSTlin}[0]{\hat{\FF}_{\text{lin}, S, T}^c}
+\newcommand{\Fhat}[0]{\hat{\FF}}
+\newcommand{\Flin}[0]{\FF_{\text{lin}}}
+\newcommand{\Fidood}[0]{\FF_{I/O}}
+\newcommand{\fidood}[0]{f^\star_{I/O}}
+\newcommand{\fhatidood}[0]{\fhat_{I/O}}
+% \newcommand{\dis}[0]{\mathrm{dis}}
+\newcommand{\dis}[0]{\rho}
+\newcommand{\TV}[0]{d_{\text{TV}}}
+\newcommand{\Tdis}[0]{(\avg \circ \dis)}
+\newcommand{\entavg}{(\ent \circ \avg)}
+\newcommand{\ent}{\text{H}}
+\newcommand{\OOD}{\mathrm{OOD}}
+\newcommand{\OODdetectargs}[2]{\mathrm{OOD}(#1, #2)}
+\newcommand{\OODdetect}[0]{\OODdetectargs{\idjoint}{\Flarge}}
+% \newcommand{\OODundetectargs}[2]{\overline{\mathcal{O}}_{#1, #2}}
+% \newcommand{\OODundetect}[0]{\OODundetectargs{\idjoint}{\Fstar}}
+\newcommand{\SoverTid}{\frac{|\sourceset|}{|\targetidset|}}
+\newcommand{\SoverTood}{\frac{|\sourceset|}{|\targetoodset|}}
+\newcommand{\sampleset}[0]{\sourceset}
+
+\newcommand{\onehot}[0]{\omega}
+\newcommand{\alg}[0]{\mathcal{A}}
+\newcommand{\algo}[0]{A}
+\newcommand{\sols}[0]{\mathcal{M}}
+\newcommand{\Flarge}[0]{\FF}
+\newcommand{\Flargestar}[0]{\Flarge^{\star}}
+\newcommand{\Fsmall}[0]{\widetilde{\FF}}
+\newcommand{\Fsmallstar}[0]{\Fsmall^{\star}}
+\newcommand{\Fsample}[0]{\FF}
+\newcommand{\fstar}{f^\star}
+\newcommand{\Fstar}{\FF^\star}
+\newcommand{\Fgen}{\FF^\star_{\epsilon}}
+\newcommand{\Freg}{\FF_{\text{reg}}}
+\newcommand{\outputs}{O}
+\newcommand{\defn}{:=}
+\newcommand{\aurocerr}{\mathcal{E}}
+\newcommand{\thresh}{t_0}
+
+\newcommand{\supp}{\text{supp}}
+% \newcommand{\sign}[0]{\text{sign}}
+\newcommand{\st}[0]{\text{ such that }}
+\newcommand{\snr}[0]{\text{SNR}}
+\newcommand{\for}[0]{\text{ for }}
+\newcommand{\iftext}[0]{\text{ if }}
+
+
+\definecolor{mygreen}{HTML}{008000}
+\definecolor{myred}{HTML}{BA2121}
+\definecolor{myorange}{HTML}{FF7701}
+\definecolor{myblue}{HTML}{0295FF}
+\newcommand{\best}[1]{\textbf{\textcolor{myblue}{\underline{#1}}}}
+\newcommand{\secondbest}[1]{\textit{\textbf{\textcolor{myorange}{#1}}}}
+
+\newcommand{\bestreto}[1]{\textbf{\textcolor{myblue}{\underline{#1}}}}
+\newcommand{\bestnonreto}[1]{\textit{\textbf{\textcolor{myorange}{#1}}}}
+
+\newcommand{\pretrainingepochs}[0]{100}
