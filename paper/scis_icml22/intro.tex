@@ -1,0 +1,39 @@
+\section{Introduction}
+
+In high-dimensional settings, the information captured by the relatively few
+labeled training samples is not sufficient for training estimators with good
+predictive performance. Therefore, to select among the set of feasible
+solutions, one needs to assume a certain structural bias for the estimator
+% However, the learning problem becomes tractable if the ground truth has
+% certain structural properties that are known a priori
+(e.g.\ sparsity, invariance to rotations, translations etc).
+For deep neural networks (DNNs), this inductive bias is implicit and recent work [TODO
+cite chizat] has revealed that it favors ``sparse'' solutions, similar to an
+$\ell_1$ penalty. Moreover, work by [TODO cite telgarsky etc] has shown that
+minimizing an exponential loss (e.g.\ logistic, softmax) on separable data leads
+to the solution that maximizes the minimum margin on the training set (we refer
+to this as the \emph{min-margin solution}).
+
+In order to better understand the behavior of overparameterized neural networks,
+in this paper we study simple linear predictors that mirror the structure that
+has been observed for DNNs. In particular, we focus on binary classification
+with a linear and sparse ground truth. We study the interpolator that maximizes
+the min-$\ell_1$-margin (i.e.\ basis pursuit), since a small $\ell_1$ norm is
+known to induce sparsity [TODO cite tibshirani etc].
+
+Despite a large trove of positive results for maximum min-margin interpolation
+in high dimensions [TODO cite hastie, guillaume, etc], we find that predictors
+obtained with basis pursuit 
+
+despite the many positive results for min-l2 margin interpolation, we find that for l1 the error of the estimator deteriorates as d/n increases (in line with konstantin’s paper)
+
+we find that this increase in error for min l1-margin is due to higher variance (since the bias is well aligned with the structure of the GT)
+
+we propose to reduce the variance with avg l1-margin interpolation and find that
+indeed it helps reduce variance in high dimensions; moreover, surprisingly, we
+see that it also reduces the bias
+
+finally, we discuss limitations of the avg l1-margin solution in low dimensions
+
+
+

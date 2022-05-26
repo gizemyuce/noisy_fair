@@ -1,0 +1,48 @@
+\section{The shortcomings of min-margin interpolation}
+
+\subsection{Problem setting}
+
+we consider high dimensional data (d >> n) drawn from a 2-GMM model etc… Note that the labels are implied to be noiseless
+
+we study the estimator that maximizes the min l1-margin of the training data i.e. formula
+
+we are interested in the estimation error i.e. how well we can recover the ground truth (obviously, this implies good prediction)
+
+\subsection{Synthetic experiments}
+
+describe l1-mm vs l2-mm experiment setting
+
+results: error worse for l1
+
+bias is low, but variance is high 
+
+\section{Improving stability via average margin interpolation}
+
+we look at another interpolator: write formula
+
+unlike the min l1-margin interpolator, the avg margin solution is determined by all the training data
+
+intuitively, this is expected to lead to a reduced variance, which, corroborated with the already low bias (thanks to the l1 + sparse GT) can decrease the error
+
+indeed that’s what we see in experiments in figure bla
+
+describe experiments briefly
+
+moreover, perhaps surprisingly, we notice that avg-margin interpolation also
+reduces the bias; a similar phenomenon has been observed by [TODO our RO paper]
+where the authors note that the sparse GT has high avg margin, but low min
+margin
+
+For simplicity, in this paper we only study the solution of a convex
+optimization problem that we obtain using standard solvers for linear and
+quadratic programs. However, we expect that the insights we present here about
+the average-margin interpolator also hold for deep neural networks trained with
+a suitable loss. In particular, [TODO cite polyloss] show that minimizing a
+polynomially-tailed loss leads to an estimator akin to the average-margin
+solution from Equation~\at{blabla}. Furthermore, [TODO our RO paper] suggest
+that conventional regularization techniques like a ridge penalty or early
+stopping favor solutions with high average margin (as opposed to the solution
+with large min-margin that is found at convergence).  We leave as future work a
+thorough analysis of the benefits of maximizing the average-margin in the
+context of deep neural networks in the low-sample regime.
+

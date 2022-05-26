@@ -1,0 +1,21 @@
+\section{Limitations of average-margin interpolation in low dimensions}
+
+Despite its benefits in high dimensions, maximizing the average-margin cannot
+replace min-margin interpolation out-of-the-box in any learning problem. In
+particular, in low dimensions, when data is plentiful, maximizing the min-margin
+turns out to be a more robust option as we illustrate in this section.
+
+Consider the same data distribution as in Section~\at{TODO}, only this time with
+the number of samples much larger than the dimensionality $n >> d$. We assume
+the data to be noiseless, and hence, interpolation is possible even in this
+low-dimensional setting.
+
+Intuitively, average-margin interpolation, just like the mean estimator [TODO
+maybe cite bishop or some standard book], is vulnerable to outliers.  To
+illustrate this shortcoming, we alter the data distribution by adding a sample
+that is far from the true decision boundary for only one of the classes.
+If the outlier is far enough, then average-margin interpolation has worse
+estimation error than the min-margin solution in low dimensions. Interestingly,
+the impact of the outlier on the average-margin interpolator becomes less
+significant in high dimensions and $\am$ has once again lower error than $\mm$.
+
