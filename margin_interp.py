@@ -705,7 +705,13 @@ def solve_svc_problem(
 if __name__ == "__main__":
     
     #aspect_ratio_l1(d=1000, n=100, change_d=False, n_runs=5, s=5)
-    aspect_ratio_l1(d=1000, n=100, change_d=True, n_runs=10, s=1, l1=True, l2=False)
+    aspect_ratio_l1(d=1000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False)
+
+    aspect_ratio_l1(d=1000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0.05)
+
+    aspect_ratio_l1(d=1000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0.1)
+
+    aspect_ratio_l1(d=1000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0.2)
     
     #margin_classifiers_perf(d=1000,n=1000,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True)
     #margin_classifiers_perf(d=50,n=10,approx_tau=1, SNR=10, n_test=1e4, s=2, l1=True)

@@ -242,7 +242,7 @@ def margin_classifiers_perf(d=1000,n=100,approx_tau=8, SNR=10, n_test=1e4, s=Non
         # perf_train_mm_l1 = clf.score(xs, ys)
         # err_train_mm_l1 = 100*(1.-perf_train_mm_l1)
 
-        err_train_mm_l1 = test_error(wmm, xs, ys_01)
+        err_train_mm_l1 = test_error(wmm, xs, ys)
         err_mm_l1 = test_error(wmm, x_seq_test, y_seq_test)
 
         print("CMM train_err={}, err={}".format( err_train_mm_l1, err_mm_l1))
@@ -324,8 +324,6 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10, sigma=0, s=1, l1=True, l2=False):
             perf_mm_l1_train.append(err_train_mm_l1)
             wmms_l2.append(wmm_l2)
             wmms_l1.append(wmm_l1)
-
-            print(err_mm)
 
             # if err_train_mm + errs_train_avm_poly + err_train_mm_l1 + errs_train_avm_poly_l1 > 0:
             #     run_convergence_flag +=1
@@ -556,8 +554,8 @@ def solve_svc_problem(
 if __name__ == "__main__":
     
     #aspect_ratio_l1(d=1000, n=100, change_d=False, n_runs=5, s=5)
-    aspect_ratio_l1(d=1000, n=100, change_d=True, n_runs=10, s=1, l2=True)
-    aspect_ratio_l1(d=1000, n=100, change_d=True, n_runs=10, s=1, sigma=0.05, l2=True)
+    #aspect_ratio_l1(d=1000, n=100, change_d=True, n_runs=10, s=1, l2=True)
+    aspect_ratio_l1(d=1000, n=100, change_d=True, n_runs=4, s=1, sigma=0.2, l2=True)
     #aspect_ratio_l1(d=1000, n=100, change_d=True, n_runs=10, s=1, l2=True)
     
     #margin_classifiers_perf(d=1000,n=1000,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True)
