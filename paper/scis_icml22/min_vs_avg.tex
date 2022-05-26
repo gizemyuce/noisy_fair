@@ -1,48 +1,132 @@
-\section{The shortcomings of min-margin interpolation}
+\section{The problem with min-margin interpolation}
 
-\subsection{Problem setting}
+In this section we discuss how in high dimensions, the error of the
+min-$\ell_1$-margin solution is not optimal even when the ground truth is
+sparse. Our synthetic experiments reveal how this phenomenon is particularly
+pronounced in high dimensions and provide insights into its causes.
 
-we consider high dimensional data (d >> n) drawn from a 2-GMM model etc… Note that the labels are implied to be noiseless
+\subsection{Setting}
 
-we study the estimator that maximizes the min l1-margin of the training data i.e. formula
+We consider training data $\DD=\{(x_i, y_i)\}_{i=1}^{n}$ for a binary
+classification problem, with $x\in \RR^d$ and $y\in \{-1, +1\}$. We focus
+primarily on high-dimensional settings, i.e.\ $d >> n$ and assume that the
+covariates are drawn from a mixture of two truncated Gaussians, each of them
+corresponding to one of the two classes. Unless otherwise specified, we assume
+that the data is noiseless, and hence, there exists a linear classifier with
+vanishing Bayes error. Without loss of generality, we assume the Bayes optimal
+classifier to be $\thetastar=e_1=[1, 0, ..., 0] \in \RR^d$.
 
-we are interested in the estimation error i.e. how well we can recover the ground truth (obviously, this implies good prediction)
+We study the estimator that maximizes the min-$\ell_1$-margin of the training
+data:
+
+\begin{align}
+  \mm =& \arg\max_{\theta} \min_{(x_i, y_i) \in \DD} y_i\theta^\top x_i \\
+  &\st
+  \|\theta\|_1 \le 1 \text{ and } y_i\theta^\top x_i > 0, \forall i \in [n]
+\end{align}
+
+We note that this estimator coincides with the solution to the hard margin SVM
+problem:
+
+\begin{align}
+  \mm = \arg\min_{\theta} \|\theta\|_1 \st y_i\theta^\top x_i \ge 1, \forall i \in
+  [n]
+\end{align}
+
+\at{will check if true}
+
+We are interested in analyzing the estimation error of this classifier,
+which captures how well it recovers the ground truth:
+
+\begin{align}
+\err(\thetahat) = \|\thetahat - \thetastar\|_2^2 
+\end{align}
+
+Naturally, good estimation error implies good prediction performance as well.
 
 \subsection{Synthetic experiments}
 
-describe l1-mm vs l2-mm experiment setting
+describe l1-mm vs l2-mm experiment setting: fixed d, vary n, say what we choose
+the noise to be; how we compute the solutions
 
-results: error worse for l1
+here we may have to use a noisy setting to really show that l1 is bad compared
+to l2
 
-bias is low, but variance is high 
+To showcase the issues with min-l1-margin interpolation, we compare it to
+min-l2-margin interpolation, which, unlike the former, lacks the inductive bias
+that is expected to make it easier to recover the sparse ground truth. Despite
+not having the appropriate inductive bias, the min-l2-margin solution can
+actually achieve better estimation error in high dimensions. In particular, as
+also observed by [TODO konstantin], in the presence of label noise,
+min-l1-margin interpolation achieves worse performance compared to its $\ell_2$
+counterpart.  As Figure~\at{TODO} reveals, this is in large part due to an
+increase in the variance of the min-$\ell_1$-margin solution, despite having a
+significantly lower bias. The observation that min-$\ell_1$-margin interpolation
+tends to have high variance in high dimensions raises the question:
+
+\begin{center}
+
+\emph{Can we achieve lower variance while still exploiting the sparsity-inducing
+bias of $\ell_1$ interpolation?}
+
+\end{center}
+
+In the next section we propose an alternative to maximizing the
+min-$\ell_1$-margin which is specifically designed to have lower variance in
+high dimensions.  Surprisingly, we see that this alternative interpolator also
+reduces the bias, leading to smaller estimation error compared to the min-margin
+solution, even in the noiseless case.
+
 
 \section{Improving stability via average margin interpolation}
 
-we look at another interpolator: write formula
+In order to reduce the variance of the max-$\ell_1$-margin interpolator, we
+propose to study a different interpolating estimator, which maximizes the
+\emph{average} $\ell_1$ margin instead of the \emph{minimum} $\ell_1$ margin:
 
-unlike the min l1-margin interpolator, the avg margin solution is determined by all the training data
+\begin{align}
+  \am =& \arg\max_{\theta} \frac{1}{n} \sum_{(x_i, y_i) \in \DD} y_i\theta^\top x_i \\
+  &\st
+  \|\theta\|_1 \le 1 \text{ and } y_i\theta^\top x_i > 0, \forall i \in [n]
+\end{align}
 
-intuitively, this is expected to lead to a reduced variance, which, corroborated with the already low bias (thanks to the l1 + sparse GT) can decrease the error
+Unlike the min-margin interpolator, the average-margin solution is determined
+by \emph{all} the points in the training set. Intuitively, this dependence of
+the classifier on all samples is expected to reduce the variance, since it is
+less likely that a single point will exert a large influence over the solution
+of the optimization problem. This lower variance, combined with the low bias
+which is a consequence of using the $\ell_1$ norm, can decrease the estimation
+error compared to min-margin interpolation.
 
-indeed that’s what we see in experiments in figure bla
+Indeed, we find in Figure~\at{bla} that.....
 
-describe experiments briefly
 
-moreover, perhaps surprisingly, we notice that avg-margin interpolation also
-reduces the bias; a similar phenomenon has been observed by [TODO our RO paper]
-where the authors note that the sparse GT has high avg margin, but low min
-margin
+\at{ideally, AM vs MM experiments for noisy data first; then for noiseless,
+where we discuss the lower bias}
 
-For simplicity, in this paper we only study the solution of a convex
-optimization problem that we obtain using standard solvers for linear and
-quadratic programs. However, we expect that the insights we present here about
-the average-margin interpolator also hold for deep neural networks trained with
-a suitable loss. In particular, [TODO cite polyloss] show that minimizing a
-polynomially-tailed loss leads to an estimator akin to the average-margin
-solution from Equation~\at{blabla}. Furthermore, [TODO our RO paper] suggest
-that conventional regularization techniques like a ridge penalty or early
-stopping favor solutions with high average margin (as opposed to the solution
-with large min-margin that is found at convergence).  We leave as future work a
-thorough analysis of the benefits of maximizing the average-margin in the
-context of deep neural networks in the low-sample regime.
+In addition, perhaps surprisingly, we notice that avg-margin interpolation also
+reduces the bias. A similar phenomenon has been observed by [TODO our RO paper]
+where the authors note that the 1-sparse ground truth has high average margin,
+but low min margin. Therefore, average-margin maximization is more suitable for
+recovering $\thetastar$.
+
+Since it has lower bias, the average-margin solution also outperforms min-margin
+interpolation for noiseless data, where the decrease in variance does not play a
+significant role. \at{actually a bit confused; if I look at the figures for
+  outlier=1, SNR=10 the variance of MM is quite large even for noiseless; Gizem,
+cant we use this setting to show the gap in variance between l1-MM and l2-MM?
+maybe check GMM instead of marginal gaussian?}
+
+Finally, we note that we expect that the insights that we gain using linear
+models carries over to more complex classifiers, like overparameterized deep
+neural networks trained with a suitable loss. For simplicity, we only study the
+solution of a convex optimization problem that we obtain using standard solvers
+for linear and quadratic programs. In particular, [TODO cite polyloss] show that
+minimizing a polynomially-tailed loss leads to an estimator akin to the
+average-margin solution from Equation~\at{blabla}. Furthermore, [TODO our RO
+paper] suggest that conventional regularization techniques like a ridge penalty
+or early stopping favor solutions with high average margin (as opposed to the
+solution with large min-margin that is found at convergence).  We leave as
+future work a thorough analysis of the benefits of maximizing the average-margin
+in the context of deep neural networks in the low-sample regime.
 
