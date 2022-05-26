@@ -22,18 +22,35 @@ the min-$\ell_1$-margin (i.e.\ basis pursuit), since a small $\ell_1$ norm is
 known to induce sparsity [TODO cite tibshirani etc].
 
 Despite a large trove of positive results for maximum min-margin interpolation
-in high dimensions [TODO cite hastie, guillaume, etc], we find that predictors
-obtained with basis pursuit 
+in high dimensions [TODO cite hastie, guillaume, etc], a recent work [TODO cite
+konstantin] finds that predictors obtained with basis pursuit tend to exhibit
+larger variance in high dimensions. Despite using the right structural bias,
+maximizing the min-$\ell_1$-margin can even lead to larger error than its
+$\ell_2$ counterpart solely due to this increase in variance. This observation
+raises the following natural question:
 
-despite the many positive results for min-l2 margin interpolation, we find that for l1 the error of the estimator deteriorates as d/n increases (in line with konstantin’s paper)
+\begin{center}
 
-we find that this increase in error for min l1-margin is due to higher variance (since the bias is well aligned with the structure of the GT)
+\emph{Can we achieve lower variance while still exploiting the sparsity-inducing
+bias of $\ell_1$ interpolation?}
 
-we propose to reduce the variance with avg l1-margin interpolation and find that
-indeed it helps reduce variance in high dimensions; moreover, surprisingly, we
-see that it also reduces the bias
+\end{center}
 
-finally, we discuss limitations of the avg l1-margin solution in low dimensions
+In this paper, we propose to reduce the variance by minimizing the
+\emph{average}-$\ell_1$-margin instead of the \emph{min}-$\ell_1$-margin.
+Intuitively, in high-dimensions, the average-margin solution is determined by
+all training points, unlike the min-margin interpolator. This intuition is
+depicted in the sketch in Figure \at{TODO}. Our
+results indicate that, in high dimensions, average-margin interpolation does
+indeed lead to lower variance, and hence, lower estimation error. Surprisingly,
+we our experiments reveal that the average-margin solution also has lower bias,
+compared to the min-margin interpolator.  Finally, in Section~\at{TODO} we argue
+that despite its benefits in high-dimensions, the average-$\ell_1$-margin
+estimator cannot readily replace min-margin interpolation in all settings. In
+particular, we show that the average-margin solution is less robust to outliers
+in low dimensions.
+
+
 
 
 
