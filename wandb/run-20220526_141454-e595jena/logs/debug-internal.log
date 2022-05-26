@@ -1,0 +1,135 @@
+2022-05-26 14:14:58,649 INFO    MainThread:2360 [internal.py:wandb_internal():92] W&B internal server running at pid: 2360, started at: 2022-05-26 14:14:58.648282
+2022-05-26 14:14:58,653 INFO    WriterThread:2360 [datastore.py:open_for_write():77] open: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220526_141454-e595jena\run-e595jena.wandb
+2022-05-26 14:14:58,663 DEBUG   SenderThread:2360 [sender.py:send():235] send: header
+2022-05-26 14:14:58,663 DEBUG   SenderThread:2360 [sender.py:send():235] send: run
+2022-05-26 14:14:59,648 DEBUG   HandlerThread:2360 [handler.py:handle_request():141] handle_request: check_version
+2022-05-26 14:14:59,657 INFO    SenderThread:2360 [dir_watcher.py:__init__():169] watching files in: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220526_141454-e595jena\files
+2022-05-26 14:14:59,657 INFO    SenderThread:2360 [sender.py:_start_run_threads():812] run started: e595jena with start time 1653567294
+2022-05-26 14:14:59,658 DEBUG   SenderThread:2360 [sender.py:send():235] send: summary
+2022-05-26 14:14:59,658 INFO    SenderThread:2360 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-05-26 14:14:59,659 DEBUG   SenderThread:2360 [sender.py:send_request():249] send_request: check_version
+2022-05-26 14:15:00,444 DEBUG   HandlerThread:2360 [handler.py:handle_request():141] handle_request: run_start
+2022-05-26 14:15:00,664 INFO    Thread-11 :2360 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220526_141454-e595jena\files\wandb-summary.json
+2022-05-26 14:15:01,566 DEBUG   HandlerThread:2360 [meta.py:__init__():37] meta init
+2022-05-26 14:15:01,567 DEBUG   HandlerThread:2360 [meta.py:__init__():51] meta init done
+2022-05-26 14:15:01,567 DEBUG   HandlerThread:2360 [meta.py:probe():211] probe
+2022-05-26 14:15:01,629 DEBUG   HandlerThread:2360 [meta.py:_setup_git():201] setup git
+2022-05-26 14:15:01,754 DEBUG   HandlerThread:2360 [meta.py:_setup_git():208] setup git done
+2022-05-26 14:15:01,754 DEBUG   HandlerThread:2360 [meta.py:_save_pip():55] save pip
+2022-05-26 14:15:01,756 DEBUG   HandlerThread:2360 [meta.py:_save_pip():69] save pip done
+2022-05-26 14:15:01,756 DEBUG   HandlerThread:2360 [meta.py:_save_conda():76] save conda
+2022-05-26 14:15:01,775 ERROR   HandlerThread:2360 [meta.py:_save_conda():85] Error saving conda packages
+Traceback (most recent call last):
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\wandb\sdk\internal\meta.py", line 81, in _save_conda
+    subprocess.call(
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\subprocess.py", line 345, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\subprocess.py", line 966, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\subprocess.py", line 1435, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+2022-05-26 14:15:01,778 DEBUG   HandlerThread:2360 [meta.py:_save_conda():86] save conda done
+2022-05-26 14:15:01,778 DEBUG   HandlerThread:2360 [meta.py:probe():249] probe done
+2022-05-26 14:15:02,096 DEBUG   HandlerThread:2360 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-26 14:15:02,096 DEBUG   SenderThread:2360 [sender.py:send():235] send: files
+2022-05-26 14:15:02,097 INFO    SenderThread:2360 [sender.py:_save_file():947] saving file wandb-metadata.json with policy now
+2022-05-26 14:15:02,098 DEBUG   SenderThread:2360 [sender.py:send_request():249] send_request: stop_status
+2022-05-26 14:15:02,674 INFO    Thread-11 :2360 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220526_141454-e595jena\files\conda-environment.yaml
+2022-05-26 14:15:02,676 INFO    Thread-11 :2360 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220526_141454-e595jena\files\wandb-metadata.json
+2022-05-26 14:15:02,676 INFO    Thread-11 :2360 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220526_141454-e595jena\files\output.log
+2022-05-26 14:15:02,677 INFO    Thread-11 :2360 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220526_141454-e595jena\files\requirements.txt
+2022-05-26 14:15:03,202 DEBUG   SenderThread:2360 [sender.py:send():235] send: telemetry
+2022-05-26 14:15:04,113 INFO    Thread-17 :2360 [upload_job.py:push():137] Uploaded file C:\Users\gizem\AppData\Local\Temp\tmpp8ez0ovnwandb\3o67k9lo-wandb-metadata.json
+2022-05-26 14:15:05,668 DEBUG   HandlerThread:2360 [handler.py:handle_request():141] handle_request: partial_history
+2022-05-26 14:15:05,671 DEBUG   SenderThread:2360 [sender.py:send():235] send: history
+2022-05-26 14:15:05,671 DEBUG   SenderThread:2360 [sender.py:send():235] send: summary
+2022-05-26 14:15:05,677 INFO    SenderThread:2360 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-05-26 14:15:05,730 INFO    Thread-11 :2360 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220526_141454-e595jena\files\wandb-summary.json
+2022-05-26 14:15:08,763 INFO    Thread-11 :2360 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220526_141454-e595jena\files\output.log
+2022-05-26 14:15:09,964 DEBUG   HandlerThread:2360 [handler.py:handle_request():141] handle_request: partial_history
+2022-05-26 14:15:09,965 DEBUG   SenderThread:2360 [sender.py:send():235] send: history
+2022-05-26 14:15:09,966 DEBUG   SenderThread:2360 [sender.py:send():235] send: summary
+2022-05-26 14:15:09,968 INFO    SenderThread:2360 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-05-26 14:15:09,969 DEBUG   SenderThread:2360 [sender.py:send():235] send: telemetry
+2022-05-26 14:15:09,969 DEBUG   SenderThread:2360 [sender.py:send():235] send: telemetry
+2022-05-26 14:15:10,765 DEBUG   SenderThread:2360 [sender.py:send():235] send: exit
+2022-05-26 14:15:10,767 INFO    SenderThread:2360 [sender.py:send_exit():371] handling exit code: 0
+2022-05-26 14:15:10,768 INFO    SenderThread:2360 [sender.py:send_exit():373] handling runtime: 10
+2022-05-26 14:15:10,770 INFO    SenderThread:2360 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-05-26 14:15:10,771 DEBUG   HandlerThread:2360 [handler.py:handle_request():141] handle_request: poll_exit
+2022-05-26 14:15:10,772 INFO    SenderThread:2360 [sender.py:send_exit():379] send defer
+2022-05-26 14:15:10,774 DEBUG   SenderThread:2360 [sender.py:send_request():249] send_request: poll_exit
+2022-05-26 14:15:10,776 DEBUG   HandlerThread:2360 [handler.py:handle_request():141] handle_request: defer
+2022-05-26 14:15:10,776 INFO    HandlerThread:2360 [handler.py:handle_request_defer():164] handle defer: 0
+2022-05-26 14:15:10,777 DEBUG   SenderThread:2360 [sender.py:send_request():249] send_request: defer
+2022-05-26 14:15:10,778 INFO    SenderThread:2360 [sender.py:send_request_defer():388] handle sender defer: 0
+2022-05-26 14:15:10,779 INFO    SenderThread:2360 [sender.py:transition_state():392] send defer: 1
+2022-05-26 14:15:10,781 DEBUG   HandlerThread:2360 [handler.py:handle_request():141] handle_request: defer
+2022-05-26 14:15:10,781 INFO    HandlerThread:2360 [handler.py:handle_request_defer():164] handle defer: 1
+2022-05-26 14:15:10,784 INFO    Thread-11 :2360 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220526_141454-e595jena\files\wandb-summary.json
+2022-05-26 14:15:10,786 INFO    Thread-11 :2360 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220526_141454-e595jena\files\output.log
+2022-05-26 14:15:11,314 DEBUG   HandlerThread:2360 [handler.py:handle_request():141] handle_request: poll_exit
+2022-05-26 14:15:11,314 DEBUG   SenderThread:2360 [sender.py:send_request():249] send_request: defer
+2022-05-26 14:15:11,315 INFO    SenderThread:2360 [sender.py:send_request_defer():388] handle sender defer: 1
+2022-05-26 14:15:11,315 INFO    SenderThread:2360 [sender.py:transition_state():392] send defer: 2
+2022-05-26 14:15:11,315 DEBUG   SenderThread:2360 [sender.py:send_request():249] send_request: poll_exit
+2022-05-26 14:15:11,316 DEBUG   HandlerThread:2360 [handler.py:handle_request():141] handle_request: defer
+2022-05-26 14:15:11,316 INFO    HandlerThread:2360 [handler.py:handle_request_defer():164] handle defer: 2
+2022-05-26 14:15:11,317 DEBUG   SenderThread:2360 [sender.py:send():235] send: stats
+2022-05-26 14:15:11,317 DEBUG   SenderThread:2360 [sender.py:send_request():249] send_request: defer
+2022-05-26 14:15:11,317 INFO    SenderThread:2360 [sender.py:send_request_defer():388] handle sender defer: 2
+2022-05-26 14:15:11,317 INFO    SenderThread:2360 [sender.py:transition_state():392] send defer: 3
+2022-05-26 14:15:11,318 DEBUG   HandlerThread:2360 [handler.py:handle_request():141] handle_request: defer
+2022-05-26 14:15:11,318 INFO    HandlerThread:2360 [handler.py:handle_request_defer():164] handle defer: 3
+2022-05-26 14:15:11,318 DEBUG   SenderThread:2360 [sender.py:send_request():249] send_request: defer
+2022-05-26 14:15:11,318 INFO    SenderThread:2360 [sender.py:send_request_defer():388] handle sender defer: 3
+2022-05-26 14:15:11,318 INFO    SenderThread:2360 [sender.py:transition_state():392] send defer: 4
+2022-05-26 14:15:11,319 DEBUG   HandlerThread:2360 [handler.py:handle_request():141] handle_request: defer
+2022-05-26 14:15:11,319 INFO    HandlerThread:2360 [handler.py:handle_request_defer():164] handle defer: 4
+2022-05-26 14:15:11,319 DEBUG   SenderThread:2360 [sender.py:send():235] send: summary
+2022-05-26 14:15:11,320 INFO    SenderThread:2360 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-05-26 14:15:11,321 DEBUG   SenderThread:2360 [sender.py:send_request():249] send_request: defer
+2022-05-26 14:15:11,321 INFO    SenderThread:2360 [sender.py:send_request_defer():388] handle sender defer: 4
+2022-05-26 14:15:11,321 INFO    SenderThread:2360 [sender.py:transition_state():392] send defer: 5
+2022-05-26 14:15:11,321 DEBUG   HandlerThread:2360 [handler.py:handle_request():141] handle_request: defer
+2022-05-26 14:15:11,321 INFO    HandlerThread:2360 [handler.py:handle_request_defer():164] handle defer: 5
+2022-05-26 14:15:11,321 DEBUG   SenderThread:2360 [sender.py:send_request():249] send_request: defer
+2022-05-26 14:15:11,322 INFO    SenderThread:2360 [sender.py:send_request_defer():388] handle sender defer: 5
+2022-05-26 14:15:11,429 DEBUG   HandlerThread:2360 [handler.py:handle_request():141] handle_request: poll_exit
+2022-05-26 14:15:11,787 WARNING MainThread:2360 [internal.py:wandb_internal():155] Internal process interrupt: 1
+2022-05-26 14:15:11,794 INFO    Thread-11 :2360 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220526_141454-e595jena\files\wandb-summary.json
+2022-05-26 14:15:12,014 INFO    SenderThread:2360 [sender.py:transition_state():392] send defer: 6
+2022-05-26 14:15:12,014 DEBUG   SenderThread:2360 [sender.py:send_request():249] send_request: poll_exit
+2022-05-26 14:15:12,015 DEBUG   HandlerThread:2360 [handler.py:handle_request():141] handle_request: defer
+2022-05-26 14:15:12,015 INFO    HandlerThread:2360 [handler.py:handle_request_defer():164] handle defer: 6
+2022-05-26 14:15:12,015 DEBUG   SenderThread:2360 [sender.py:send_request():249] send_request: defer
+2022-05-26 14:15:12,015 INFO    SenderThread:2360 [sender.py:send_request_defer():388] handle sender defer: 6
+2022-05-26 14:15:12,015 INFO    SenderThread:2360 [dir_watcher.py:finish():283] shutting down directory watcher
+2022-05-26 14:15:12,800 INFO    SenderThread:2360 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220526_141454-e595jena\files\config.yaml
+2022-05-26 14:15:12,801 INFO    SenderThread:2360 [dir_watcher.py:finish():313] scan: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220526_141454-e595jena\files
+2022-05-26 14:15:12,801 INFO    SenderThread:2360 [dir_watcher.py:finish():327] scan save: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220526_141454-e595jena\files\conda-environment.yaml conda-environment.yaml
+2022-05-26 14:15:12,802 INFO    SenderThread:2360 [dir_watcher.py:finish():327] scan save: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220526_141454-e595jena\files\config.yaml config.yaml
+2022-05-26 14:15:12,802 INFO    SenderThread:2360 [dir_watcher.py:finish():327] scan save: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220526_141454-e595jena\files\output.log output.log
+2022-05-26 14:15:12,803 INFO    SenderThread:2360 [dir_watcher.py:finish():327] scan save: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220526_141454-e595jena\files\requirements.txt requirements.txt
+2022-05-26 14:15:12,808 INFO    SenderThread:2360 [dir_watcher.py:finish():327] scan save: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220526_141454-e595jena\files\wandb-metadata.json wandb-metadata.json
+2022-05-26 14:15:12,809 INFO    SenderThread:2360 [dir_watcher.py:finish():327] scan save: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220526_141454-e595jena\files\wandb-summary.json wandb-summary.json
+2022-05-26 14:15:12,824 INFO    SenderThread:2360 [sender.py:transition_state():392] send defer: 7
+2022-05-26 14:15:12,827 DEBUG   HandlerThread:2360 [handler.py:handle_request():141] handle_request: defer
+2022-05-26 14:15:12,827 INFO    HandlerThread:2360 [handler.py:handle_request_defer():164] handle defer: 7
+2022-05-26 14:15:12,827 DEBUG   SenderThread:2360 [sender.py:send_request():249] send_request: defer
+2022-05-26 14:15:12,834 INFO    SenderThread:2360 [sender.py:send_request_defer():388] handle sender defer: 7
+2022-05-26 14:15:12,834 INFO    SenderThread:2360 [file_pusher.py:finish():145] shutting down file pusher
+2022-05-26 14:15:15,832 WARNING MainThread:2360 [internal.py:is_dead():387] Internal process exiting, parent pid 20752 disappeared
+2022-05-26 14:15:15,833 ERROR   MainThread:2360 [internal.py:wandb_internal():151] Internal process shutdown.
+2022-05-26 14:15:15,846 INFO    HandlerThread:2360 [handler.py:finish():790] shutting down handler
+2022-05-26 14:15:15,861 INFO    SenderThread:2360 [sender.py:finish():1107] shutting down sender
+2022-05-26 14:15:15,861 INFO    SenderThread:2360 [file_pusher.py:finish():145] shutting down file pusher
+2022-05-26 14:15:15,861 INFO    SenderThread:2360 [file_pusher.py:join():150] waiting for file pusher
+2022-05-26 14:15:16,210 INFO    Thread-19 :2360 [upload_job.py:push():137] Uploaded file C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220526_141454-e595jena\files\output.log
+2022-05-26 14:15:16,213 INFO    Thread-21 :2360 [upload_job.py:push():137] Uploaded file C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220526_141454-e595jena\files\wandb-summary.json
+2022-05-26 14:15:16,217 INFO    Thread-20 :2360 [upload_job.py:push():137] Uploaded file C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220526_141454-e595jena\files\requirements.txt
+2022-05-26 14:15:16,220 INFO    Thread-18 :2360 [upload_job.py:push():137] Uploaded file C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220526_141454-e595jena\files\config.yaml
+2022-05-26 14:15:16,364 INFO    WriterThread:2360 [datastore.py:close():281] close: C:\Users\gizem\Documents\GitHub\noisy_fair\wandb\run-20220526_141454-e595jena\run-e595jena.wandb
+2022-05-26 14:15:16,432 INFO    Thread-10 (_thread_body):2360 [sender.py:transition_state():392] send defer: 8
+2022-05-26 14:15:17,030 INFO    MainThread:2360 [internal.py:handle_exit():82] Internal process exited

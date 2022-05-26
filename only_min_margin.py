@@ -25,6 +25,9 @@ from sklearn.model_selection import train_test_split
 from scipy.optimize import linprog
 import cvxpy as cp
 
+from typing import Union
+
+
 MAX_STEPS = int(1e5)
 
 def loss_average_poly(v, b, z1s, z2s, n1, n2):
@@ -36,11 +39,17 @@ def loss_average_margin_weighted(v, b, z1s, z2s, n1, n2):
 def loss_average_margin(v, b, z1s, z2s, n1, n2):
   return - (torch.sum((z1s @ v)) -  torch.sum((z2s @ v)))
 
+# def test_error(w, x_test, y_test):
+#   w = w / torch.norm(w)
+#   pred = x_test @ w
+#   pred[pred>=0] = 0
+#   pred[pred<0] = 1
+#   err = (pred.int() != y_test.int()).sum()/float(y_test.size(0))*100
+#   return err
+
 def test_error(w, x_test, y_test):
   w = w / torch.norm(w)
-  pred = x_test @ w
-  pred[pred>=0] = 0
-  pred[pred<0] = 1
+  pred = torch.sign(x_test @ w)
   err = (pred.int() != y_test.int()).sum()/float(y_test.size(0))*100
   return err
 
@@ -141,7 +150,7 @@ def create_data_sparse(p,n1,n2,n_test, s=1, random_flip_prob=0):
     ys_noiseless_test = torch.sign(xs_test @ w_gt)
     ys_noiseless_test[ys_noiseless_test==-1] = 0
     
-    return x_seq, 1-y_seq, xs_test, 1-ys_noiseless_test, class_one, -class_two
+    return x_seq, y_seq, xs_test, ys_noiseless_test, class_one, -class_two
 
 def margin_classifiers_perf(d=1000,n=100,approx_tau=8, SNR=10, n_test=1e4, s=None, random_flip_prob=0, l1=True, l2=False):
     
@@ -181,21 +190,29 @@ def margin_classifiers_perf(d=1000,n=100,approx_tau=8, SNR=10, n_test=1e4, s=Non
         w_gt = torch.zeros(d)
         w_gt[0:s] = 1/(s ** 0.5)
 
-    z_seq = torch.cat((z1s, z2s), dim=0)
-    z_mean = torch.mean(z_seq, dim=0)
-    
-    a_vals = [0.]
+    print(ys)
+
+    ys_01 = ys
+    ys[ys==0] = -1
+    y_seq_test[y_seq_test==0] = -1
+
+    print(ys)
 
     wandb.init(project="noisy-fair", entity="sml-eth", config=config)
 
     if l2:
         # l2 margin
-        clf = svm.LinearSVC(loss='hinge', fit_intercept=False, C=1e5, max_iter=int(1e8))
-        clf.fit(xs, ys)
-        wmm = -torch.Tensor(clf.coef_.flatten())
-        #print(wmm)
-        perf_train_mm = clf.score(xs, ys)
-        err_train_mm = 100*(1.-perf_train_mm)
+        # clf = svm.LinearSVC(loss='hinge', fit_intercept=False, C=1e2, max_iter=int(1e8))
+        # clf.fit(xs, ys)
+        # wmm = -torch.Tensor(clf.coef_.flatten())
+
+        _,_, wmm = solve_svc_problem(xs, ys, p=2) 
+        #print(wmm.value)
+        wmm = torch.Tensor(wmm.value)
+        # perf_train_mm = clf.score(xs, ys)
+        # err_train_mm = 100*(1.-perf_train_mm)
+
+        err_train_mm = test_error(wmm, xs,ys)
         err_mm = test_error(wmm, x_seq_test, y_seq_test)
 
         print("CMM train_err={}, err={}".format( err_train_mm, err_mm))
@@ -215,11 +232,17 @@ def margin_classifiers_perf(d=1000,n=100,approx_tau=8, SNR=10, n_test=1e4, s=Non
         # l1 margin
         print("====================l1=========================")
         #clf = svm.LinearSVC(penalty='l1', loss='hinge', fit_intercept=False)
-        clf = svm.LinearSVC(penalty='l1', fit_intercept=False, dual=False, C=1e5, max_iter=int(1e8))
-        clf.fit(xs, ys)
-        wmm = -torch.Tensor(clf.coef_.flatten())
-        perf_train_mm_l1 = clf.score(xs, ys)
-        err_train_mm_l1 = 100*(1.-perf_train_mm_l1)
+        # clf = svm.LinearSVC(penalty='l1', fit_intercept=False, dual=False, C=1e2, max_iter=int(1e8))
+        # clf.fit(xs, ys)
+        # wmm = -torch.Tensor(clf.coef_.flatten())
+
+        _,_,wmm = solve_svc_problem(xs, ys, p=1)
+        wmm = torch.Tensor(wmm.value)
+
+        # perf_train_mm_l1 = clf.score(xs, ys)
+        # err_train_mm_l1 = 100*(1.-perf_train_mm_l1)
+
+        err_train_mm_l1 = test_error(wmm, xs, ys_01)
         err_mm_l1 = test_error(wmm, x_seq_test, y_seq_test)
 
         print("CMM train_err={}, err={}".format( err_train_mm_l1, err_mm_l1))
@@ -246,7 +269,7 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10, sigma=0, s=1, l1=True, l2=False):
     approx_ar = [0.02, 0.1, 1., 10., 100.]
     approx_ar = np.logspace(-0.5,2.1, num=50)
     approx_ar = np.logspace(-0.7,2.1, num=10)
-    approx_ar = np.logspace(-1,3, num=16)
+    approx_ar = np.logspace(0,3, num=8)
     print(approx_ar)
 
     runs = n_runs   #10
@@ -459,8 +482,6 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10, sigma=0, s=1, l1=True, l2=False):
 
     if l1:
 
-
-
         for j, d_val in enumerate(d_values):
             # generating ground truth 
             w_gt = torch.zeros(d_val)
@@ -514,12 +535,30 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10, sigma=0, s=1, l1=True, l2=False):
         plt.savefig("figures_min_margin/est_err_d"+ str(d)+ "_s"+ str(s) + "_sigma"+str(sigma)+".pdf")
      
 
+def solve_svc_problem(
+    x: np.ndarray, y: np.ndarray, p: float = 1.0, solver: Union[None, str] = "MOSEK"
+):
+    """Solve the linear Support Vector Classifier problem
+    argmin ||w||_p s.t. for all i: yi <xi, w> >= 1
+    where ||.||_p is the L_p norm.
+    """
+    n, d = x.shape  # number of data points and data dimension
+
+    w = cp.Variable(d)
+    objective = cp.Minimize(cp.norm(w, p=p))
+    constraints = [cp.multiply(y.squeeze(), x @ w) >= 1]
+    prob = cp.Problem(objective, constraints)
+
+    results = prob.solve(solver=solver, verbose=False)
+
+    return results, prob, w
 
 if __name__ == "__main__":
     
     #aspect_ratio_l1(d=1000, n=100, change_d=False, n_runs=5, s=5)
-    aspect_ratio_l1(d=1000, n=100, change_d=False, n_runs=10, s=1, l2=True)
     aspect_ratio_l1(d=1000, n=100, change_d=True, n_runs=10, s=1, l2=True)
+    aspect_ratio_l1(d=1000, n=100, change_d=True, n_runs=10, s=1, sigma=0.05, l2=True)
+    #aspect_ratio_l1(d=1000, n=100, change_d=True, n_runs=10, s=1, l2=True)
     
     #margin_classifiers_perf(d=1000,n=1000,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True)
     #margin_classifiers_perf(d=50,n=10,approx_tau=1, SNR=10, n_test=1e4, s=2, l1=True)

@@ -24,6 +24,7 @@ from sklearn.model_selection import train_test_split
 
 from scipy.optimize import linprog
 import cvxpy as cp
+from typing import Union
 
 MAX_STEPS = int(1e5)
 
@@ -36,13 +37,20 @@ def loss_average_margin_weighted(v, b, z1s, z2s, n1, n2):
 def loss_average_margin(v, b, z1s, z2s, n1, n2):
   return - (torch.sum((z1s @ v)) -  torch.sum((z2s @ v)))
 
+# def test_error(w, x_test, y_test):
+#   w = w / torch.norm(w)
+#   pred = x_test @ w
+#   pred[pred>=0] = 0
+#   pred[pred<0] = 1
+#   err = (pred.int() != y_test.int()).sum()/float(y_test.size(0))*100
+#   return err
+
 def test_error(w, x_test, y_test):
   w = w / torch.norm(w)
-  pred = x_test @ w
-  pred[pred>=0] = 0
-  pred[pred<0] = 1
+  pred = torch.sign(x_test @ w)
   err = (pred.int() != y_test.int()).sum()/float(y_test.size(0))*100
   return err
+
 
 def create_data(class_one_train_num=20, class_two_train_num=200, class_one_test_num=30, class_two_test_num=30,  n_features=20, n_informative=2, n_redundant=2, n_repeated=0, n_classes=2, n_clusters_per_class=2, class_sep=1.0):
   num_train_samples = class_one_train_num + class_two_train_num
@@ -115,7 +123,7 @@ def create_data_sparse(p,n1,n2,n_test, s=1, random_flip_prob=0):
     class_two = torch.Tensor(samples_two)
     x_seq = torch.cat((class_one, class_two), dim=0)
     y_seq = torch.cat(
-        (torch.ones(class_one.shape[0], dtype=torch.long), torch.zeros(class_two.shape[0], dtype=torch.long))
+        (torch.ones(class_one.shape[0], dtype=torch.long), -torch.ones(class_two.shape[0], dtype=torch.long))
     )
 
     #add noise to the labels
@@ -139,9 +147,9 @@ def create_data_sparse(p,n1,n2,n_test, s=1, random_flip_prob=0):
     # genrating the test data without imbalanca and label noise
     xs_test = torch.randn((int(2*n_test), int(p)))
     ys_noiseless_test = torch.sign(xs_test @ w_gt)
-    ys_noiseless_test[ys_noiseless_test==-1] = 0
+    #ys_noiseless_test[ys_noiseless_test==-1] = 0
     
-    return x_seq, 1-y_seq, xs_test, 1-ys_noiseless_test, class_one, -class_two
+    return x_seq, y_seq, xs_test, ys_noiseless_test, class_one, -class_two
 
 def margin_classifiers_perf(d=1000,n=100,approx_tau=8, SNR=10, n_test=1e4, s=None, random_flip_prob=0, l1=True, l2=False):
     
@@ -190,12 +198,21 @@ def margin_classifiers_perf(d=1000,n=100,approx_tau=8, SNR=10, n_test=1e4, s=Non
 
     if l2:
         # l2 margin
-        clf = svm.LinearSVC(loss='hinge', fit_intercept=False, C=1e5, max_iter=int(1e8))
-        clf.fit(xs, ys)
-        wmm = -torch.Tensor(clf.coef_.flatten())
-        #print(wmm)
-        perf_train_mm = clf.score(xs, ys)
-        err_train_mm = 100*(1.-perf_train_mm)
+        # clf = svm.LinearSVC(loss='hinge', fit_intercept=False, C=1e5, max_iter=int(1e8))
+        # clf.fit(xs, ys)
+        # wmm = -torch.Tensor(clf.coef_.flatten())
+        # #print(wmm)
+        # perf_train_mm = clf.score(xs, ys)
+        # err_train_mm = 100*(1.-perf_train_mm)
+        # err_mm = test_error(wmm, x_seq_test, y_seq_test)
+
+        _,_, wmm = solve_svc_problem(xs, ys, p=2) 
+        #print(wmm.value)
+        wmm = torch.Tensor(wmm.value)
+        # perf_train_mm = clf.score(xs, ys)
+        # err_train_mm = 100*(1.-perf_train_mm)
+
+        err_train_mm = test_error(wmm, xs,ys)
         err_mm = test_error(wmm, x_seq_test, y_seq_test)
 
         print("CMM train_err={}, err={}".format( err_train_mm, err_mm))
@@ -207,13 +224,37 @@ def margin_classifiers_perf(d=1000,n=100,approx_tau=8, SNR=10, n_test=1e4, s=Non
 
             b = tau**a
 
-            w = (z_mean/torch.norm(z_mean))
+            A_ub = torch.cat( [torch.cat([torch.eye(d), -torch.eye(d)], dim=1), torch.cat([-torch.eye(d), -torch.eye(d)], dim=1), torch.cat([-z_seq, torch.zeros(n, d)], dim=1), torch.cat([torch.zeros(1,d), torch.ones(1,d)], dim=1)], dim=0)
+            b_ub = torch.cat([torch.zeros(2*d), torch.zeros(n)-1e-7, torch.ones(1)], dim=0)
+
+            #b_ub[-1] = 1
+
+            # res = linprog (-torch.cat([z_mean,torch.zeros_like(z_mean) ], dim=0), A_ub=A_ub, b_ub=b_ub, method='interior-point', bounds=(None,None))
+            # #print(res)
+            # print(res['message'])
+            # w = res['x'][0:d]
+            # w=torch.from_numpy(w).float()
+
+            x = cp.Variable(d)
+            objective = cp.Minimize(-z_mean @ x)
+            constraints = [cp.norm(x, p=2)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+            prob = cp.Problem(objective, constraints)
+            result = prob.solve(solver="MOSEK")
+            print(x)
+            if d<15:
+                print(x.value[0:d])
+            else:
+                print(x.value[0:15])
+            #print(x.value[d:-1])
+            #print(A_ub @ x.value )
+            w=x.value[0:d]
+            w=torch.from_numpy(w).float()
             
             err_train = test_error(w, xs, ys)
             err = test_error(w, x_seq_test, y_seq_test)
             errs_train_avm_poly.append(err_train)
             errs_avm_poly.append(err)
-            #print(w)
+
             print("w={}, train_err={}, err={}".format(b, err_train, err))
 
         wandb.log({"err_test_cavm": errs_avm_poly[0],
@@ -231,12 +272,21 @@ def margin_classifiers_perf(d=1000,n=100,approx_tau=8, SNR=10, n_test=1e4, s=Non
     else:
         # l1 margin
         print("====================l1=========================")
-        #clf = svm.LinearSVC(penalty='l1', loss='hinge', fit_intercept=False)
-        clf = svm.LinearSVC(penalty='l1', fit_intercept=False, dual=False, C=1e5, max_iter=int(1e8))
-        clf.fit(xs, ys)
-        wmm = -torch.Tensor(clf.coef_.flatten())
-        perf_train_mm_l1 = clf.score(xs, ys)
-        err_train_mm_l1 = 100*(1.-perf_train_mm_l1)
+        # #clf = svm.LinearSVC(penalty='l1', loss='hinge', fit_intercept=False)
+        # clf = svm.LinearSVC(penalty='l1', fit_intercept=False, dual=False, C=1e5, max_iter=int(1e8))
+        # clf.fit(xs, ys)
+        # wmm = -torch.Tensor(clf.coef_.flatten())
+        # perf_train_mm_l1 = clf.score(xs, ys)
+        # err_train_mm_l1 = 100*(1.-perf_train_mm_l1)
+        # err_mm_l1 = test_error(wmm, x_seq_test, y_seq_test)
+
+        _,_,wmm = solve_svc_problem(xs, ys, p=1)
+        wmm = torch.Tensor(wmm.value)
+
+        # perf_train_mm_l1 = clf.score(xs, ys)
+        # err_train_mm_l1 = 100*(1.-perf_train_mm_l1)
+
+        err_train_mm_l1 = test_error(wmm, xs, ys)
         err_mm_l1 = test_error(wmm, x_seq_test, y_seq_test)
 
         print("CMM train_err={}, err={}".format( err_train_mm_l1, err_mm_l1))
@@ -248,29 +298,42 @@ def margin_classifiers_perf(d=1000,n=100,approx_tau=8, SNR=10, n_test=1e4, s=Non
 
             b = tau**a
 
-            A_ub = torch.cat( [torch.cat([torch.eye(d), -torch.eye(d)], dim=1), torch.cat([-torch.eye(d), -torch.eye(d)], dim=1), torch.cat([-z_seq, torch.zeros(n, d)], dim=1), torch.cat([torch.zeros(1,d), torch.ones(1,d)], dim=1)], dim=0)
-            b_ub = torch.cat([torch.zeros(2*d), torch.zeros(n)-1e-7, torch.ones(1)], dim=0)
-            #b_ub[-1] = 1
+            # A_ub = torch.cat( [torch.cat([torch.eye(d), -torch.eye(d)], dim=1), torch.cat([-torch.eye(d), -torch.eye(d)], dim=1), torch.cat([-z_seq, torch.zeros(n, d)], dim=1), torch.cat([torch.zeros(1,d), torch.ones(1,d)], dim=1)], dim=0)
+            # b_ub = torch.cat([torch.zeros(2*d), torch.zeros(n)-1e-7, torch.ones(1)], dim=0)
+            # #b_ub[-1] = 1
 
-            # res = linprog (-torch.cat([z_mean,torch.zeros_like(z_mean) ], dim=0), A_ub=A_ub, b_ub=b_ub, method='interior-point', bounds=(None,None))
-            # #print(res)
-            # print(res['message'])
-            # w = res['x'][0:d]
-            # w=torch.from_numpy(w).float()
+            # # res = linprog (-torch.cat([z_mean,torch.zeros_like(z_mean) ], dim=0), A_ub=A_ub, b_ub=b_ub, method='interior-point', bounds=(None,None))
+            # # #print(res)
+            # # print(res['message'])
+            # # w = res['x'][0:d]
+            # # w=torch.from_numpy(w).float()
 
-            x = cp.Variable(2*d)
-            objective = cp.Minimize(-torch.cat([z_mean,torch.zeros_like(z_mean) ], dim=0) @ x)
-            constraints = [A_ub @ x <= b_ub]
+            # x = cp.Variable(2*d)
+            # objective = cp.Minimize(-torch.cat([z_mean,torch.zeros_like(z_mean) ], dim=0) @ x)
+            # constraints = [A_ub @ x <= b_ub]
+            # prob = cp.Problem(objective, constraints)
+            # result = prob.solve()
+
+            x = cp.Variable(d)
+            objective = cp.Minimize(-z_mean @ x)
+            constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
             prob = cp.Problem(objective, constraints)
-            result = prob.solve()
+            result = prob.solve(solver="MOSEK")
+
+
             if d<15:
                 print(x.value[0:d])
             else:
                 print(x.value[0:15])
             #print(x.value[d:-1])
             #print(A_ub @ x.value )
-            w=x.value[0:d]
-            w=torch.from_numpy(w).float()
+
+            # w=x.value[0:d]
+            # w=torch.from_numpy(w).float()
+
+            w=x.value
+
+            w=w=torch.from_numpy(w).float()
 
 
             #print(w)
@@ -305,7 +368,8 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10, sigma=0, s=1, l1=True, l2=False):
     approx_ar = [0.02, 0.1, 1., 10., 100.]
     approx_ar = np.logspace(-0.5,2.1, num=50)
     approx_ar = np.logspace(-0.7,2.1, num=10)
-    approx_ar = np.logspace(-1,3, num=4)
+    approx_ar = np.logspace(0,3, num=12)
+
     print(approx_ar)
 
     runs = n_runs   #10
@@ -620,11 +684,28 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10, sigma=0, s=1, l1=True, l2=False):
         plt.savefig("figures_interp/est_err_d"+ str(d)+ "_s"+ str(s) + "_sigma"+str(sigma)+".pdf")
      
 
+def solve_svc_problem(
+    x: np.ndarray, y: np.ndarray, p: float = 1.0, solver: Union[None, str] = "MOSEK"
+):
+    """Solve the linear Support Vector Classifier problem
+    argmin ||w||_p s.t. for all i: yi <xi, w> >= 1
+    where ||.||_p is the L_p norm.
+    """
+    n, d = x.shape  # number of data points and data dimension
+
+    w = cp.Variable(d)
+    objective = cp.Minimize(cp.norm(w, p=p))
+    constraints = [cp.multiply(y.squeeze(), x @ w) >= 1]
+    prob = cp.Problem(objective, constraints)
+
+    results = prob.solve(solver=solver, verbose=False)
+
+    return results, prob, w
 
 if __name__ == "__main__":
     
     #aspect_ratio_l1(d=1000, n=100, change_d=False, n_runs=5, s=5)
-    aspect_ratio_l1(d=100, n=10, change_d=True, n_runs=2, s=5)
+    aspect_ratio_l1(d=1000, n=100, change_d=True, n_runs=10, s=1, l1=True, l2=False)
     
     #margin_classifiers_perf(d=1000,n=1000,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True)
     #margin_classifiers_perf(d=50,n=10,approx_tau=1, SNR=10, n_test=1e4, s=2, l1=True)

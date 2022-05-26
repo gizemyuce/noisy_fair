@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\only_min_margin.py", line 546, in <module>
+    aspect_ratio_l1(d=1000, n=100, change_d=False, n_runs=2, s=1, l2=True)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\only_min_margin.py", line 305, in aspect_ratio_l1
+    err_mm, err_train_mm, err_mm_l1, err_train_mm_l1,  wmm_l2, wmm_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma, l2=l2)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\only_min_margin.py", line 201, in margin_classifiers_perf
+    err_train_mm = test_error(wmm, xs,ys)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\only_min_margin.py", line 43, in test_error
+    w = w / torch.norm(w)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\torch\functional.py", line 1537, in norm
+    ndim = input.dim()
+AttributeError: 'Variable' object has no attribute 'dim'

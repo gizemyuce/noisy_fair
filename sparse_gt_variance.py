@@ -352,6 +352,8 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10, sigma=0, s=1):
         plt.savefig("figures100/sparse_model_d"+ str(d) + "_sigma"+str(sigma)+".pdf")
     
 
+    #Bias Variance
+
     bias_am=[]
     variance_avm = []
     bias_mm=[]

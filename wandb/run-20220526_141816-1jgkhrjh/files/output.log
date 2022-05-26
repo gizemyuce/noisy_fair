@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\only_min_margin.py", line 564, in <module>
+    aspect_ratio_l1(d=1000, n=100, change_d=False, n_runs=2, s=1, l2=True)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\only_min_margin.py", line 325, in aspect_ratio_l1
+    err_mm, err_train_mm, err_mm_l1, err_train_mm_l1,  wmm_l2, wmm_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma, l2=l2)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\only_min_margin.py", line 210, in margin_classifiers_perf
+    _,_, wmm = solve_svc_problem(xs, ys, p=2)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\only_min_margin.py", line 557, in solve_svc_problem
+    results = prob.solve(solver=solver, verbose=False)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\problems\problem.py", line 481, in solve
+    return solve_func(self, *args, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\problems\problem.py", line 1012, in _solve
+    solution = solving_chain.solve_via_data(
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\reductions\solvers\solving_chain.py", line 361, in solve_via_data
+    return self.solver.solve_via_data(data, warm_start, verbose,
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\reductions\solvers\conic_solvers\mosek_conif.py", line 224, in solve_via_data
+    task = MOSEK._build_dualized_task(task, data)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\reductions\solvers\conic_solvers\mosek_conif.py", line 280, in _build_dualized_task
+    task.putaijlist(rows.tolist(), cols.tolist(), vals.tolist())
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\mosek\__init__.py", line 7792, in putaijlist
+    res = self.__obj.putaijlist64(_arg1_num_,_arg2_subi_,_arg3_subj_,_arg4_valij_)
+KeyboardInterrupt
