@@ -143,7 +143,7 @@ def create_data_sparse(p,n1,n2,n_test, s=1, random_flip_prob=0):
     class_two = torch.Tensor(samples_two)
     x_seq = torch.cat((class_one, class_two), dim=0)
     y_seq = torch.cat(
-        (torch.ones(class_one.shape[0], dtype=torch.long), torch.zeros(class_two.shape[0], dtype=torch.long))
+        (torch.ones(class_one.shape[0], dtype=torch.long), -torch.ones(class_two.shape[0], dtype=torch.long))
     )
 
     #add noise to the labels
@@ -167,24 +167,27 @@ def create_data_sparse(p,n1,n2,n_test, s=1, random_flip_prob=0):
     # genrating the test data without imbalanca and label noise
     xs_test = torch.randn((int(2*n_test), int(p)))
     ys_noiseless_test = torch.sign(xs_test @ w_gt)
-    ys_noiseless_test[ys_noiseless_test==-1] = 0
     
-    return x_seq, 1-y_seq, xs_test, 1-ys_noiseless_test, class_one, -class_two
+    return x_seq, y_seq, xs_test, ys_noiseless_test, class_one, -class_two
 
 def create_data_mixture(p,n1,n2,n_test, s=1, random_flip_prob=0, SNR=10, outlier=True, outlier_strenght=100):
     
     mu_1 = torch.zeros(p)
     mu_2 = torch.zeros(p)
 
-    mu_1[0:s] = 1/(s ** 0.5) * np.sqrt(p*SNR)
-    mu_2[0:s] = - 1/(s ** 0.5) * np.sqrt(p*SNR)
+    # mu_1[0:s] = 1/(s ** 0.5) * (p*SNR) **0.5
+    # mu_2[0:s] = - 1/(s ** 0.5) * (p*SNR) ** 0.5
+
+    mu_1[0:s] = SNR
+    mu_2[0:s] = - SNR
 
     samples_one = torch.randn((n1, p)) + mu_1
     samples_two = torch.randn((n2, p)) + mu_2
 
     if outlier_strenght != 0:
         samples_one[1,:] += mu_1
-        samples_one[1,s] = outlier_strenght*(n1+n2)* 1/(s ** 0.5) * np.sqrt(p*SNR)
+        #samples_one[1,s] = outlier_strenght*(n1+n2)* 1/(s ** 0.5) * np.sqrt(p*SNR)
+        samples_one[1,s] = outlier_strenght*(n1+n2)* SNR
 
     if p==2:
         plt.figure()
@@ -761,7 +764,9 @@ if __name__ == "__main__":
 
     # aspect_ratio_l1(d=100, n=100, change_d=False, n_runs=5, s=1, SNR=5, mixture=True, l2=False, outlier_strength=100)
 
-    ###aspect_ratio_l1(d=1000, n=100, change_d=False, n_runs=5, s=1, SNR=0.01* 1/np.sqrt(2), mixture=True, l1=True, l2=True, outlier_strength=10)
+    aspect_ratio_l1(d=1000, n=100, change_d=False, n_runs=5, s=5, SNR=3, mixture=True, l1=True, l2=True, outlier_strength=0)
+
+    #aspect_ratio_l1(d=1000, n=100, change_d=False, n_runs=5, s=5, SNR=0.01* 1/np.sqrt(2), mixture=True, l1=True, l2=True, outlier_strength=0)
 
     # aspect_ratio_l1(d=100, n=100, change_d=False, n_runs=5, s=1, SNR=5, mixture=True, l2=False, outlier_strength=10)
 
@@ -785,7 +790,7 @@ if __name__ == "__main__":
     
     #margin_classifiers_perf(d=1000,n=1000,approx_tau=1, SNR=10, n_test=1e4, s=1, l1=True)
     #margin_classifiers_perf(d=50,n=10,approx_tau=1, SNR=10, n_test=1e4, s=2, l1=True)
-    margin_classifiers_perf(d=2,n=100,approx_tau=1, SNR=2, n_test=1e4, s=1, random_flip_prob=0, mixture=True, outlier_strength=0)
+    #margin_classifiers_perf(d=2,n=100,approx_tau=1, SNR=2, n_test=1e4, s=1, random_flip_prob=0, mixture=True, outlier_strength=0)
     
     #margin_classifiers_perf(d=1000,n=100,approx_tau=1, SNR=10, n_test=1e4, s=1, random_flip_prob=0, mixture=True, l2=True)
     #main()

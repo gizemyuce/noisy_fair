@@ -194,7 +194,6 @@ def run_fig_2(n_train=100, n_test=int(1e4), n_features=20, n_informative=2, n_re
 
         optim = torch.optim.SGD([w], lr=1e-3, momentum=0.9)
 
-
         while w.grad is None or torch.norm(w.grad) > 1e-5:
           optim.zero_grad()
           l = loss(w, b, z1s, z2s, n1, n2) + torch.norm(w)**2

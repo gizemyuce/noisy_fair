@@ -177,7 +177,7 @@ def run_fig_2(n_train=100, n_test=int(1e4),  n_features=20, n_informative=2, n_r
 
         b = tau**a
 
-        w = (mu_1 + mu_2).detach()
+        w = (torch.normal(mean=torch.zeros(p), std=torch.ones(p)/np.sqrt(p))).detach()
         w = (w/torch.norm(w)).detach()
         w.requires_grad = True
 
@@ -190,11 +190,11 @@ def run_fig_2(n_train=100, n_test=int(1e4),  n_features=20, n_informative=2, n_r
           l.backward()
           optim.step()
           
-        print(test_error(w, xs, ys))
-        perfs_tau.append(test_error(w, x_seq_test, y_seq_test))
+        perf_train_tau = test_error(w, xs, ys)
+        perfs_tau = test_error(w, x_seq_test, y_seq_test)
         #print(w, b, z1s, z2s, n1, n2 )
 
-        print("w={}, perf={}".format(b, perfs_tau[-1]))
+        print("w={}, train_perf={}, perf={}".format(b, perf_train_tau, perfs_tau))
       perfs.append(perfs_tau)
       print("======================================")
 
