@@ -50,11 +50,11 @@ $\ell_1$-margin SVM problem:
 
 \subsection{The problem with min-margin interpolation}
 
-The work of [TODO cite konstantin] reveals a problem that min-$\ell_1$-margin
+The work of \citet{konstantin} reveals a problem that min-$\ell_1$-margin
 interpolation exhibits in high dimensions.  To showcase this issue, let us
 compare it to min-l2-margin interpolation, which, unlike the former, lacks the
 inductive bias that is expected to make it easier to recover the sparse ground
-truth. Despite not having the appropriate inductive bias, [TODO cite konstantin]
+truth. Despite not having the appropriate inductive bias, \citet{konstantin}
 show that the min-l2-margin solution can actually achieve better estimation
 error in high dimensions. 
 % In particular, as also observed by [TODO konstantin], in the presence of label
@@ -156,7 +156,7 @@ interpolation leads to lower bias.
 % Therefore, average-margin maximization is more suitable for recovering
 % $\thetastar$.
 
-\subsection{Average-margin classifiers emerge in practice}
+\subsection{Emergence of average-margin classifiers in practice}
 
 So far we have focused solely on linear models, and hence, a natural question is
 whether the insights that we have presented in this section carry over to more
@@ -168,15 +168,14 @@ complex classifiers, like deep neural networks.
 For simplicity, we only study the solution of a convex optimization problem that
 we obtain using standard solvers for linear and quadratic programs. However,
 prior work allows us to connect the average-margin classifier to certain
-predictors that can be achieved in practice.  In particular, [TODO cite
-polyloss] show that minimizing a polynomially-tailed loss leads to an estimator
-akin to the average-margin solution from Equation~\at{blabla}. Furthermore,
-[TODO our RO paper] suggest that conventional regularization techniques like a
-ridge penalty or early stopping favor solutions with high average margin (as
-opposed to the solution with large min-margin that is found at convergence). In
-fact, given that an estimator $\thetahat$ has small norm, writing the Taylor
-expansion of the logistic loss leads to precisely the average margin of
-Equation~\at{bla}.  We leave as future work a thorough analysis of the benefits
-of maximizing the average-margin in the context of deep neural networks in the
-low-sample regime.
+predictors that can be achieved in practice.  In particular, \citet{wang21} show
+that minimizing a polynomially-tailed loss leads to an estimator akin to the
+average-margin solution from Equation~\at{blabla}. Furthermore, \citet{ro}
+suggest that conventional regularization techniques like a ridge penalty or
+early stopping favor solutions with high average margin (as opposed to the
+solution with large min-margin that is found at convergence). In fact, given
+that an estimator $\thetahat$ has small norm, writing the Taylor expansion of
+the logistic loss leads to precisely the average margin of Equation~\at{bla}.
+We leave as future work a thorough analysis of the benefits of maximizing the
+average-margin in the context of deep neural networks in the low-sample regime.
 
