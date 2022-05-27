@@ -5,16 +5,19 @@ min-$\ell_1$-margin solution is not optimal even when the ground truth is
 sparse. Our synthetic experiments reveal how this phenomenon is particularly
 pronounced in high dimensions and provide insights into its causes.
 
+
 \subsection{High-dimensional setting}
+\label{sec:setting}
 
 We consider training data $\DD=\{(x_i, y_i)\}_{i=1}^{n}$ for a binary
 classification problem, with $x\in \RR^d$ and $y\in \{-1, +1\}$. We focus
 primarily on high-dimensional settings, i.e.\ $d \gg n$ and assume that the
 covariates are drawn from a mixture of two truncated Gaussians, each of them
-corresponding to one of the two classes. Unless otherwise specified, we assume
+corresponding to one of the two classes. We assume
 that the data is noiseless, and hence, there exists a linear classifier with
 vanishing Bayes error. Without loss of generality, we assume the Bayes optimal
-classifier to be $\thetastar=e_1=[1, 0, ..., 0] \in \RR^d$.
+classifier to be $\thetastar=e_1=[1, 0, ..., 0] \in \RR^d$. We also present
+experiments for a $5$-sparse ground truth.
 
 We are interested in analyzing the estimation error of a classifier $\thetahat$,
 which captures how well $\thetahat$ recovers the ground truth:
@@ -66,6 +69,45 @@ we see that this alternative interpolator also reduces the bias, leading to
 smaller estimation error compared to the min-margin solution, even in the
 noiseless case.
 
+
+\begin{figure*}[t]
+  \centering
+  \begin{subfigure}[t]{0.24\linewidth}
+    \centering
+    \includegraphics[width=\columnwidth]{figures/estim_err_outlier1.png}
+    \label{fig:estim_err_outlier1}
+    \caption{}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{0.24\linewidth}
+    \centering
+    \includegraphics[width=\columnwidth]{figures/bias_variance_outlier1.png}
+    \label{fig:bias_variance_outlier1}
+    \caption{}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{0.24\linewidth}
+    \centering
+    \includegraphics[width=\columnwidth]{figures/estim_err_outlier2.png}
+    \label{fig:estim_err_outlier2}
+    \caption{}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{0.24\linewidth}
+    \centering
+    \includegraphics[width=\columnwidth]{figures/bias_variance_outlier2.png}
+    \label{fig:bias_variance_outlier2}
+    \caption{}
+  \end{subfigure}
+
+  \caption{In low dimensions and in the presence of outliers, the average-margin
+    solution can have significantly larger estimation error compared to
+    min-margin interpolation. Surprisingly, the average-margin classifier is
+    more robust in high dimensions (i.e.\ aspect ratio greater than $1$). For
+    all experiments we set $d=???$\at{TODO}.} \label{fig:limitations}
+
+\end{figure*}
+
 \subsection{Average-margin interpolation}
 
 In order to reduce the variance of the max-$\ell_1$-margin interpolator, we
@@ -85,6 +127,7 @@ less likely that a single point will exert a large influence over the solution
 of the optimization problem. This lower variance, combined with the low bias
 (which is a consequence of using the $\ell_1$ norm), can decrease the estimation
 error compared to min-margin interpolation.
+
 
 \subsection{Experiments}
 

@@ -21,6 +21,24 @@ with a linear and sparse ground truth. We study the interpolator that maximizes
 the min-$\ell_1$-margin (i.e.\ basis pursuit), since a small $\ell_1$ norm is
 known to induce sparsity [TODO cite tibshirani etc].
 
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/teaser_sketch.png}
+
+%   \begin{subfigure}[t]{\textwidth}
+%     \centering
+%     \includegraphics[width=\textwidth]{figures/teaser_p_al_worse.pdf}
+%   \end{subfigure}
+
+  \caption{Two-dimensional sketch of the average-margin ($\am$) and min-margin
+  classifiers ($\mm$). Unlike $\mm$, the average-margin interpolator depends on
+\emph{all} the training points. Therefore, it is more stable given different
+draws of the data (top vs bottom row). This phenomenon is even more pronounced
+in high dimensions.}
+\label{fig:teaser}
+
+\end{figure}
+
 Despite a large trove of positive results for maximum min-margin interpolation
 in high dimensions [TODO cite hastie, guillaume, etc], a recent work [TODO cite
 konstantin] finds that predictors obtained with basis pursuit tend to exhibit
@@ -35,6 +53,48 @@ raises the following natural question:
 bias of $\ell_1$ interpolation?}
 
 \end{center}
+
+\begin{figure*}[t]
+  \centering
+  \begin{subfigure}[t]{0.24\linewidth}
+    \centering
+    \includegraphics[width=\columnwidth]{figures/estim_err_s1.png}
+    \label{fig:estim_err_s1}
+    \caption{}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{0.24\linewidth}
+    \centering
+    \includegraphics[width=\columnwidth]{figures/bias_variance_s1.png}
+    \label{fig:bias_variance_s1}
+    \caption{}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{0.24\linewidth}
+    \centering
+    \includegraphics[width=\columnwidth]{figures/estim_err_s5.png}
+    \label{fig:estim_err_s5}
+    \caption{}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{0.24\linewidth}
+    \centering
+    \includegraphics[width=\columnwidth]{figures/bias_variance_s5.png}
+    \label{fig:bias_variance_s5}
+    \caption{}
+  \end{subfigure}
+
+  \caption{The average-margin solution has lower estimation error than the
+    min-margin interpolator in high dimensions (a, c). This is due to both a
+    decrease in variance, but also a reduced bias (b, d). We use the
+    distribution described in Section~\ref{sec:setting}, with a $1$-sparse (a,
+    b) and a $5$-sparse (c, d) ground truth. For all experiments we set
+  $d=???$\at{TODO}.}
+  \label{fig:gmm_experiments}
+
+\end{figure*}
+
+
 
 In this paper, we propose to reduce the variance by minimizing the
 \emph{average}-$\ell_1$-margin instead of the \emph{min}-$\ell_1$-margin.
