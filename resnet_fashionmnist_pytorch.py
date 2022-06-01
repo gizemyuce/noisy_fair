@@ -143,6 +143,7 @@ def train_with_both_losses(n_train=256, batch_size=256):
   alpha=1
   lr=0.01
   max_epochs=1000
+  min_epochs=50
   
   transform = transforms.Compose([transforms.ToTensor(),
                                   # expand chennel from 1 to 3 to fit 
@@ -209,6 +210,8 @@ def train_with_both_losses(n_train=256, batch_size=256):
 
     wandb.init(project="noisy-fair", entity="sml-eth", config=config)
 
+    loss_final=1000
+
     for epoch in range(0, max_epochs):
       n, start = 0, time.time()
       train_l_sum = torch.tensor([0.0], dtype=torch.float32)
@@ -256,16 +259,22 @@ def train_with_both_losses(n_train=256, batch_size=256):
                        "test_accuracy": test_acc
                        }, step=epoch)
       
+      if torch.abs(loss_final-train_l_sum/n) <= 1e-8 and  epoch>min_epochs:
+          loss_final = train_l_sum/n 
+          break
+      else:
+          loss_final = train_l_sum/n 
+
       if loss_type=='ce':
         ce_test_final = test_acc
       elif loss_type=='poly':
         poly_test_final = test_acc
 
-      if train_l_sum/n <= 1e-5:
+      if train_l_sum/n <= 1e-5 and  epoch>min_epochs:
         break
 
 
-  wandb.finish()
+    wandb.finish()
 
   return ce_test_final, poly_test_final
 

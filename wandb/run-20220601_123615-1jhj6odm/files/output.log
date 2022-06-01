@@ -3,3 +3,111 @@
 1it [00:01,  1.81s/it]
 epoch 1, loss 0.8197, train acc 0.473, test acc 0.500, time 13.1 sec
 
+1it [00:01,  1.93s/it]
+epoch 2, loss 190.1436, train acc 0.512, test acc 0.500, time 20.0 sec
+
+1it [00:03,  3.35s/it]
+epoch 3, loss 343.3586, train acc 0.488, test acc 0.500, time 16.4 sec
+
+1it [00:01,  1.74s/it]
+0it [00:00, ?it/s]
+
+1it [00:02,  2.10s/it]
+0it [00:00, ?it/s]
+
+1it [00:01,  1.76s/it]
+epoch 6, loss 78.6146, train acc 0.461, test acc 0.500, time 12.9 sec
+1it [00:01,  1.51s/it]
+epoch 7, loss 125.9060, train acc 0.598, test acc 0.500, time 12.6 sec
+
+1it [00:01,  1.50s/it]
+epoch 8, loss 15.2598, train acc 0.652, test acc 0.500, time 12.5 sec
+
+1it [00:01,  1.52s/it]
+0it [00:00, ?it/s]
+
+1it [00:01,  1.53s/it]
+epoch 10, loss 255.3357, train acc 0.484, test acc 0.500, time 12.5 sec
+1it [00:01,  1.55s/it]
+epoch 11, loss 723.6298, train acc 0.512, test acc 0.500, time 12.6 sec
+
+1it [00:01,  1.50s/it]
+epoch 12, loss 849.4055, train acc 0.488, test acc 0.500, time 13.0 sec
+
+1it [00:01,  1.52s/it]
+epoch 13, loss 511.5723, train acc 0.512, test acc 0.500, time 12.7 sec
+1it [00:01,  1.47s/it]
+epoch 14, loss 173.3834, train acc 0.555, test acc 0.522, time 12.5 sec
+
+1it [00:01,  1.48s/it]
+epoch 15, loss 2.0538, train acc 0.598, test acc 0.500, time 12.5 sec
+
+1it [00:01,  1.73s/it]
+0it [00:00, ?it/s]
+
+1it [00:01,  1.54s/it]
+epoch 17, loss 1.0192, train acc 0.512, test acc 0.500, time 12.6 sec
+1it [00:01,  1.50s/it]
+epoch 18, loss 1.8063, train acc 0.512, test acc 0.500, time 12.9 sec
+
+1it [00:01,  1.49s/it]
+epoch 19, loss 1.4700, train acc 0.512, test acc 0.500, time 12.6 sec
+
+1it [00:01,  1.46s/it]
+epoch 20, loss 0.6008, train acc 0.621, test acc 0.497, time 12.6 sec
+1it [00:01,  1.53s/it]
+epoch 21, loss 1.1520, train acc 0.621, test acc 0.460, time 12.6 sec
+
+1it [00:01,  1.54s/it]
+epoch 22, loss 1.4618, train acc 0.621, test acc 0.501, time 12.7 sec
+
+1it [00:01,  1.52s/it]
+epoch 23, loss 1.1009, train acc 0.621, test acc 0.560, time 12.7 sec
+1it [00:01,  1.50s/it]
+epoch 24, loss 0.5953, train acc 0.621, test acc 0.500, time 12.7 sec
+
+1it [00:01,  1.57s/it]
+epoch 25, loss 1.1215, train acc 0.512, test acc 0.500, time 12.7 sec
+
+1it [00:01,  1.54s/it]
+0it [00:00, ?it/s]
+
+1it [00:01,  1.47s/it]
+epoch 27, loss 0.6066, train acc 0.512, test acc 0.630, time 12.7 sec
+
+1it [00:01,  1.51s/it]
+epoch 28, loss 0.8951, train acc 0.621, test acc 0.629, time 12.7 sec
+
+1it [00:01,  1.50s/it]
+0it [00:00, ?it/s]
+
+1it [00:01,  1.55s/it]
+epoch 30, loss 0.7284, train acc 0.621, test acc 0.500, time 12.8 sec
+
+1it [00:01,  1.55s/it]
+Traceback (most recent call last):
+  File "C:\Users\gizem\Documents\GitHub\noisy_fair\resnet_fashionmnist_pytorch.py", line 274, in <module>
+    train_with_both_losses(n_train=int(sys.argv[1]), batch_size=int(sys.argv[1]))
+  File "C:\Users\gizem\Documents\GitHub\noisy_fair\resnet_fashionmnist_pytorch.py", line 250, in train_with_both_losses
+    test_acc = test_accuracy(iter(test_loader), netG, netF)
+  File "C:\Users\gizem\Documents\GitHub\noisy_fair\resnet_fashionmnist_pytorch.py", line 135, in test_accuracy
+    acc_sum += torch.sum((torch.argmax(netF(netG(imgs)), dim=1) == labels)).float()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\torch\nn\modules\module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "C:\Users\gizem\Documents\GitHub\noisy_fair\resnet_fashionmnist_pytorch.py", line 97, in forward
+    x = self.layer2(x)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\torch\nn\modules\module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\torch\nn\modules\container.py", line 141, in forward
+    input = module(input)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\torch\nn\modules\module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\torchvision\models\resnet.py", line 90, in forward
+    out = self.conv1(x)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\torch\nn\modules\module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\torch\nn\modules\conv.py", line 447, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\torch\nn\modules\conv.py", line 443, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+KeyboardInterrupt
