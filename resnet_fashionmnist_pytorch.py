@@ -77,7 +77,7 @@ class PolynomialLoss(nn.Module):
 """
 # print(models.resnet18())
 class ResNetFeatrueExtractor18(nn.Module):
-    def __init__(self, pretrained = True):
+    def __init__(self, pretrained = False):
         super(ResNetFeatrueExtractor18, self).__init__()
         model_resnet18 = models.resnet18(pretrained=pretrained)
         self.conv1 = model_resnet18.conv1
