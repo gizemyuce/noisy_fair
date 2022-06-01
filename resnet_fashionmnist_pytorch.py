@@ -156,7 +156,7 @@ def train_with_both_losses(n_train=256, batch_size=256):
   print(len(mnist_train), len(mnist_test))
 
   # subset training set
-  index_sub = np.random.choice(np.arange(len(mnist_train)), n_train, replace=True)
+  index_sub = np.random.choice(np.arange(len(mnist_train)), int(n_train), replace=True)
 
   #replacing attribute
   mnist_train.data = mnist_train.data[index_sub]
@@ -271,7 +271,7 @@ def train_with_both_losses(n_train=256, batch_size=256):
 
 
 if __name__ == '__main__':
-    train_with_both_losses(n_train=sys.argv[1], batch_size=sys.argv[1])
+    train_with_both_losses(n_train=int(sys.argv[1]), batch_size=int(sys.argv[1]))
     #globals()[sys.argv[1]](sys.argv[2])
 
 #train_with_both_losses(n_train=64, batch_size=64)
