@@ -143,7 +143,7 @@ def test_accuracy(data_iter, netG, netF):
 def train_with_both_losses(n_train=256, batch_size=256):
   alpha=1
   lr=0.01
-  max_epochs=100
+  max_epochs=1000
   min_epochs=50
   
   transform = transforms.Compose([transforms.ToTensor(),
