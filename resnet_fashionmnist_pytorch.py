@@ -240,7 +240,7 @@ def train_with_both_losses(n_train=256, batch_size=256):
           label_hat = netF(bottleneck)
 
           # loss function
-          loss= torch.sum(criterion(label_hat, labels))
+          loss= torch.mean(criterion(label_hat, labels))
           loss.backward()
           opt_g.step()
           opt_f.step()
@@ -278,7 +278,7 @@ def train_with_both_losses(n_train=256, batch_size=256):
 
     wandb.finish()
 
-  return ce_test_final, poly_test_final
+  return ce_test_final, poly_test_finalinal
 
 
 if __name__ == '__main__':
