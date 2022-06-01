@@ -440,7 +440,7 @@ def aspect_ratio_l1(d, n, change_d, n_runs=10, sigma=0, s=1, l1=True, l2=False, 
     approx_ar = [0.02, 0.1, 1., 10., 100.]
     approx_ar = np.logspace(-0.5,2.1, num=50)
     approx_ar = np.logspace(-0.7,2.1, num=10)
-    approx_ar = np.logspace(-1,2, num=5)
+    approx_ar = np.logspace(1,2, num=5)
     print(approx_ar)
 
     runs = n_runs   #10
@@ -764,7 +764,7 @@ if __name__ == "__main__":
 
     # aspect_ratio_l1(d=100, n=100, change_d=False, n_runs=5, s=1, SNR=5, mixture=True, l2=False, outlier_strength=100)
 
-    aspect_ratio_l1(d=1000, n=100, change_d=False, n_runs=5, s=5, SNR=3, mixture=True, l1=True, l2=True, outlier_strength=0)
+    aspect_ratio_l1(d=500, n=100, change_d=False, n_runs=2, s=5, SNR=1/np.sqrt(5), mixture=True, l1=True, l2=True, outlier_strength=0)
 
     #aspect_ratio_l1(d=1000, n=100, change_d=False, n_runs=5, s=5, SNR=0.01* 1/np.sqrt(2), mixture=True, l1=True, l2=True, outlier_strength=0)
 

@@ -1,0 +1,1082 @@
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+====================l1=========================
+CMM train_err=0.0, err=49.96500015258789
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)
+Traceback (most recent call last):
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 708, in <module>
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 420, in aspect_ratio_l1
+    err_mm, errs_avm_poly, err_train_mm, errs_train_avm_poly, err_mm_l1, errs_avm_poly_l1, err_train_mm_l1, errs_train_avm_poly_l1,  wmm_l2, w_l2, wmm_l1, w_l1 = margin_classifiers_perf(d=d,n=n,approx_tau=1, SNR=10, n_test=1e4, s=s, l1=True, random_flip_prob=sigma)
+  File "c:\Users\gizem\Documents\GitHub\noisy_fair\margin_interp.py", line 319, in margin_classifiers_perf
+    constraints = [cp.norm(x, p=1)<= 1,-z_seq @ x <= torch.zeros(n)-1e-5]
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 693, in __le__
+    return Inequality(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\constraints\nonpos.py", line 154, in __init__
+    self._expr = lhs - rhs
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 556, in __sub__
+    return self + -other
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 49, in cast_op
+    return binary_op(self, other)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\expressions\expression.py", line 542, in __add__
+    return cvxtypes.add_expr()([self, other])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 34, in __init__
+    super(AddExpression, self).__init__(*arg_groups)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\atom.py", line 51, in __init__
+    self._shape = self.shape_from_args()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\atoms\affine\add_expr.py", line 42, in shape_from_args
+    return u.shape.sum_shapes([arg.shape for arg in self.args])
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\cvxpy\utilities\shape.py", line 48, in sum_shapes
+    raise ValueError(
+ValueError: Cannot broadcast dimensions  (4,) (5,)

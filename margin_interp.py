@@ -705,7 +705,7 @@ def solve_svc_problem(
 if __name__ == "__main__":
     
     #aspect_ratio_l1(d=1000, n=100, change_d=False, n_runs=5, s=5)
-    aspect_ratio_l1(d=1000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0.05)
+    aspect_ratio_l1(d=5000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0)
 
     #aspect_ratio_l1(d=1000, n=100, change_d=False, n_runs=5, s=1, l1=True, l2=False, sigma=0.05)
 
