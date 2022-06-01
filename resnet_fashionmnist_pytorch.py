@@ -180,16 +180,7 @@ def train_with_both_losses(n_train=256, batch_size=256):
 
 
 
-  netG = ResNetFeatrueExtractor18(pretrained = True)
-  netF = ResClassifier()
-
-  if torch.cuda.is_available():
-      netG = netG.cuda()
-      netF = netF.cuda()
-
-  # setting up optimizer for both feature generator G and classifier F.
-  opt_g = optim.SGD(netG.parameters(), lr=0.01, weight_decay=0.0005)
-  opt_f = optim.SGD(netF.parameters(), lr=0.01, momentum=0.9, weight_decay=0.0005)
+  
 
   for loss_type in ['ce', 'poly']:
     if loss_type == 'ce':
@@ -209,6 +200,17 @@ def train_with_both_losses(n_train=256, batch_size=256):
     )
 
     wandb.init(project="noisy-fair", entity="sml-eth", config=config)
+
+    netG = ResNetFeatrueExtractor18(pretrained = True)
+    netF = ResClassifier()
+
+    if torch.cuda.is_available():
+        netG = netG.cuda()
+        netF = netF.cuda()
+
+    # setting up optimizer for both feature generator G and classifier F.
+    opt_g = optim.SGD(netG.parameters(), lr=0.01, weight_decay=0.0005)
+    opt_f = optim.SGD(netF.parameters(), lr=0.01, momentum=0.9, weight_decay=0.0005)
 
     loss_final=1000
 
