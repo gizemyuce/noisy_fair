@@ -139,10 +139,11 @@ def test_accuracy(data_iter, netG, netF):
 """## **Training using Pre-trained model**"""
 
 # Commented out IPython magic to ensure Python compatibility.
+# Commented out IPython magic to ensure Python compatibility.
 def train_with_both_losses(n_train=256, batch_size=256):
   alpha=1
   lr=0.01
-  max_epochs=1000
+  max_epochs=100
   min_epochs=50
   
   transform = transforms.Compose([transforms.ToTensor(),
@@ -156,31 +157,29 @@ def train_with_both_losses(n_train=256, batch_size=256):
   mnist_test = datasets.FashionMNIST(root='./data', train=False, download=True, transform=transform)
   print(len(mnist_train), len(mnist_test))
 
+  idx = (mnist_train.targets==0) | (mnist_train.targets==1)
+  mnist_train.targets = mnist_train.targets[idx]
+  mnist_train.data = mnist_train.data[idx]
+
+  idx_test = (mnist_test.targets==0) | (mnist_test.targets==1)
+  mnist_test.targets = mnist_test.targets[idx_test]
+  mnist_test.data = mnist_test.data[idx_test]
+
   # subset training set
   index_sub = np.random.choice(np.arange(len(mnist_train)), int(n_train), replace=True)
-
-  #replacing attribute
+  # replacing attribute
   mnist_train.data = mnist_train.data[index_sub]
   mnist_train.targets = mnist_train.targets[index_sub]
 
-  mnist_train.targets[mnist_train.targets < 5] = 0
-  mnist_train.targets[mnist_train.targets >= 5] = 1
-
-  print(mnist_train.targets.unique())
-
-  mnist_test.targets[mnist_test.targets < 5] = 0
-  mnist_test.targets[mnist_test.targets >= 5] = 1
-
-  print(mnist_test.targets.unique())
+  # mnist_train.targets[mnist_train.targets < 5] = 0
+  # mnist_train.targets[mnist_train.targets >= 5] = 1
+  # mnist_test.targets[mnist_test.targets < 5] = 0
+  # mnist_test.targets[mnist_test.targets >= 5] = 1
 
   train_loader = torch.utils.data.DataLoader(mnist_train, batch_size=batch_size,
     shuffle=True, num_workers=0)
   test_loader = torch.utils.data.DataLoader(mnist_test, batch_size=batch_size,
       shuffle=True, num_workers=0)
-
-
-
-  
 
   for loss_type in ['ce', 'poly']:
     if loss_type == 'ce':
@@ -194,14 +193,14 @@ def train_with_both_losses(n_train=256, batch_size=256):
       learning_rate= lr,
       max_epochs= max_epochs,
       batch_size= batch_size,
-      pretrained = True,
+      pretrained = False,
       dataset='FashionMNIST-binary',
       architecture='Resnet18-binary'
     )
 
     wandb.init(project="noisy-fair", entity="sml-eth", config=config)
 
-    netG = ResNetFeatrueExtractor18(pretrained = True)
+    netG = ResNetFeatrueExtractor18(pretrained = False)
     netF = ResClassifier()
 
     if torch.cuda.is_available():
@@ -261,24 +260,24 @@ def train_with_both_losses(n_train=256, batch_size=256):
                        "test_accuracy": test_acc
                        }, step=epoch)
       
-      if torch.abs(loss_final-train_l_sum/n) <= 1e-8 and  epoch>min_epochs:
-          loss_final = train_l_sum/n 
-          break
-      else:
-          loss_final = train_l_sum/n 
+      # if torch.abs(loss_final-train_l_sum/n) <= 1e-8 and  epoch>min_epochs:
+      #     loss_final = train_l_sum/n 
+      #     break
+      # else:
+      #     loss_final = train_l_sum/n 
 
       if loss_type=='ce':
         ce_test_final = test_acc
       elif loss_type=='poly':
         poly_test_final = test_acc
 
-      if train_l_sum/n <= 1e-5 and  epoch>min_epochs:
-        break
+      # if train_l_sum/n <= 1e-5 and  epoch>min_epochs:
+      #   break
 
 
     wandb.finish()
 
-  return ce_test_final, poly_test_finalinal
+  return ce_test_final, poly_test_final
 
 
 if __name__ == '__main__':
