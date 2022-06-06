@@ -1,0 +1,38 @@
+
+
+1it [00:06,  6.20s/it]
+epoch 1, loss 2.2249, train acc 0.095, test acc 0.100, time 18.2 sec
+
+1it [00:06,  6.67s/it]
+epoch 2, loss 7.5615, train acc 0.093, test acc 0.100, time 19.4 sec
+
+1it [00:06,  6.49s/it]
+0it [00:00, ?it/s]
+
+1it [00:06,  6.29s/it]
+0it [00:00, ?it/s]
+
+1it [00:06,  6.40s/it]
+epoch 5, loss 9.5357, train acc 0.093, test acc 0.100, time 17.4 sec
+
+1it [00:06,  6.44s/it]
+epoch 6, loss 6.0491, train acc 0.093, test acc 0.100, time 17.6 sec
+0it [00:00, ?it/s]
+Traceback (most recent call last):
+  File "C:\Users\gizem\Documents\GitHub\noisy_fair\resnet_fashionmnist_pytorch_mmulticlass.py", line 284, in <module>
+    train_with_both_losses(n_train=int(sys.argv[1]), batch_size=int(sys.argv[1]))
+  File "C:\Users\gizem\Documents\GitHub\noisy_fair\resnet_fashionmnist_pytorch_mmulticlass.py", line 236, in train_with_both_losses
+    bottleneck = netG(imgs)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\torch\nn\modules\module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "C:\Users\gizem\Documents\GitHub\noisy_fair\resnet_fashionmnist_pytorch_mmulticlass.py", line 95, in forward
+    x = self.maxpool(x)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\torch\nn\modules\module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\torch\nn\modules\pooling.py", line 162, in forward
+    return F.max_pool2d(input, self.kernel_size, self.stride,
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\torch\_jit_internal.py", line 422, in fn
+    return if_false(*args, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\torch\nn\functional.py", line 797, in _max_pool2d
+    return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+KeyboardInterrupt
