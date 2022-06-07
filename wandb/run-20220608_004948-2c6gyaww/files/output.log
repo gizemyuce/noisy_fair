@@ -1,0 +1,18 @@
+
+2048
+Epoch: 0 Loss: 3.0135 Train_Acc: 0.4663 Val_Accuracy: 0.6042
+Epoch: 1 Loss: 1.7871 Train_Acc: 0.6714 Val_Accuracy: 0.7101
+Traceback (most recent call last):
+  File "C:\Users\gizem\Documents\GitHub\noisy_fair\fmnist_poly_multi_resnet.py", line 346, in <module>
+    main()
+  File "C:\Users\gizem\Documents\GitHub\noisy_fair\fmnist_poly_multi_resnet.py", line 300, in main
+    optimizer.step()
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\torch\optim\optimizer.py", line 88, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\torch\autograd\grad_mode.py", line 27, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\torch\optim\sgd.py", line 144, in step
+    F.sgd(params_with_grad,
+  File "C:\Users\gizem\anaconda3\envs\soccer2\lib\site-packages\torch\optim\_functional.py", line 186, in sgd
+    buf.mul_(momentum).add_(d_p, alpha=1 - dampening)
+KeyboardInterrupt
