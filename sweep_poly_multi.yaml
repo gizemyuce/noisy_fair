@@ -1,5 +1,5 @@
 
-program: fmnist_poly_multi_convnet.py
+program: fmnist_poly_multi_resnet.py
 method: grid
 metric:
   goal: minimize
@@ -12,14 +12,16 @@ parameters:
   # channels_two:
   #   values: [24, 28, 32, 36, 40, 44]
   learning_rate:
-    values: [0.001, 0.005, 0.0005]
+    values: [0.001, 0.01, 0.0001, 0.1]
   momentum:
-    values:  [0.7, 0.8, 0.9]
+    values:  [0, 0.7, 0.8, 0.9]
   epochs:
-    value: 1000
+    value: 500
   batch_size:
     values: [32, 64, 128, 2048]
-    
+  n:
+    values: [128,1024, 2048]
+
 # early_terminate:
 #   type: hyperband
 #   s: 2

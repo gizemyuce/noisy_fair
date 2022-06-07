@@ -218,7 +218,7 @@ def main():
 
             iter += 1
 
-        train_accuracy = np.mean(train_acc)
+        train_accuracy = np.sum(train_acc)/config.n
 
         # Calculate Val Accuracy
         correct = 0.0
