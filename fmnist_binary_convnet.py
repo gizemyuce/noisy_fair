@@ -43,7 +43,10 @@ from torch.nn import Linear, Sequential
 import wandb
 import os
 import numpy as np
+
 # %matplotlib inline
+
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 def binary_fmnist_loaders(n_train, n_val=2000, batch_size_train=None, batch_size=128):
   
@@ -309,6 +312,7 @@ def train_with_both_losses(n_train=256, batch_size=64):
 
     #model = ConvNet()
     model =CNNModel()
+    model = model.to(device)
 
     wandb.watch(model)
 
@@ -325,6 +329,9 @@ def train_with_both_losses(n_train=256, batch_size=64):
 
             images = Variable(images)
             labels = Variable(labels)
+
+            images=images.to(device)
+            labels=labels.to(device)
 
             # if torch.cuda.is_available():
             #   imgs = imgs.cuda()
@@ -349,7 +356,7 @@ def train_with_both_losses(n_train=256, batch_size=64):
 
             iter += 1
 
-        train_accuracy = np.sum(train_acc)/n_train
+        train_accuracy = sum(train_acc)/n_train
 
         # Calculate Val Accuracy
         # model.eval()
@@ -362,6 +369,8 @@ def train_with_both_losses(n_train=256, batch_size=64):
         # Iterate through test dataset
         for images, labels in test_loader:
             images = Variable(images)
+            images= images.to(device)
+            labels = Variable(labels).to(device)
 
             # Forward pass only to get logits/output
             outputs = model(images)
