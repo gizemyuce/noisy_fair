@@ -275,7 +275,7 @@ def train_with_both_losses(n_train=256, batch_size=64):
   hyperparameter_defaults = dict(
     batch_size = batch_size,
     learning_rate = 0.005,
-    epochs = 200,
+    epochs = 500,
     n=n_train,
     dataset ='FashionMNIST-binary',
     architecture = 'CNN',
