@@ -305,7 +305,7 @@ def train_with_both_losses(n_train=256, batch_size=64):
       criterion = PolynomialLoss(type="logit", alpha=alpha)
 
 
-    wandb.init(project="noisy-fair", entity="sml-eth", config=config)
+    wandb.init(project="noisy-fair", entity="sml-eth", config=config, tags=["CNN", "binary_fmnist"])
 
     #model = ConvNet()
     model =CNNModel()
