@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "c:\Users\gizem\Documents\GitHub\noisy_fair\mixture_outlier.py", line 643, in <module>
-    margin_classifiers_perf(d=2,n=100,approx_tau=8, SNR=10, n_test=1e4, s=1, random_flip_prob=0, mixture=True)
-  File "c:\Users\gizem\Documents\GitHub\noisy_fair\mixture_outlier.py", line 235, in margin_classifiers_perf
-    xs, ys, x_seq_test, y_seq_test, z1s, z2s = create_data_mixture(d,n1,n2,n_test, s=s, random_flip_prob=random_flip_prob)
-  File "c:\Users\gizem\Documents\GitHub\noisy_fair\mixture_outlier.py", line 191, in create_data_mixture
-    xs_test = torch.cat((torch.randn((n_test, p)) + mu_1, torch.randn((n_test, p)) + mu_2), dim=0)
-TypeError: randn(): argument 'size' (position 1) must be tuple of ints, not tuple

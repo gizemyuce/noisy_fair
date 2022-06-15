@@ -334,6 +334,7 @@ hyperparameter_defaults = dict(
     seed = 0,
     momentum=0.9,
     weight_decay=0,
+    test=True,
     )
 
 
@@ -428,8 +429,13 @@ def main():
     total = 0.0
     total_arr = [0.0] * 10
 
+    if config.test:
+      loader=test_loader
+    else:
+      loader=val_loader
+
     # Iterate through test dataset
-    for images, labels in val_loader:
+    for images, labels in loader:
         images = Variable(images)
         images= images.to(device)
         labels = Variable(labels).to(device)
